@@ -3,8 +3,6 @@ from tinymce.models import HTMLField
 from django.utils.translation import ugettext_lazy as _
 
 
-
-
 class Post(models.Model):
   title   = models.CharField(verbose_name=_("Заголовок"),max_length=120, blank=True, null=True)
   content = HTMLField(verbose_name=_("Контент"), blank=True, null=True)  
@@ -21,7 +19,6 @@ class Post(models.Model):
   def get_absolute_url(self):
       return reverse("post_detail", kwargs={"pk": self.pk})
   
-
 
 class Index(models.Model):
     title = models.CharField(max_length=20)
