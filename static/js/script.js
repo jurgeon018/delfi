@@ -1,4 +1,232 @@
-// "use strict";
+
+
+
+
+  function hero_form(element) {
+    if (element.length > 0) {
+      var SITE_NAME = window.location.origin
+      var order_info_url = SITE_NAME + '/set_params/';
+      var data_hero_form = {
+        direction: element[0].dataset.value
+      };
+      var wrap_element = element[0];
+      var datapicer_hero = element[0].querySelector('.form__element_calendar_hero');
+      var isCalendarVisible = false;
+      $.ajax({
+        url: order_info_url,
+        type: 'POST',
+        data: data_hero_form,
+        async: true,
+        success: function(order) {
+          data_update(wrap_element, '.cites_departure', order.cities, false);
+          data_update(wrap_element, '.cites_arrival', order.cities, false);
+          var heroFormDatepicker = $(datapicer_hero).datepicker({
+            minDate: new Date(),
+            dateFormat: 'yyyy-mm-dd',
+            autoClose: true,
+            onRenderCell: function onRenderCell(date, cellType) {
+              if (cellType == 'day') {
+                if ($.inArray(formatDate(date), order.dates) < 0) {
+                  return {
+                    disabled: true
+                  };
+                }
+              }
+            }
+          });
+          $(element[0].querySelector('.datepicker_icon')).on('click', function(event) {
+            var heroFormDatepicker = $(datapicer_hero).data('datepicker');
+            if ($(datapicer_hero).datepicker("widget").is(":visible")) {
+              $(datapicer_hero).datepicker("hide");
+            } else {
+              $(datapicer_hero).datepicker("show");
+            }
+          });
+        }
+      })
+      $(element[0].querySelector('.datepicker_icon')).on('click', function(event) {
+        var heroFormDatepicker = $(datapicer_hero).data('datepicker');
+        if ($(heroFormDatepicker.$datepicker)[0].classList.contains('active') === true) {
+          heroFormDatepicker.hide();
+        } else {
+          heroFormDatepicker.show();
+        }
+      });
+
+      $(element[0].querySelector('.btn-hero-form')).on('click', function(event) {
+        event.preventDefault();
+        var hero_form_serialize = $(element[0].querySelector('form')).serializeArray();
+        for (var key in hero_form_serialize) {
+          if (hero_form_serialize[key].value == false) {
+            element[0].querySelector('form').querySelector('.' + hero_form_serialize[key].name).classList.add("form__group_error");
+          } else {
+            if (window.sessionStorage) {
+              for (var key in hero_form_serialize) {
+                if (hero_form_serialize.hasOwnProperty(key)) {
+                  sessionStorage.setItem(hero_form_serialize[key].name, hero_form_serialize[key].value);
+                }
+                sessionStorage.setItem('direction_hero_form', element[0].dataset.value);
+              }
+            }
+          }
+          if (hero_form_serialize[0].value != false && hero_form_serialize[1].value != false && hero_form_serialize[2].value != false) {
+            sessionStorage.setItem('buton_send_hero_form', 'send');
+            location.href = "/order/"
+          }
+        }
+      })
+
+
+
+    }
+  }
+  function data_update(parent_box, name_select, params, flag_ajax, active_element = false) {
+
+    var select_box = parent_box.querySelector(name_select);
+    var select_wrap = select_box.querySelector('.select__wrap');
+    var fragment = document.createDocumentFragment();
+    for (var key in params) {
+      var select__item = document.createElement('div');
+      select__item.classList.add('select__wrap_item');
+      select__item.dataset.id = params[key];
+      select__item.innerHTML = params[key];
+
+
+
+      if (params[key] == active_element) {
+        console.log($(select_wrap).parents('.input-tickets__grops'));
+        $(select_wrap).siblings(".field").children('.field_text').each(function() {
+          var paragraph = $(this).text(params[key]);
+        });
+        select__item.classList.add('select__wrap_item');
+        $(select_wrap).siblings(".field").children('input').each(function() {
+          $(this).val(params[key]);
+        });
+      }
+      fragment.appendChild(select__item);
+    }
+
+    while ($(select_wrap)[0].firstChild) {
+      $(select_wrap)[0].removeChild($(select_wrap)[0].firstChild);
+    }
+    if (name_select === '.flights__time') {
+
+      $(select_wrap).siblings(".field").children('.field_text').each(function() {
+        $(this).text('');
+      });
+      $(select_wrap).siblings(".field").children('input').each(function() {
+        $(this).val('');
+      });
+
+
+    }
+    $(select_wrap)[0].appendChild(fragment);
+
+    // journey_time.classList.remove('input-tickets__grops-disabled'); //************* Привязка кода до  створеного списку рейсів
+    if (flag_ajax === true) {
+      forEach(select_wrap.querySelectorAll('.select__wrap_item'), function(index, value) {
+        $(value).on('click', function() {
+
+          if (!$(this).hasClass('select__wrap_item-disabled')) {
+
+
+
+            if ($(this).parents('.input-tickets__box-sites').length > 0) {
+              forEach($(this).parents('.input-tickets__box-sites').find('.data_arrival').find('.select__wrap .select__wrap_item'), function(index, value) {
+                value.classList.remove('select__wrap_item-disabled');
+              });
+
+              // $(this).parents('.input-tickets__box-sites').find('.data_arrival').find('.select__wrap').each()
+              if ($(this).parents('.input-tickets__grops').hasClass('data_departure')) {
+                $(this).parents('.input-tickets__box-sites').find('.data_arrival').find('.select__wrap').find(`[data-id="${$(this).data('id')}"]`).addClass('select__wrap_item-disabled');
+              }
+            }
+            if ($(this).parents('.input-tickets__box-sites').length > 0) {
+              forEach($(this).parents('.input-tickets__box-sites').find('.data_departure').find('.select__wrap .select__wrap_item'), function(index, value) {
+                value.classList.remove('select__wrap_item-disabled');
+              });
+              if ($(this).parents('.input-tickets__grops').hasClass('data_arrival')) {
+                $(this).parents('.input-tickets__box-sites').find('.data_departure').find('.select__wrap').find(`[data-id="${$(this).data('id')}"]`).addClass('select__wrap_item-disabled');
+              }
+            }
+            var text = $(this).text();
+            var id = $(this).data('id');
+            var field = $(this).parents('.select').find(".field_text ");
+            var input_select = $(this).parents('.select').find("input");
+            $(field).text(text);
+            $(input_select).val(id);
+            $('.select__wrap').removeClass('select__wrap-active');
+            $('.field').removeClass('field-active');
+          }
+
+
+          active_bus(parent_box);
+          clear_order(name_select);
+        });
+      });
+
+    } else {
+      $('.select__wrap_item').on('click', function() {
+
+        if (!$(this).hasClass('select__wrap_item-disabled')) {
+          if ($(this).parents('.input-tickets__box-sites').length > 0) {
+            forEach($(this).parents('.input-tickets__box-sites').find('.data_arrival').find('.select__wrap .select__wrap_item'), function(index, value) {
+              value.classList.remove('select__wrap_item-disabled');
+            });
+
+            // $(this).parents('.input-tickets__box-sites').find('.data_arrival').find('.select__wrap').each()
+            if ($(this).parents('.input-tickets__grops').hasClass('data_departure')) {
+              $(this).parents('.input-tickets__box-sites').find('.data_arrival').find('.select__wrap').find(`[data-id="${$(this).data('id')}"]`).addClass('select__wrap_item-disabled');
+            }
+          }
+          if ($(this).parents('.input-tickets__box-sites').length > 0) {
+            forEach($(this).parents('.input-tickets__box-sites').find('.data_departure').find('.select__wrap .select__wrap_item'), function(index, value) {
+              value.classList.remove('select__wrap_item-disabled');
+            });
+            if ($(this).parents('.input-tickets__grops').hasClass('data_arrival')) {
+              $(this).parents('.input-tickets__box-sites').find('.data_departure').find('.select__wrap').find(`[data-id="${$(this).data('id')}"]`).addClass('select__wrap_item-disabled');
+            }
+          }
+          var text = $(this).text();
+          var id = $(this).data('id');
+          var field = $(this).parents('.select').find(".field_text ");
+          var input_select = $(this).parents('.select').find("input");
+          $(field).text(text);
+          $(input_select).val(id);
+          $('.select__wrap').removeClass('select__wrap-active');
+          $('.field').removeClass('field-active');
+        }
+      });
+    }
+  }
+  function formatDate(date) {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+    return [year, month, day].join('-');
+  }
+
+  var forEach = function forEach(array, callback, scope) {
+    for (var i = 0; i < array.length; i++) {
+      callback.call(scope, i, array[i]); // passes back stuff we need
+    }
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function _defineProperty(obj, key, value) {
   if (key in obj) {
@@ -34,6 +262,8 @@ $(document).ready(function() {
   var bLazy = new Blazy({
           offset: 100 // Loads images 100px before they're visible
       });
+
+        hero_form(document.getElementsByClassName('hero__form'));
 
 
   $('.btn_more_park').on('click', function() {
