@@ -1,5 +1,8 @@
 from django.contrib import admin 
 from core.models import *
+from pages.models import * 
+
+
 
 class StopInRaceInline(admin.StackedInline):
   model = StopInRace
