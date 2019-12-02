@@ -4,20 +4,19 @@ $(function() {
 })
 
 function Onload() {
- 
-if(document.getElementById('#tickets_ewrop_info')){
+
+
+if(document.getElementById('tickets_ewrop_info')){
   valide_form('#tickets_ewrop_info','.input-tickets__grops', '/create_europe_order/');
 }
 
-if(document.getElementById('#bus_bus_order')){
+if(document.getElementById('bus_bus_order')){
   valide_form('#bus_bus_order','.input-tickets__grops','/create_bus_order/');
 }
 
-if(document.getElementById('#form_contact_form')){
+if(document.getElementById('form_contact_form')){
   valide_form('#form_contact_form','.input-tickets__grops','/form_contact_bus/');
 }
-
-
 
 }
 
@@ -26,7 +25,7 @@ function location_leng() {
 }
 
 function valide_form(id_form, append_error_box,url_form ) {
-  console.log(url_form_tab);
+
 var url_form_tab  = url_form;
   if ($(id_form).length > 0) {
 

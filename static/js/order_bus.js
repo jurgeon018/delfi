@@ -125,7 +125,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
 
   }
 }
- 
+
   if (document.getElementsByClassName('tab__box').length > 0) {
     if (sessionStorage.buton_send_hero_form === 'send') {
       tabevent('tab__box', 'tab__item', sessionStorage.tabs_items, sessionStorage.cites_arrival, sessionStorage.cites_departure, sessionStorage.date);
