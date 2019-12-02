@@ -1,0 +1,29 @@
+// main: ../style.sass
+
+
+
+
+.info-car-park
+  height: 295px
+  overflow: hidden
+  position: relative
+  &__background
+    // width: 100%
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateY(-50%) translateX(-50%)
+    width: 100%
+  &__button
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    text-align: center
+    &_link
+
+@media  (max-width: 900px)
+  .info-car-park
+    height: 370px
+    &__background
+      width: 150%

@@ -1,0 +1,344 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <div class="hero">
+    <div class="hero__img">
+      <div class="hero__img_bg">
+        <!-- <img class="b-lazy hero_bagraunt"  data-src="/static/img/header_bg-img.jpg" alt=""> -->
+        <img class="b-lazy hero_bagraunt" data-src="/static/img/header_bg-img.jpg" alt="#">
+        <!-- <img class="b-lazy hero_bagraunt" data-src="/static/img/header_bg-img.jpg" alt="#"> -->
+      </div>
+    </div>
+    <div class="hero__wrap">
+        <div class="hero__section">
+            <h1>{% trans "Создаем лучшие поездки!" %}</h1>
+            <div class="hero__section_content ">
+                <h3>{% trans "Быстро и удобно!" %}</h3>
+                <p>{% trans "За 7 лет работы мы построили лучшие маршруты для того чтобы вы могли путешествовать быстро!" %}
+                    <BR>
+                    <BR>{% trans "В нашем автопарке только лучшие автомобили! Любая длинная поездка превращается в увлекательное и комфортное приключение!" %}</p>
+            </div>
+            <a class="btn btn-white btn-white-anime btn_link" href="">{% trans "Купить билет" %}</a>
+        </div>
+        <div class="hero__section">
+            <div class="hero__form" data-value="dk">
+                <div class="form__header">
+                    <div class="form__header_text">{% trans "Наш бестселлер" %}</div>
+                    <div class="form__header_subtitle">{% trans "Бронирования билетов на рейс" %}</div>
+                    <div class="form__header_title">{% trans "Днепр-Борисполь-Киев" %}</div>
+                </div>
+                <form class="form " action="">
+                    <div class="form__wrap">
+                        <div class="form__group date">
+                            <label for="">{% trans "Дата поездки" %}</label>
+                            <div class="input-group ">
+                                <input type='text' autocomplete="off" class="datepicker-here form__element_calendar_hero" name="date" value="">
+                                <div class="input-group-append datepicker_icon">
+
+                                    <i class="far fa-calendar-alt"></i>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form__group cites_departure ">
+                            <label for="">{% trans "Город отправления" %}</label>
+
+                            <div class="select">
+                                <div class="select__intup field">
+                                    <div class="field_text"></div>
+                                    <div class="field__icon">
+
+                                      <svg class="field__icon_wrap" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" class="svg-inline--fa fa-sort-up fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path class="sort-up-solid-color" fill="#fff" d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"></path></svg>
+
+                                        <div class="field__icon_click"></div>
+
+                                    </div>
+                                    <input type="hidden" name="cites_departure" class="from_velue_select" value="">
+                                </div>
+                                <div class="select__wrap">
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form__group cites_arrival">
+                            <label for="">{% trans "Город прибытия" %}</label>
+                            <div class="select">
+                                <div class="select__intup field">
+                                    <div class="field_text"></div>
+                                    <div class="field__icon">
+                                      <svg class="field__icon_wrap" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" class="svg-inline--fa fa-sort-up fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path class="sort-up-solid-color" fill="#fff" d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"></path></svg>
+                                        <div class="field__icon_click"></div>
+
+                                    </div>
+                                    <input type="hidden" name="cites_arrival" class="from_velue_select" value="">
+                                </div>
+                                <div class="select__wrap">
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <input class="btn btn-white-anime btn-white btn_form btn-hero-form" type="submit" value="{% trans 'Отправить'%}">
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="hero__footer">
+        <div class="hero__footer_block">
+            <p>{% trans "Узнать больше" %}</p>
+            <a class="scroll_our-servise" href="#our-servise"><div class="arrow"><i class="fas fa-angle-double-down"></i></div></a>
+        </div>
+    </div>
+  </div>
+
+  <section class="container our-servise" id="our-servise">
+      <div class="container__header">
+        <div class="container__header_title">{% trans "Наши услуги." %}</div>
+        <div class="container__header_subtitle">{% trans "Однажды, воспользовавшись нашими услугами, вы будете приятно удивлены комфортом и чистотой наших микроавтобусов, а также дополнительными приятными опциями. Это касается как машин на маршруте, так и машин на заказ." %}</div>
+      </div>
+      <div class="our-servise__wrap">
+          <div class="our-servise__wrap_card card">
+              <div class="card__wrap">
+                  <div class="card_title">{% trans "Заказ автобуса" %}</div>
+                  <div class="card_price">{% trans "Договорная цена" %}</div>
+                  <div class="card_subtitle">{% trans "Идеально подходит для организации поездки!" %}</div>
+                  <ul class="card_list">
+                      <li>{% trans "Создаем кратчайший маршрут" %}</li>
+                      <li>{% trans "Бронь от 15 человек" %}</li>
+                      <li>{% trans "Остановки на Ваш выбор" %}</li>
+                  </ul>
+                  <div class="card__control">
+                      <a class="btn btn-blue " href="{% url 'order' %}">{% trans "Поехали!" %}</a>
+                      <a class="btn_phone" href=""><img src="/static/img/svg/phone-alt-solid.svg" alt=""></a>
+                  </div>
+              </div>
+          </div>
+          <div class="our-servise__wrap_card card">
+              <div class="card__wrap">
+                  <div class="card_title">{% trans "Днепр-Борисполь-Киев" %}</div>
+                  <div class="card_price">{% trans "от 300 грн за место" %}</div>
+                  <div class="card_subtitle">{% trans "Идеальное соотношение цены и качества!" %}</div>
+                  <ul class="card_list">
+                      <li>{% trans "7 часов в дороге" %}</li>
+                      <li>{% trans "21 место в авто" %}</li>
+                      <li>{% trans "2 остановки для отдыха" %}</li>
+                  </ul>
+                  <div class="card__control">
+                      <a class="btn btn-blue  " href="{% url 'order' %}">{% trans "Поехали!" %}</a>
+                      <a class="btn_phone" href=""><img src="/static/img/svg/phone-alt-solid.svg" alt=""></a>
+                  </div>
+              </div>
+          </div>
+          <div class="our-servise__wrap_card card">
+              <div class="card__wrap">
+                  <div class="card_title">{% trans "Днепр-Киев-Львов" %}</div>
+                  <div class="card_price">{% trans "от 750 грн за место" %}</div>
+                  <div class="card_subtitle">{% trans "Добраться в Львов теперь легко и удобно!" %}</div>
+                  <ul class="card_list">
+                      <li>{% trans "15 часов в дороге" %}</li>
+                      <li>{% trans "Комфортное авто" %}</li>
+                      <li>{% trans "3 остановки для отдыха" %}</li>
+                  </ul>
+                  <div class="card__control">
+                      <a class="btn btn-blue " href="{% url 'order' %}">{% trans "Поехали!" %}</a>
+                      <a class="btn_phone" href=""><img src="/static/img/svg/phone-alt-solid.svg" alt=""></a>
+                  </div>
+              </div>
+          </div>
+          <div class="our-servise__wrap_card card">
+              <div class="card__wrap">
+                  <div class="card_title">{% trans "Поездки в Европу!" %}</div>
+                  <div class="card_price">{% trans "Договорная цена" %}</div>
+                  <div class="card_subtitle">{% trans "Лучшее решение для путешествий заграницу!" %}</div>
+                  <ul class="card_list">
+                      <li>{% trans "Создаем кратчайший маршрут" %}</li>
+                      <li>{% trans "Бронь от 15 человек" %}</li>
+                      <li>{% trans "Остановки на Ваш выбор" %}</li>
+                  </ul>
+                  <div class="card__control">
+                      <a class="btn btn-blue " href="{% url 'order' %}">{% trans "Поехали!" %}</a>
+                      <a class="btn_phone" href=""><img src="/static/img/svg/phone-alt-solid.svg" alt=""></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <section class="full-container blue ">
+    <div class=" container advantages">
+
+        <div class="advantages__block">
+            <div class="advantages__block_img">
+                <img src="/static/img/svg/money.svg" alt="">
+            </div>
+            <div class="advantages__info">
+                <div class="advantages__info_title">100 000</div>
+                <div class="advantages__info_subtitle">{% trans "гривен сэкономлено благодоря нам!" %}</div>
+            </div>
+        </div>
+
+        <div class="advantages__block">
+            <div class="advantages__block_img">
+                <img src="/static/img/svg/money.svg" alt="">
+            </div>
+            <div class="advantages__info">
+                <div class="advantages__info_title">3 000</div>
+                <div class="advantages__info_subtitle">{% trans "фотографий сделали наши пассажиры во время поездки" %}</div>
+            </div>
+        </div>
+
+        <div class="advantages__block">
+            <div class="advantages__block_img">
+                <img src="/static/img/svg/money.svg" alt="">
+            </div>
+            <div class="advantages__info">
+                <div class="advantages__info_title">600</div>
+                <div class="advantages__info_subtitle">{% trans "чоловек успели на следующий рейс благодоря нам!" %}</div>
+            </div>
+        </div>
+
+        <div class="advantages__block">
+            <div class="advantages__block_img">
+                <img src="/static/img/svg/money.svg" alt="">
+            </div>
+            <div class="advantages__info">
+                <div class="advantages__info_title">5 000</div>
+                <div class="advantages__info_subtitle">{% trans "успешных поездок" %}</div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="container ">
+      <div class="container__header">
+          <div class="container__header_title">{% trans "Что говорят клиенты." %}</div>
+          <div class="container__header_subtitle">{% trans "Мы делаем все возможное для того чтобы Ваша поездка была максимально комфортной!" %}</div>
+          <div class="arrow-wrap customer-reviews__arrow">
+              <div class="btn-arrow arrow-prew customer-reviews_prew">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 -1 48 52">
+                  <defs>
+                    <clipPath id="clip-path">
+                      <rect width="9" height="13.5" fill="none"/>
+                    </clipPath>
+                  </defs>
+                  <g id="left-arrow" transform="translate(-1618 -3997)">
+                    <g id="bg">
+                      <g id="Ellipse_6" data-name="Ellipse 6" transform="translate(1618 3997)" fill="#fff" stroke="#1599fc" stroke-width="1">
+                        <circle cx="24" cy="24" r="24" stroke="none"/>
+                        <circle cx="24" cy="24" r="23.5" fill="none"/>
+                      </g>
+                    </g>
+                    <g id="ico" transform="translate(1636 4014)">
+                      <g id="Component_1_2" data-name="Component 1 – 2" clip-path="url(#clip-path)">
+                        <path id="Path_14" data-name="Path 14" d="M333.586,178.5,327,184.25l6.585,5.75" transform="translate(-326 -177.5)" fill="none" stroke="#1599fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+
+              </div>
+              <div class=" btn-arrow arrow-next customer-reviews_next">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48" height="48" viewBox="0 -1 48 52">
+                <defs>
+                  <clipPath id="clip-path">
+                    <rect width="9" height="13.5" fill="none"/>
+                  </clipPath>
+                </defs>
+                <g id="right-arrow" transform="translate(-1686 -3997)">
+                  <g id="bg">
+                    <circle id="Ellipse_7" data-name="Ellipse 7" cx="24" cy="24" r="24" transform="translate(1686 3997)" stroke="#1599fc" fill="#fff"/>
+                  </g>
+                  <g id="ico">
+                    <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(1708 4014)" clip-path="url(#clip-path)">
+                      <path id="Path_14" data-name="Path 14" d="M327,178.5l6.585,5.75L327,190" transform="translate(-326 -177.5)" fill="none" stroke="#1599fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+                    </g>
+                  </g>
+                </g>
+              </svg></div>
+          </div>
+      </div>
+
+      <div class="customer-reviews__wrap">
+        {% for comment in bus_comments%}
+            <div class="customer-reviews__card_wrap">
+                <div class="customer-reviews__card">
+                    <div class="customer-reviews__card_img"><img src="/static/img/svg/reviews_ico.svg" alt=""></div>
+                    <div class="customer-reviews__card_text">{{comment.text}}</div>
+                </div>
+            </div>
+
+        {% endfor %}
+<!--
+Забронировала здесь поездку в Днепр. Все понравилось. Комфортабельное авто, опытный хороший водитель. Рекомендую"
+Добросовестный перевозчик, знающий толк в своей деятельности по перевозке пассажиров. Рекомендую всем."
+Ехал в Киев с данными перевозчиком. Поездкой остался очень доволен! Очень комфортабельный автомобиль, вежливый водитель. И отъезд и прибытие в указанное время. Всем рекомендую!"
+Забронировала здесь поездку в Днепр. Все понравилось. Комфортабельное авто, опытный хороший водитель. Рекомендую"
+Добросовестный перевозчик, знающий толк в своей деятельности по перевозки пассажиров. Рекомендую всем. "
+-->
+      </div>
+  </section>
+  <section class="full-container blue ">
+      <div class="   info-block">
+          <h1 class="info-block_title">{% trans "Все еще сомневаетесь?" %}</h1>
+          <div class="info-block_subtitle">{% trans "Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с лицензией!" %}</div>
+          <div class="info-block_button">
+              <a class="btn btn-white" href="#">{% trans "К лицензии" %}</a>
+          </div>
+      </div>
+  </section>
+  <section class="container ">
+      <div class="container__header">
+          <div class="container__header_title">{% trans "Наш автопарк" %}</div>
+          <div class="container__header_subtitle">{% trans "Мы всегда следим чтобы каждая машина была полностю обслужена! Перед каждой поездкой наши специалисты проверяют техническое состояние машины! Хотите увидеть более подробно как это происходит? Смотрите видео о нас!" %}</div>
+      </div>
+  </section>
+  <section class=" ">
+      <div class="info-car-park">
+          <img class="b-lazy info-car-park__background" data-src="/static/img/car_parc_video.jpg" alt="#">
+          <div class="info-car-park__button">
+              <a href="https://www.youtube.com/embed/BErlMncOBhY" class="info-car-park__button_link btn__round pulse"  data-rel="media">
+                  <div class="pulse-line"></div>
+                  <span class="btn__round_block"></span>
+                  <img src="/static/img/svg/play-solid.svg" class="btn__round_img" alt="">
+              </a>
+          </div>
+      </div>
+  </section>
+  <section class="full-container_top blue">
+      <div class="  info-map">
+          <div class="info-map__wrap">
+              <h3 class="info-map_title">{% trans "Лучший автотранпорт для поездки!" %}</h3>
+              <div class="info-map__social">
+
+                  <a class="info-map__social_item" href="#">
+                      <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a class="info-map__social_item" href="#">
+                    <i class="fab fa-youtube"></i>
+                  </a>
+                  <a class="info-map__social_item" href="#">
+                      <i class="fab fa-instagram"></i>
+                  </a>
+              </div>
+              <div class="info-map__work">
+                  <div class="info-map__work_header">{% trans "Рабочое время:" %}</div>
+                  <ul class="info-map__work_list">
+                      <li class="time">{% trans "Каждый день с 6:00 по 00:00" %}</li>
+                      <li class="local">{% trans "г. Днепр, ул. Киевская 6" %}</li>
+                  </ul>
+              </div>
+          </div>
+          <div class="info-map_iframe">
+              <iframe class="b-lazy" data-src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d325368.4939481052!2d31.063872981609187!3d50.423564196317336!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1565907097350!5m2!1sru!2sua" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+          </div>
+      </div>
+  </section>
+{% endblock content %}

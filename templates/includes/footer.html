@@ -1,0 +1,66 @@
+{% load i18n%}
+<footer class="footer">
+  <div class="container-content footer-info">
+    <div class="footer-info_rights "> {% trans "© 2019 Delfibus. Всі права захищені" %} </div>
+
+  </div>
+  <div class="footer_logo">
+    <div class="footer-info__logo">
+      <div class="footer-info__logo_title">Дизайн</div>
+      <a class="footer-info__logo_item" href="#">
+        <img src="/static/img/svg/om-logo.svg" width="100%" height="100%">
+
+        </img>
+      </a>
+    </div>
+    <div class="footer-info__logo">
+      <div class="footer-info__logo_title">Розробка</div>
+      <a class="footer-info__logo_item" href="#">
+        <img src="/static/img/svg/logo_starway.svg" width="100%" height="100%">
+
+        </img>
+      </a>
+    </div>
+  </div>
+
+</footer>
+
+
+<div  id="chesk_form_bus">
+  <div class="check_seat__wrap"></div>
+
+</div>
+
+<div class="form_done" id="form_send_done">
+  <div class="tickets__disabled_attention">
+    <i class="form_send_done_icon fas fa-check-circle"></i>
+    <p>Ваша форма відправлена, менеджер з вами звяжиться</p>
+  </div>
+
+</div>
+
+<div  id="response_form_ok">
+<div class="swal-modal" role="dialog" aria-modal="true">
+  <div class="swal-icon swal-icon--success">
+    <span class="swal-icon--success__line swal-icon--success__line--long"></span>
+    <span class="swal-icon--success__line swal-icon--success__line--tip"></span>
+
+    <div class="swal-icon--success__ring"></div>
+    <div class="swal-icon--success__hide-corners"></div>
+  </div>
+  <div class="swal-text" style="">Дякуємо за Ваше повідомлення. Воно було надіслане.</div>
+  <div class="swal-footer">
+    <div class="swal-button-container">
+
+      <button class="swal-button swal-button--confirm">Закрити</button>
+
+      <div class="swal-button__loader">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

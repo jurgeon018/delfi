@@ -1,0 +1,270 @@
+// main: ../style.sass
+
+
+
+.scroll_our-servise
+  color: #fff
+.hero
+  display: flex
+  height: 100vh
+  flex-direction: column
+  align-items: center
+  // background: #1f3141
+  position: relative
+  // overflow: hidden
+
+  &__footer
+    height: 10%
+    &_block
+      height: 100%
+      color: #fff
+      display: flex
+      flex-direction: column
+      align-items: center
+      font-size: 18px
+      & .arrow
+        padding: 10px 0
+        cursor: pointer
+  &__form
+    border: 1px solid #fff
+    border-radius: 5px
+    padding: 40px
+    background: rgba(255,255,255,0.05)
+    & form
+      width: 85%
+  &__wrap
+    display: flex
+    width: 100%
+    height: 90%
+    flex-direction: row
+    position: relative
+  &__img
+    height: 100%
+    width: 100%
+    position: absolute
+    z-index: -1
+    overflow: hidden
+    &-zindex
+      z-index: 0
+    &_bg
+      position: relative
+      height: 100%
+      width: 100%
+  &_bagraunt
+    position: absolute
+    height: 124%
+    width: auto
+    left: 50%
+    transform: translateX(-50%)
+
+  &__section
+    position: relative
+    width: 50%
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+
+    &:last-child
+      align-items: center
+    &_content
+      color: #fff
+      width: 70%
+      font-size: 20px
+      font-weight: 400
+      line-height: 1.5
+      & h3
+        font-size: 26px
+        font-weight: bold
+    &:first-child
+      margin-left: 40px
+    &:last-child
+      margin-right: 40px
+    & h1
+      font-size: 7vw
+      font-weight: 900
+      color: #fbfbfb
+  &-while
+      background: #fff
+      & .hero__section_content
+        color: initial
+      & h1
+        color: initial
+
+.form__group_error
+  & label
+    color: rgba(181,0,0,0.7)
+    border-color: rgba(181,0,0,0.7)
+    cursor: default
+  & .input-group
+      & input, & .datepicker_icon
+         color: rgba(181,0,0,0.7)
+         border-color: rgba(181,0,0,0.7)
+         cursor: default
+  & .select
+    & .field
+      color: rgba(181,0,0,0.7)
+      border-color: rgba(181,0,0,0.7)
+      cursor: default
+      & .field__icon
+        & .field__icon_wrap
+          & .sort-up-solid-color
+            fill: rgba(181,0,0,0.7)
+.form
+  &__wrap
+    margin: 40px 0
+  &__header
+    &_text
+      color: #fbfbfb
+      font-size: 16px
+      font-weight: 500
+      padding-bottom: 50px
+    &_title
+      color: #fbfbfb
+      font-size: 34px
+      font-weight: bold
+      padding: 10px 0
+    &_subtitle
+      color: #fbfbfb
+      font-size: 20px
+      font-weight: 400
+  &__group
+    padding: 15px 0
+
+@media  (max-width: 1770px)
+  .hero
+    &_bagraunt
+      // width: initial
+
+@media  (max-width: 1570px)
+  .hero
+
+    &__form
+      width: 85%
+    &__section
+      &_content
+        font-size: 16px
+
+
+@media  (max-width: 1366px)
+  .hero
+    &__form
+      width: 80%
+      padding: 30px
+    &__section
+      &_content
+        font-size: 13px
+    &__section
+      & h1
+        font-size: 75px
+    .form
+      &__wrap
+        margin: 20px 0
+      &__group
+        padding: 7px 0
+      &__header
+        &_title
+          font-size: 24px
+        &_text
+          padding-bottom: 30px
+          font-size: 14px
+        &_subtitle
+          font-size: 14px
+
+
+@media  (max-width: 992px)
+  .hero
+    display: block
+    height: initial
+  .hero__img
+    height: 75%
+    z-index: 0
+
+
+
+
+@media  (max-width: 992px)
+  .hero
+    background: #fff
+    &__footer
+      display: none
+    &__form
+      background: #E8F1F2
+      margin-top: 40px
+    &_bagraunt
+      // position: absolute
+      // height: 100%
+      // width: 100%
+      // height: initial
+    &__wrap
+      flex-direction: column
+      justify-content: center
+      margin-top: 40px
+    &__section
+      width: 100%
+      position: relative
+      &:first-child
+        margin-left: 0px
+        padding-left: 40px
+      &:last-child
+        margin-right: 0px
+        padding-right: 40px
+      & h1
+        font-size: 60px
+      & a
+        display: none
+      &_content
+        width: 80%
+        font-size: 16px
+        margin-top: 30px
+  .form
+    &__header
+      &_title, &_text, &_subtitle
+        color: #13293D
+    &__group
+      & label, & input
+        color: #13293D
+        border-color: #13293D
+  .input-group
+    &-append
+      color: #13293D
+      border-color: #13293D
+      &-mod
+        color: inherit !important
+        border-color: inherit !important
+  .select
+    &__wrap
+      &_item
+        color: #fff
+    &__intup
+      color: #13293D
+      border-color: #13293D
+      border-radius: 5px
+    &__wrap
+      color: #13293D
+  path.sort-up-solid-color
+      fill: #121212
+
+@media (max-width: 800px)
+  // .hero_bagraunt
+  //     position: absolute
+  //     height: 673px
+  //     width: auto
+  //     position: absolute
+  //     left: 0
+  //     top: 0
+@media (max-width:780px)
+  .hero__wrap
+    margin-top: 70px
+  .hero__section:first-child
+    // margin: 15px
+
+
+@media (max-width: 500px)
+  .hero_bagraunt
+      // height: 800px
+  .hero__form
+    width: 90%
+    & form, .input-group,.select__intup
+      width: 100%
+  .hero__section h1
+    font-size: 40px

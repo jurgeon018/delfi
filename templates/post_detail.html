@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <div class="travel ">
+    <div class="travel__conprol">
+      <a href="{% url 'blog' %}" class="travel__conprol_back">
+        <span class="travel_icon"></span>
+        <span class="travel_text">{% trans "Повернутись до новин"%}</span>
+      </a>
+    </div>
+    <div class="travel__wrap">
+      <div class="travel__row">
+        <div class="travel_box">
+          <div class="travel__content">
+            <h3 class="travel__content_title">{{post.title}}</h3>
+            <div class="travel__content_text">
+              {{post.content|safe}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,478 @@
+{% load i18n %}
+<div class="tab__box" data-tab="trip2" data-value="kl">
+<form action="" class="tickets_trip">
+    <div class="tickets__box_seat tickets__box_seat-active">
+    <div class="input-tickets__box input-tickets__box-sites">
+        <div class="input-tickets__grops data_departure ">
+        <div class="input-tickets__grops_title">{% trans "Город отправления"%}</div>
+        <div class="input-tickets__main">
+            <div class="select select-tickets">
+            <div class="select__intup field">
+                <div class="field_text"></div>
+                <div class="field__icon">
+                <svg class="field__icon_wrap" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" class="svg-inline--fa fa-sort-up fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path class="sort-up-solid-color" fill="#fff" d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"></path>
+                </svg>
+                <div class="field__icon_click"></div>
+                </div>
+                <input type="hidden" name="departure_city" class="from_velue_select" value="">
+            </div>
+            <div class="select__wrap">
+
+
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__grops data_arrival ">
+        <div class="input-tickets__grops_title">{% trans "Город прибития"%}</div>
+        <div class="input-tickets__main">
+            <div class="select select-tickets">
+            <div class="select__intup field">
+                <div class="field_text"></div>
+                <div class="field__icon">
+                <svg class="field__icon_wrap" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" class="svg-inline--fa fa-sort-up fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <path class="sort-up-solid-color" fill="#fff" d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"></path>
+                </svg>
+                <div class="field__icon_click"></div>
+                </div>
+                <input type="hidden" name="arrival_city" class="from_velue_select" value="">
+            </div>
+            <div class="select__wrap">
+
+
+
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__box_contros">
+        </div>
+    </div>
+    <div class="input-tickets__box input-tickets__box-filds">
+        <div class="input-tickets__grops input-tickets__grops-disabled data_flights">
+        <div class="input-tickets__grops_title">{% trans "Дата поездки" %}</div>
+        <div class="input-tickets__main   ">
+            <div class="input-group ">
+            <input type="text" id='time_ticets_2' class=" form__element_calendar tickets-input" autocomplete="off" name="date" value="" placeholder="{% trans 'Выберите дату' %}">
+            <div class="input-group-append input-group-append-mod input-group-append-greyy datepicker_icon">
+                <i class="far fa-calendar-alt" aria-hidden="true"></i>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__grops input-tickets__grops-disabled flights__time">
+        <div class="input-tickets__grops_title">{% trans "Рейс" %}</div>
+        <div class="input-tickets__main">
+            <div class="select select-tickets">
+            <div class="select__intup field">
+                <div class="field_text">{% trans "Вибирете рейс" %}</div>
+                <div class="field__icon">
+                <svg class="field__icon_box" aria-hidden="true" focusable="false" data-prefix="far" data-icon="clock" class="svg-inline--fa fa-clock fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path class="sort-up-solid-color" fill="currentColor"
+                    d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z">
+                    </path>
+                </svg>
+                <div class="field__icon_click"></div>
+                </div>
+                <input type="hidden" name="" class="from_velue_select" value="">
+            </div>
+            <div class="select__wrap">
+
+
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__grops input-tickets__grops-disabled payment__method booked_places">
+        <div class="input-tickets__grops_title">{% trans "Способ оплаты"%}</div>
+        <div class="input-tickets__main">
+            <div class="select select-tickets">
+            <div class="select__intup field">
+                <div class="field_text">{% trans "Выберите спопоб оплаты"%}</div>
+                <div class="field__icon">
+                <svg class="field__icon_box" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 31.49 31.49" xml:space="preserve">
+                    <path class="sort-up-solid-color" d="M21.205,5.007c-0.429-0.444-1.143-0.444-1.587,0c-0.429,0.429-0.429,1.143,0,1.571l8.047,8.047H1.111
+                                        C0.492,14.626,0,15.118,0,15.737c0,0.619,0.492,1.127,1.111,1.127h26.554l-8.047,8.032c-0.429,0.444-0.429,1.159,0,1.587
+                                        c0.444,0.444,1.159,0.444,1.587,0l9.952-9.952c0.444-0.429,0.444-1.143,0-1.571L21.205,5.007z" />
+                </svg>
+                <div class="field__icon_click"></div>
+                </div>
+                <input type="hidden" name="" class="from_velue_select" value="">
+            </div>
+            <div class="select__wrap">
+                <div class="select__wrap_item" data-id="test2">Картой</div>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__grops  seat-group seat-box">
+        <div class="input-tickets__grops_title">{% trans "Забронированые места:"%} <span class="seat-all_count">0</span></div>
+        <div class="input-tickets__main  input-tickets__main-seat">
+            <div class="seat-all__box">
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__box_contros">
+        </div>
+    </div>
+    <div class="input-tickets__box ">
+        <div class="input-tickets__grops  seat-group seat-group-mobil">
+        <div class="input-tickets__grops_title">{% trans "Забронированые места:"%} <span class="seat-all_count">0</span></div>
+        <div class="input-tickets__main  input-tickets__main-seat">
+            <div class="seat-all__box">
+            </div>
+        </div>
+        </div>
+        <div class="tickets__section tickets__section-mobil">
+        <div class="tickets__disabled_seat tickets__disabled_seat-active">
+            <div class="tickets__disabled-icon btn__round pulse">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-circle" class="svg-inline--fa fa-exclamation-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="#1599fc"
+                d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z">
+                </path>
+            </svg>
+            </div>
+        </div>
+        <div class="tickets__description tickets__description-mobil">
+            <div class="tickets__description-close">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
+                <path fill="#F11F35"
+                d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z">
+                </path>
+            </svg>
+            </div>
+            <div class="tickets__description_title">{% trans "Для выбора мест необходимо:"%}</div>
+            <div class="tickets__description_box list">
+            <div class="list_namber">01</div>
+            <div class="list_text">{% trans "Выбрать место на карте расположение мест в микроавтобусе"%}</div>
+            </div>
+            <div class="tickets__description_box list">
+            <div class="list_namber">02</div>
+            <div class="list_text">{% trans "Добавить выбранные места до бронирования"%}</div>
+            </div>
+            <div class="tickets__description_box list">
+            <div class="list_namber">03</div>
+            <div class="list_text">{% trans "В стоимость билета входит только ручная кладь."%} </div>
+            </div>
+            <div class="tickets__description_box list">
+            <div class="list_namber"></div>
+            <div class="list_text tickets__description_text">{% trans "Для более габаритного багажа воспользуйтесь расценкой "%}</div>
+            </div>
+            <a href="#calculate" class="tickets__description_btn btn btn-greyy">{% trans "Расчитать стоимость"%}</a>
+            <div class="tickets__description_seat box-color">
+            <div class="box-color__item">
+                <div class="box-color__item_color box-color__item-yellow"></div>
+                <div class="box-color__item_text">{% trans "желтые"%} <b>— {% trans "заняты" %}</b></div>
+            </div>
+            <div class="box-color__item ">
+                <div class="box-color__item_color box-color__item-green"></div>
+                <div class="box-color__item_text">{% trans "зеленые"%} <b>— {% trans "бронь" %}</b></div>
+            </div>
+            <div class="box-color__item">
+                <div class="box-color__item_color box-color__item-white"></div>
+                <div class="box-color__item_text">{% trans "белые"%} <b>— {% trans "свободные" %}</b></div>
+            </div>
+            </div>
+        </div>
+        <div class="tickets__seat tickets__seat-mobil">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="365" height="888.001" viewBox="0 0 365 888.001">
+            <defs>
+                <circle id="Ellipse_13" data-name="Ellipse 13" cx="13.5" cy="13.5" r="13.5" transform="translate(-14 19)" fill="#fff" />
+            </defs>
+            <g transform="translate(1033 -1169.211) rotate(90)">
+                <g id="bus" transform="translate(1171 669)">
+                <path id="bus-2" data-name="bus"
+                    d="M-3222.1,210a541.136,541.136,0,0,1-105-10.285l-88.99-17.6a65.828,65.828,0,0,1-28.486-13.027c-6.468-5.186-12.215-11.835-12.215-19.083V-90c0-7.248,5.747-13.9,12.215-19.083a65.819,65.819,0,0,1,28.493-13.027l24.85-4.908a3,3,0,0,1,2.385-3.443l64.79-12.594a3,3,0,0,1,3.457,2.125,541.091,541.091,0,0,1,72.873-8.457,3.012,3.012,0,0,1-.063-.616,3,3,0,0,1,3-3h90a3,3,0,0,1,3,3h543.374a30.015,30.015,0,0,1,30.03,30l5.457,84.29a1023.3,1023.3,0,0,1-.042,132.917L-2578.386,180a30.014,30.014,0,0,1-30.03,30Z"
+                    transform="translate(3456 153)" fill="#fff" stroke="#13293d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+                </g>
+                <g transform="translate(1383.307 690.189)">
+                <g id="row1" transform="translate(0 81.564)">
+                    <g data-id="seat1" class="bus-seat" transform="translate(0 163.128)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">1</tspan>
+                    </text>
+                    <use class=xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat2" class="bus-seat" transform="translate(0 82.564)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">2</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat3" class="bus-seat" transform="translate(0 3)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">3</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                </g>
+                <g id="row2" class="" transform="translate(113.95 0)">
+                    <g data-id="seat4" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">4</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat5" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">5</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat6" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">6</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                </g>
+                <g id="row3" class="" transform="translate(227.9 0)">
+                    <g data-id="seat7" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">7</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat8" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">8</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat9" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">9</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                </g>
+                <g id="row4" class="" transform="translate(341.849 0)">
+                    <g data-id="seat10" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">10</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat11" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">11</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat12" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">12</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                </g>
+                <g id="row5" class="" transform="translate(455.799 0)">
+                    <g data-id="seat13" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">13</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat14" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">14</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat15" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">15</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                </g>
+                <g id="row6" class="" transform="translate(569.749 0)">
+                    <g data-id="seat16" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">16</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat17" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">17</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat18" class="bus-seat" data-name="item3" transform="translate(0 84.564)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">18</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                    <g data-id="seat19" class="bus-seat" transform="translate(0 4)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                        <tspan x="0" y="0">19</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                    </g>
+                </g>
+                </g>
+                <g transform="translate(1239.37 715.378)">
+                <g id="item1-7" data-name="item1" transform="translate(0 195.514)">
+                    <g id="bg-22" data-name="bg" transform="translate(0 0)">
+                    <rect id="Rectangle_31-20" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.16 0.108)" fill="#13293d" />
+                    </g>
+                    <g id="text-20" data-name="text" transform="translate(1 1)">
+                    <text id="В" transform="translate(41.84 42.108) rotate(-90)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat">
+                        <tspan x="0" y="0">В</tspan>
+                    </text>
+                    </g>
+                </g>
+                <g data-id="seat20" class="bus-seat" data-name="item2" transform="translate(0 80.564)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                    <tspan x="0" y="0">20</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                </g>
+                <g data-id="seat21" class="bus-seat" data-name="item3" transform="translate(0 0)">
+                    <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                    <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                    <tspan x="0" y="0">21</tspan>
+                    </text>
+                    <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+                </g>
+                </g>
+            </g>
+            </svg>
+            <div class="tickets__seat_help">
+            <div class="tickets__seat_help-text">{% trans "Подсказки и легенда" %}</div>
+            <div class="tickets__seat_help-icon">
+                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <path fill="#1599fc"
+                    d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z">
+                </path>
+                </svg>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__box_contros">
+        </div>
+    </div>
+    <div class="tickets__box_seat-control">
+        <a class="next_tite btn btn-blue btn-ticketing-next_step  tickets__control_step-next">{% trans "Оформить билет"%}</a>
+    </div>
+    </div>
+    <div class=" tickets__box_contact ">
+    <div class="input-tickets__box  input-tickets__box-contact input-tickets__conteiner">
+        <div class="input-tickets__grops ">
+        <div class="input-tickets__grops_title">{% trans "Имя и фамилия"%}</div>
+        <div class="input-tickets__main">
+            <div class="field-tickets">
+            <div class="field-tickets_input">
+                <input type="text" name="name">
+            </div>
+            <div class="field-tickets__icon">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="409.165px" height="409.164px" viewBox="0 0 409.165 409.164" xml:space="preserve">
+                <g>
+                    <path d="M204.583,216.671c50.664,0,91.74-48.075,91.74-107.378c0-82.237-41.074-107.377-91.74-107.377
+                            c-50.668,0-91.74,25.14-91.74,107.377C112.844,168.596,153.916,216.671,204.583,216.671z" />
+                    <path d="M407.164,374.717L360.88,270.454c-2.117-4.771-5.836-8.728-10.465-11.138l-71.83-37.392
+                            c-1.584-0.823-3.502-0.663-4.926,0.415c-20.316,15.366-44.203,23.488-69.076,23.488c-24.877,0-48.762-8.122-69.078-23.488
+                            c-1.428-1.078-3.346-1.238-4.93-0.415L58.75,259.316c-4.631,2.41-8.346,6.365-10.465,11.138L2.001,374.717
+                            c-3.191,7.188-2.537,15.412,1.75,22.005c4.285,6.592,11.537,10.526,19.4,10.526h362.861c7.863,0,15.117-3.936,19.402-10.527
+                            C409.699,390.129,410.355,381.902,407.164,374.717z" />
+                </g>
+                </svg>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__grops ">
+        <div class="input-tickets__grops_title">{% trans "Телефон"%}</div>
+        <div class="input-tickets__main">
+            <div class="field-tickets">
+            <div class="field-tickets_input">
+                <input type="text" name="name">
+            </div>
+            <div class="field-tickets__icon">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 27.442 27.442" xml:space="preserve">
+                <g>
+                    <path d="M19.494,0H7.948C6.843,0,5.951,0.896,5.951,1.999v23.446c0,1.102,0.892,1.997,1.997,1.997h11.546
+                            c1.103,0,1.997-0.895,1.997-1.997V1.999C21.491,0.896,20.597,0,19.494,0z M10.872,1.214h5.7c0.144,0,0.261,0.215,0.261,0.481
+                            s-0.117,0.482-0.261,0.482h-5.7c-0.145,0-0.26-0.216-0.26-0.482C10.612,1.429,10.727,1.214,10.872,1.214z M13.722,25.469
+                            c-0.703,0-1.275-0.572-1.275-1.276s0.572-1.274,1.275-1.274c0.701,0,1.273,0.57,1.273,1.274S14.423,25.469,13.722,25.469z
+                            M19.995,21.1H7.448V3.373h12.547V21.1z" />
+                </g>
+                </svg>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="input-tickets__grops ">
+        <div class="input-tickets__grops_title">{% trans "Email"%}</div>
+        <div class="input-tickets__main">
+            <div class="field-tickets">
+            <div class="field-tickets_input">
+                <input type="text" name="name">
+            </div>
+            <div class="field-tickets__icon">
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="511.626px" height="511.626px" viewBox="0 0 511.626 511.626"
+                style="enable-background:new 0 0 511.626 511.626;" xml:space="preserve">
+                <g>
+                    <g>
+                    <path d="M49.106,178.729c6.472,4.567,25.981,18.131,58.528,40.685c32.548,22.554,57.482,39.92,74.803,52.099
+                            c1.903,1.335,5.946,4.237,12.131,8.71c6.186,4.476,11.326,8.093,15.416,10.852c4.093,2.758,9.041,5.852,14.849,9.277
+                            c5.806,3.422,11.279,5.996,16.418,7.7c5.14,1.718,9.898,2.569,14.275,2.569h0.287h0.288c4.377,0,9.137-0.852,14.277-2.569
+                            c5.137-1.704,10.615-4.281,16.416-7.7c5.804-3.429,10.752-6.52,14.845-9.277c4.093-2.759,9.229-6.376,15.417-10.852
+                            c6.184-4.477,10.232-7.375,12.135-8.71c17.508-12.179,62.051-43.11,133.615-92.79c13.894-9.703,25.502-21.411,34.827-35.116
+                            c9.332-13.699,13.993-28.07,13.993-43.105c0-12.564-4.523-23.319-13.565-32.264c-9.041-8.947-19.749-13.418-32.117-13.418H45.679
+                            c-14.655,0-25.933,4.948-33.832,14.844C3.949,79.562,0,91.934,0,106.779c0,11.991,5.236,24.985,15.703,38.974
+                            C26.169,159.743,37.307,170.736,49.106,178.729z" />
+                    <path d="M483.072,209.275c-62.424,42.251-109.824,75.087-142.177,98.501c-10.849,7.991-19.65,14.229-26.409,18.699
+                            c-6.759,4.473-15.748,9.041-26.98,13.702c-11.228,4.668-21.692,6.995-31.401,6.995h-0.291h-0.287
+                            c-9.707,0-20.177-2.327-31.405-6.995c-11.228-4.661-20.223-9.229-26.98-13.702c-6.755-4.47-15.559-10.708-26.407-18.699
+                            c-25.697-18.842-72.995-51.68-141.896-98.501C17.987,202.047,8.375,193.762,0,184.437v226.685c0,12.57,4.471,23.319,13.418,32.265
+                            c8.945,8.949,19.701,13.422,32.264,13.422h420.266c12.56,0,23.315-4.473,32.261-13.422c8.949-8.949,13.418-19.694,13.418-32.265
+                            V184.437C503.441,193.569,493.927,201.854,483.072,209.275z" />
+                    </g>
+                </g>
+                </svg>
+            </div>
+            </div>
+
+        </div>
+        </div>
+        <div class="input-tickets__box_contros"></div>
+    </div>
+    <div class="input-tickets__conteiner input-tickets__grops  seat-group ">
+        <div class="input-tickets__grops_title">{% trans "Забронированые места"%}: <span class="seat-all_count">0</span></div>
+        <div class="input-tickets__main  input-tickets__main-seat">
+        <div class="seat-all__box">
+        </div>
+        </div>
+    </div>
+    <div class="tickets__box_contact-control  ">
+        <a class="prew_tite btn btn-greyy tickets__control_step-prev">{% trans "Вернуться назад"%}</a>
+        <a class="next_tite pay_tisket btn btn-blue">{% trans "Купить билет"%}</a>
+    </div>
+    </div>
+</form>
+</div>

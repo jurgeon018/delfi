@@ -1,0 +1,54 @@
+// main: ../style.sass
+
+.footer
+  display: flex
+  background: #13293D
+  justify-content: space-between
+  &-info
+    padding: 29px 0
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    &_rights
+      font-size: 20px
+      font-weight: 300
+      color: #fff
+    &__logo
+      width: 126px
+      height: 55px
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: space-between
+      &_item
+        height: 30px
+        width: 100%
+      &_title
+        color: #FFFFFF
+        font-weight: 600
+
+.footer_logo
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+
+@media  (max-width: 700px)
+  .footer
+    align-items: center
+    flex-direction: column-reverse
+    &_logo
+      justify-content: space-between
+      max-width: 410px
+      width: 100%
+  .footer-info
+    padding: 19px 0 29px
+    &__logo
+      margin-top: 15px
+
+  .footer-info__logo
+    height: 70px
+    margin-top: 15px
+    &_item
+      height: 40px

@@ -1,0 +1,174 @@
+{% load i18n %}
+
+<div class="bus-slider-wrap">
+        <div class="bus-slider-item">
+          <div class="bus-slider_section bus-slider_section-content">
+            <div data-id="#one" class="bus-slider_section_img bus-slider_main_content bus-slider_main_content-active">
+              <div class="bus-slider_section-line"></div>
+
+
+              <img class="b-lazy " data-src="/static/img/bus.png" alt=" ">
+            </div>
+            <div data-id="#two" class="viwse_comments bus-slider_main_content">
+              {% for comment in bus.comments.all %}
+              <div class="customer-reviews__card_wrap">
+                  <div class="customer-reviews__card">
+                      <div class="customer-reviews__card_img"><img src="/static/img/svg/reviews_ico.svg" alt=""></div>
+                      <div class="customer-reviews__card_text">
+                        {{comment.text}}
+                      </div>
+                  </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="bus-slider_section">
+            <div class="bus-slider_section-title">{{bus.name}}</div>
+            <div class="tabs">
+              <nav class="tabs-list">
+                <a class="tabs-list-item tabs-list-item-active" href="#one">{% trans "Удобства" %}</a>
+                <a class="tabs-list-item" href="#two">{% trans "Отзыв" %}</a>
+              </nav>
+              <div data-id="#one" class="tabs-content tabs-content-active ">
+                <div class="equipment">
+                  <div class="equipment_title">{% trans "Идеальная комплектация для поездки!" %}</div>
+                  <div class="equipment_box">
+                    {% for good in bus.goods.all %}
+                    <div class="equipment_item"><i class="fas fa-check"></i>{{good.text}}</div>
+                    {% endfor %}
+                  </div>
+                  <div class="equipment_control">
+                    <div class="btn btn-greyy">
+                      {% trans "Забронировать" %}
+                    </div>
+                    <a href="{% url 'order' %}">
+                    <div class="btn btn-blue">
+                      {% trans "Купить билет" %}
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div data-id="#two" class="tabs-content">
+                <div class="form_coments">
+                  <form class="" action="{% url 'create_bus_comment' bus.pk%}" method="POST">
+                    {% csrf_token %}
+                    <div class="contact-us__form_wrap">
+                      <div class="input-tickets__grops ">
+                        <div class="input-tickets__grops_title">{% trans "Имя и фамилия"%}</div>
+                        <div class="input-tickets__main">
+                          <div class="field-tickets">
+                            <div class="field-tickets_input">
+                              <input type="text" name="name">
+                            </div>
+                            <div class="field-tickets__icon">
+                              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="409.165px" height="409.164px" viewBox="0 0 409.165 409.164" xml:space="preserve">
+                                <g>
+                                  <path d="M204.583,216.671c50.664,0,91.74-48.075,91.74-107.378c0-82.237-41.074-107.377-91.74-107.377
+                                c-50.668,0-91.74,25.14-91.74,107.377C112.844,168.596,153.916,216.671,204.583,216.671z" />
+                                  <path d="M407.164,374.717L360.88,270.454c-2.117-4.771-5.836-8.728-10.465-11.138l-71.83-37.392
+                                c-1.584-0.823-3.502-0.663-4.926,0.415c-20.316,15.366-44.203,23.488-69.076,23.488c-24.877,0-48.762-8.122-69.078-23.488
+                                c-1.428-1.078-3.346-1.238-4.93-0.415L58.75,259.316c-4.631,2.41-8.346,6.365-10.465,11.138L2.001,374.717
+                                c-3.191,7.188-2.537,15.412,1.75,22.005c4.285,6.592,11.537,10.526,19.4,10.526h362.861c7.863,0,15.117-3.936,19.402-10.527
+                                C409.699,390.129,410.355,381.902,407.164,374.717z" />
+                                </g>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-tickets__grops ">
+                        <div class="input-tickets__grops_title">{% trans "Телефон" %}</div>
+                        <div class="input-tickets__main">
+                          <div class="field-tickets">
+                            <div class="field-tickets_input">
+                              <input type="text" name="phone">
+                            </div>
+                            <div class="field-tickets__icon">
+                              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 27.442 27.442" xml:space="preserve">
+                                <g>
+                                  <path d="M19.494,0H7.948C6.843,0,5.951,0.896,5.951,1.999v23.446c0,1.102,0.892,1.997,1.997,1.997h11.546
+                                  c1.103,0,1.997-0.895,1.997-1.997V1.999C21.491,0.896,20.597,0,19.494,0z M10.872,1.214h5.7c0.144,0,0.261,0.215,0.261,0.481
+                                  s-0.117,0.482-0.261,0.482h-5.7c-0.145,0-0.26-0.216-0.26-0.482C10.612,1.429,10.727,1.214,10.872,1.214z M13.722,25.469
+                                  c-0.703,0-1.275-0.572-1.275-1.276s0.572-1.274,1.275-1.274c0.701,0,1.273,0.57,1.273,1.274S14.423,25.469,13.722,25.469z
+                                  M19.995,21.1H7.448V3.373h12.547V21.1z" />
+                                </g>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-tickets__grops ">
+                        <div class="input-tickets__grops_title">{% trans "Email" %}</div>
+                        <div class="input-tickets__main">
+                          <div class="field-tickets">
+                            <div class="field-tickets_input">
+                              <input type="text" name="email">
+                            </div>
+                            <div class="field-tickets__icon">
+                              <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="511.626px" height="511.626px" viewBox="0 0 511.626 511.626"
+                                style="enable-background:new 0 0 511.626 511.626;" xml:space="preserve">
+                                <g>
+                                  <g>
+                                    <path d="M49.106,178.729c6.472,4.567,25.981,18.131,58.528,40.685c32.548,22.554,57.482,39.92,74.803,52.099
+                                            c1.903,1.335,5.946,4.237,12.131,8.71c6.186,4.476,11.326,8.093,15.416,10.852c4.093,2.758,9.041,5.852,14.849,9.277
+                                            c5.806,3.422,11.279,5.996,16.418,7.7c5.14,1.718,9.898,2.569,14.275,2.569h0.287h0.288c4.377,0,9.137-0.852,14.277-2.569
+                                            c5.137-1.704,10.615-4.281,16.416-7.7c5.804-3.429,10.752-6.52,14.845-9.277c4.093-2.759,9.229-6.376,15.417-10.852
+                                            c6.184-4.477,10.232-7.375,12.135-8.71c17.508-12.179,62.051-43.11,133.615-92.79c13.894-9.703,25.502-21.411,34.827-35.116
+                                            c9.332-13.699,13.993-28.07,13.993-43.105c0-12.564-4.523-23.319-13.565-32.264c-9.041-8.947-19.749-13.418-32.117-13.418H45.679
+                                            c-14.655,0-25.933,4.948-33.832,14.844C3.949,79.562,0,91.934,0,106.779c0,11.991,5.236,24.985,15.703,38.974
+                                            C26.169,159.743,37.307,170.736,49.106,178.729z" />
+                                    <path d="M483.072,209.275c-62.424,42.251-109.824,75.087-142.177,98.501c-10.849,7.991-19.65,14.229-26.409,18.699
+                                            c-6.759,4.473-15.748,9.041-26.98,13.702c-11.228,4.668-21.692,6.995-31.401,6.995h-0.291h-0.287
+                                            c-9.707,0-20.177-2.327-31.405-6.995c-11.228-4.661-20.223-9.229-26.98-13.702c-6.755-4.47-15.559-10.708-26.407-18.699
+                                            c-25.697-18.842-72.995-51.68-141.896-98.501C17.987,202.047,8.375,193.762,0,184.437v226.685c0,12.57,4.471,23.319,13.418,32.265
+                                            c8.945,8.949,19.701,13.422,32.264,13.422h420.266c12.56,0,23.315-4.473,32.261-13.422c8.949-8.949,13.418-19.694,13.418-32.265
+                                            V184.437C503.441,193.569,493.927,201.854,483.072,209.275z" />
+                                  </g>
+                                </g>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-tickets__grops ">
+                        <div class="input-tickets__grops_title">{% trans "Автобус, которым ехали" %}</div>
+                        <div class="input-tickets__main">
+                          <div class="select select-tickets">
+                            <div class="select__intup field">
+                              <div class="field_text"></div>
+                              <div class="field__icon">
+                                <svg class="field__icon_wrap" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="sort-up" class="svg-inline--fa fa-sort-up fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                  <path class="sort-up-solid-color" fill="#fff" d="M279 224H41c-21.4 0-32.1-25.9-17-41L143 64c9.4-9.4 24.6-9.4 33.9 0l119 119c15.2 15.1 4.5 41-16.9 41z"></path>
+                                </svg>
+                                <div class="field__icon_click"></div>
+                              </div>
+                              <input type="hidden" name="question" class="from_velue_select" value="">
+                            </div>
+                            <div class="select__wrap">
+                              <div class="select__wrap_item" data-id="test1">Автобус №1</div>
+                              <div class="select__wrap_item" data-id="test2">Автобус №2</div>
+                              <div class="select__wrap_item" data-id="test3">Автобус №3</div>
+                              <div class="select__wrap_item" data-id="test4">Автобус №4</div>
+                              <div class="select__wrap_item" data-id="test4">Автобус №5</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="input-tickets__grops input-tickets__grops-100">
+                        <div class="input-tickets__grops_title">{% trans "Оставьте свое сообщение" %}</div>
+                        <div class="input-tickets__main">
+                          <textarea class="contact-us__textarea" name="text" rows="6" cols="80"></textarea>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="  contact-us__control">
+                      <button type="submit" class=" btn btn-blue">{% trans "Отправить сообщение" %}</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

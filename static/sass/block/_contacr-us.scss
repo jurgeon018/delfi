@@ -1,0 +1,111 @@
+// main: ../style.sass
+
+.contact-us{
+height: 100%;
+  &__section{
+    &_form{
+      & h1{
+        margin: 40px 0;
+      }
+      // width: 60%;
+      &-content{
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__iframe{
+    margin: 0 0 0 40px !important;
+    &_block{
+      height: 100%;
+      width: 100%;
+      & iframe{
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+  &__form_wrap{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 600px;
+
+  }
+  &__textarea{
+    width: 100%;
+    border-radius: 5px;
+  }
+  &__control{
+    display: flex;
+    margin: 20px 0;
+    & .btn{
+      display: flex !important;
+      width: 380px;
+    }
+  }
+  &-info-block{
+    margin: 0px;
+  }
+}
+
+.contact-us__form_wrap{
+  .field-tickets,.select__intup{
+    width: 100%;
+  }
+  .btn{
+
+  }
+
+}
+
+
+
+
+@media (max-width: 1366px){
+  .contact-us{
+  &__form_wrap{
+    & .input-tickets__grops {
+      & .input-tickets__grops_title{
+        min-height: 28px;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+
+    &__control{
+
+      & .btn{
+        width: 280px;
+      }
+    }
+  }
+}
+@media (max-width: 992px){
+  .contact-us{
+    &__iframe{
+      height: 400px;
+      margin: 0 0 0 0px !important;
+      padding: 0 !important;
+    }
+  }
+}
+
+
+@media (max-width: 678px){
+
+    .input-tickets__grops-100 {
+        width: 290px !important;
+    }
+    .contact-us{
+      &__section{
+        &_form{
+        padding: 0 20px;
+
+        }
+      }
+    }
+
+}

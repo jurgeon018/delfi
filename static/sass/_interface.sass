@@ -1,0 +1,290 @@
+// main: style.sass
+
+$main-color: #1599fc
+$secondary-color: #fff
+$width-pulse-animatiom: 117px
+$container-heder-title: 90px
+
+section
+  z-index: 0
+// .fancybox-image
+//   width: 100%
+.contact-us__textarea
+ resize: none
+
+label.error
+  font-size: 12px
+  color: red
+#response_form_ok,#chesk_form_bus,.check_seat,#tickets__disabled,.form_done
+  display: none
+
+.form_send_done_icon
+  color: green
+  font-size: 85px
+.thank_you_mesage
+  text-align: center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  width: 100%
+  &__box
+    width: 70%
+    margin: 0 auto
+    display: flex
+    flex-direction: column
+    align-items: center
+    & .btn
+      width: 275px
+      margin: 20px 0
+
+.check_seat__wrap
+  font-size: 18px
+  padding: 25px 30px
+  font-weight: 600
+  background: #fff
+
+.container
+  margin: 110px 4%
+  // overflow: hidden
+  &__header
+    display: flex
+    justify-content: space-between
+    height: 335px
+    position: relative
+    &_title
+      font-size: $container-heder-title
+      font-weight: 900
+      width: 20%
+    &_subtitle
+      font-size: 20px
+      width: 27%
+      line-height: 1.4
+      font-weight: 400
+      display: flex
+      align-items: flex-end
+      margin-right: 10%
+
+.container-content
+  margin: 0 4%
+.full-container
+  margin: 110px 0
+  &_top
+    margin: 110px 0 0
+  &_bottom
+    margin:  0 0 110px
+
+.blue
+  background: $main-color
+
+// ================  Buttom section start
+.arrow-wrap
+  display: flex
+
+.btn
+
+
+
+
+
+@keyframes pulse
+  0%
+    transform: scale(0.5)
+    opacity: 0
+  50%
+    opacity: 1
+  100%
+    transform: scale(1.2)
+    opacity: 0
+// Buttom section end
+
+.form
+  &__group
+    display: flex
+    flex-direction: column
+    & label
+      color: rgba(255,255,255,0.8)
+      font-size: 16px
+      margin-bottom: 10px
+    & select
+      & option
+        background: none
+    & select, input
+      background: none
+      border: 1px solid rgba(255,255,255,0.8)
+      border-top-left-radius: 5px
+      border-bottom-left-radius: 5px
+      color: rgba(255,255,255,0.8)
+      padding: 10px
+      -webkit-appearance: button
+      outline: none
+      position: relative
+  &__element
+    &_calendar, &_calendar_hero
+      width: 100%
+
+.input-group
+  display: flex
+  align-items: center
+  width:  100%
+  color: inherit
+  border-color: inherit
+  max-height: 39px
+  & input
+    border-right: none
+  &-append
+    height: 40px
+    font-size: 20px
+    color: #fbfbfb
+    width: 48px
+    display: flex
+    align-items: center
+    justify-content: center
+    border: 1px solid
+    border-top-right-radius: 5px
+    border-bottom-right-radius: 5px
+    // border-left: 1px none
+    &-greyy
+      color: inherit
+      border-color: inherit
+/*select input start*/
+.select
+  position: relative
+  &__intup
+    background: none
+    border: 1px solid #FBFBFF
+    border-top-left-radius: 5px
+    border-bottom-left-radius: 5px
+    color: #FBFBFF
+    padding: 10px
+    position: relative
+    width: 100%
+    min-height: 38px
+    & .field_text
+      width: 90%
+
+  &__wrap
+    font-size: 14px
+    background: none
+    border: 1px solid #FBFBFF
+    border-radius: 5px
+    color: #FBFBFF
+    padding: 10px
+    position: absolute
+    width: 100%
+    top: 45px
+    z-index: 15
+    background: rgba(31, 49, 65,0.95)
+    overflow-y: auto
+    transition: .5s
+    max-height: 0px
+    opacity: 0
+    visibility: hidden
+    &-active
+      max-height: 150px
+      transition: .5s
+      opacity: 1
+      visibility: visible
+
+    &_item
+      padding: 5px 0
+      // border-bottom: 1px solid #FBFBFF
+      font-weight: 500
+      &-disabled
+        color: #8f9592 !important
+        cursor: default !important
+      &:last-child
+        border: none
+      &:hover
+        color: $main-color
+        cursor: pointer
+
+
+.field
+  display: flex
+  align-items: center
+  &:hover
+    cursor: pointer
+  &__icon, .field__icon_click
+    width: 40px
+    height: 100%
+    position: absolute
+    right: 0
+    top: 0px
+    border-left: 1px solid
+    display: flex
+    align-items: center
+    justify-content: center
+    &_box
+      height: 26px
+      display: block
+      margin: 0 auto
+    &_wrap
+      padding-top: 12px
+      transform: rotateX(180deg)
+      height: 40px
+      display: block
+      margin: 0 auto
+
+.field__icon_click
+  z-index: 10
+.field-active
+  & .field__icon_wrap
+    transform: rotateX(0deg)
+    padding-top: 11px
+
+
+/*select input end*/
+
+
+
+
+@media  (max-width: 1366px)
+  .container
+    &__header
+      height: 280px
+      &_title
+       font-size: 60px
+      &_subtitle
+       font-size: 18px
+       width: 31%
+
+
+
+
+@media  (max-width: 1050px)
+  .container
+    &__header
+      height: auto
+      flex-direction: column
+      &_title
+       font-size: 45px
+       width: 100%
+      &_subtitle
+        font-size: 16px
+        width: 70%
+        margin: 30px 0
+
+
+
+@media  (max-width: 800px)
+  .container
+    &__header
+      height: auto
+      &_title
+       width: 90%
+      &_subtitle
+        width: 90%
+
+@media  (max-width: 650px)
+  .thank_you_mesage
+    margin: 110px 0
+    &__box
+      width: 90%
+      margin: 0 auto
+      display: flex
+      flex-direction: column
+      align-items: center
+      & .btn
+        width: 275px
+        margin: 20px 0

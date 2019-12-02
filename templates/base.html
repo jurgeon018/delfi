@@ -1,0 +1,42 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{page.title}}</title>
+  <meta name="description" content="{{page.desc}}"/>
+  {% block styles %}
+    {% include 'includes/styles.html' %}
+  {% endblock styles %}
+  {% include 'includes/hreflang.html' %}
+  <meta name=“robots” content=“noindex,nofollow”>
+  <script type="text/javascript">
+    var SKJ;
+
+  </script>
+</head>
+<body>
+  <div class="global-box">
+    {% include 'includes/navbar.html' %}
+    <div class="all-content {% block extra_class %}{% endblock extra_class %}">
+      {% block content %}{% endblock content %}
+      {% include 'includes/footer.html' %}
+    </div>
+  </div>
+  {% block extra_content %}{% endblock extra_content %}
+  <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
+  {% block scripts %}
+    {% include 'includes/scripts.html' %}
+  {% endblock scripts %}
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148727847-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-148727847-2');
+  </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+
+    {{block.super}}
+
+{% endblock object-tools %}
+{% block object-tools-items %}
+    <a class="addlink" href="{% url 'create_multiple_races' %}">Добавить несколько рейсов</a>
+    {{block.super}}
+
+{% endblock object-tools-items %}

@@ -1,0 +1,216 @@
+// main: ../style.sass
+
+.our-servise__wrap
+  margin: 40px 0
+  height: 600px
+.card
+  font-size: 20px
+  border: 1px solid rgba(19,41,61,0.15)
+  border-radius: 5px
+  margin: 0 20px
+  &__wrap
+    margin: 40px 30px
+  &_title
+    color: #000
+    font-size: 36px
+    font-weight: 900
+    margin-bottom: 20px
+    line-height: 1.2
+    height: 130px
+    display: flex
+    align-items: center
+  &_price
+    margin-bottom: 25px
+    font-weight: bold
+    font-size: 20px
+    min-height: 40px
+  &_subtitle
+    font-weight: 500
+    margin-bottom: 30px
+    line-height: 1.3
+    font-size: 18px
+
+  &_list
+    height: 170px
+    & li
+      font-size: 18px
+      padding: 15px 0
+      display: flex
+      align-items: center
+      padding-left: 25px
+      position: relative
+      &::before
+        display: block
+        content: ' '
+        position: absolute
+        background-image: url(../img/svg/check-solid.svg)
+        height: 18px
+        width: 18px
+        margin-right: 14px
+        background-repeat: no-repeat
+        left: 0
+        top: 50%
+        transform: translateY(-50%)
+
+  &__control
+    max-height: 0
+    opacity: 0
+    transition:  0.25s ease-out
+    display: flex
+    align-items: center
+    justify-content: space-between
+    & .btn
+      width: 70%
+      height: auto
+      padding: 20px
+
+    & .btn_phone
+      display: flex
+      align-items: center
+      justify-content: center
+      width: 35%
+
+      & img
+        width: 50%
+
+.cart-hover
+  & .card
+    &_title
+      color: #1599FC
+    &__control
+      max-height: 350px
+      transition:   0.25s ease-in
+      opacity: 1
+      margin: 20px 0
+
+@media  (max-width: 1678px)
+  .card
+    margin: 0 10px
+    &_title
+      font-size: 32px
+    &_price
+      font-size: 22px
+      margin-bottom: 20px
+    &_subtitle
+      font-size: 16px
+    &_list
+
+      & li
+        padding: 10px 0 10px 25px
+        font-size: 16px
+  .our-servise__wrap
+    height: 470px
+
+
+
+@media  (max-width: 1500px)
+  .card
+    margin: 0 10px
+    &__wrap
+      margin: 40px 15px
+
+    &_title
+      font-size: 27px
+    &_price
+      font-size: 22px
+      margin-bottom: 28px
+    &_subtitle
+      font-size: 14px
+    &_list
+
+      & li
+        padding: 5px 0 5px 25px
+        font-size: 14px
+        &::before
+          width: 14px
+
+@media  (max-width: 1366px)
+  .card
+    &_title
+      font-size: 27px
+      margin: 0
+    &_price
+      font-size: 18px
+      margin-bottom: 10px
+    &_subtitle
+      font-size: 14px
+      margin-bottom: 0px
+      min-height: 55px
+    &_list
+      min-height: 85px
+      height: auto
+      & li
+        font-size: 14px
+
+@media  (max-width: 1285px)
+  .card
+    &_title
+
+    &_price
+
+    &_subtitle
+
+    &_list
+      min-height: 100px
+      height: auto
+      & li
+        font-size: 14px
+
+@media  (max-width: 1145px)
+  .card
+    &__wrap
+      margin: 25px 10px
+    &_title
+
+    &_price
+      font-size: 15px
+    &_subtitle
+
+    &_list
+      min-height: 120px
+      & li
+
+@media  (max-width: 550px)
+  .our-servise
+        margin: 110px 8%
+
+@media  (max-width: 465px)
+  .slick-slide
+    width: 290px
+
+
+
+
+
+
+
+
+
+
+//
+// @media  (max-width: 1285px)
+//   .card_list
+//     font-size: 16px
+// @media  (max-width: 1366px)
+//   .card
+//     &_title
+//       font-size: 25px
+//     &_list
+//       font-size: 16px
+//     &_price
+//       font-size: 15px
+//     &_subtitle
+//       font-size: 14px
+// @media  (max-width: 900px)
+//   .container__header
+//     display: flex
+//     flex-direction: column
+//     height: auto
+//     &_title
+//       width: 100%
+//       font-size: 50px
+//     &_subtitle
+//       width: 100%
+//       padding: 10px 0
+//   .card
+//     margin: 0 10px

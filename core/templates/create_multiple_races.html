@@ -1,0 +1,18 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        &rsaquo;
+        <a href="/admin/core">Core</a>
+        &rsaquo;
+        <a href="/admin/core/race">Рейсы</a>
+        &rsaquo; Добавить несколько рейсов
+    </div>
+{% endblock %}
+{% block content%}
+<form action="{% url 'create_multiple_races' %}" method="POST">{% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Создать"/>
+</form>
+{% endblock content%}

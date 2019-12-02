@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block extra_class %}
+  bus_conten
+{% endblock extra_class%}
+{% block content %}
+
+  <div class="hero hero-while">
+    <div class="hero__img hero__img-zindex">
+      <div class="hero__img_bg">
+
+          <img class="b-lazy hero_bagraunt" data-src="/static/img/parc_automobile.jpg" alt=" ">
+      </div>
+    </div>
+
+    <div class="hero__wrap about_us ">
+      <div class="hero__section  ">
+        <h1>{% trans "Автопарк компании DelfiBus" %}</h1>
+        <div class="hero__section_content ">
+          <div class="hero__section_content-title">
+            {% trans "Посмотрите видео о нашей компании и также автопарке!" %}
+          </div>
+          <p>{% trans "Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес Спринтер, которые поддерживаются не только в отличном техническом состоянии, но и всегда приятно выглядят внутри." %}</p>
+        </div>
+        <div class="about_us__hero-control">
+          <a class="btn btn-white  btn-white-anime btn-hover btn_more_park" href="">{% trans "Узнать больше" %}</a>
+          <a class="btn    btn-round btn__round_block" href="">
+            <img src="/static/img/svg/play-solid.svg" class="btn__round_img" alt="">
+          </a>
+        </div>
+
+      </div>
+      <div class="hero__section about_us_video">
+        <div class="video">
+          <div class="info-car-park__button">
+            <a href="https://www.youtube.com/embed/BErlMncOBhY" class="info-car-park__button_link btn__round pulse">
+              <div class="pulse-line"></div>
+              <span class="btn__round_block"></span>
+              <img src="/static/img/svg/play-solid.svg" class="btn__round_img" alt="">
+            </a>
+            <p>{% trans "Cмотреть видео" %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="container bus-slider_wrap" id="bus-slider_wrap">
+    <div class="container__header">
+      <div class="container__header_title hero_bus-slider">{% trans "Лучшие автомобили для комфорта!" %}</div>
+      <div class="container__header_subtitle">{% trans "DelfiBus — всегда обслуживает автомобили перед поездкой! Выбирайте автомобиль который Вам нравится и поехали!" %}</div>
+    </div>
+    <div class="bus-slider-nexts">
+      <i class="fas fa-arrow-right"></i>
+    </div>
+    <div class="bus">
+    </div>
+    <div class="bus-slider">
+      {% for bus in buses %}
+        {% include 'components/bus.html' %}
+      {% endfor %}
+    </div>
+  </section>
+  <section class="container bus-card_wrap">
+    <div class="container__header">
+      <div class="container__header_title hero_bus-slider">{% trans "Автопарк компании" %}</div>
+      <div class="container__header_subtitle">{% trans "Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес Спринтер, которые поддерживаются не только в отличном техническом состоянии, но и всегда приятно выглядят внутри" %}</div>
+    </div>
+    <div class="bus">
+      <!-- bus-card -->
+      <div class="bus-card">
+        {% for bus in buses %}
+          {% if  forloop.counter == 1 %}
+            <div class="bus-card__item bus-card__item-active" data-slide="{{forloop.counter}}">
+              <div class="bus-card__item_img">
+                <div class="bus-card__item-line"></div>
+
+                <img class="b-lazy " data-src="{{bus.photo.url}}" alt=" ">
+              </div>
+              <div class="bus-card__item_title">{{bus.name}}</div>
+            </div>
+          {% else %}
+            <div class="bus-card__item" data-slide="{{forloop.counter}}">
+              <div class="bus-card__item_img">
+                <div class="bus-card__item-line"></div>
+                  <img class="b-lazy " data-src="{{bus.photo.url}}" alt=" ">
+              </div>
+              <div class="bus-card__item_title">{{bus.name}}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <!-- bus-card -->
+    </div>
+  </section>
+  <section class="  blue ">
+    <div class="   info-block">
+      <h1 class="info-block_title">{% trans "Все еще сомневаетесь?" %}</h1>
+      <div class="info-block_subtitle">{% trans "Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с лицензией!" %}</div>
+      <div class="info-block_button">
+        <a class="btn btn-white" href="/about_us/">{% trans "К лицензии" %}</a>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

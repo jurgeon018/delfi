@@ -1,0 +1,275 @@
+<div class="order_info"></div>
+
+<form method='POST' action="{% url 'personal' %} " id="form"> {% csrf_token %}
+  <br/>
+  <label for="id_direction">Направление:</label>
+  <select name="direction" required="" id="id_direction">
+  </select>
+  <br/>
+  <label for="id_date">Дата поездки:</label>
+  <input type="text" name="date" class="datepicker-here form__element_calendar" required="" id="id_date">
+  <br/>
+  <label for="id_time">Рейс:</label>
+  <select name="time" required="" id="id_time">
+  </select>
+  <br/>
+  <label>Свободные места:</label>
+  <ul id="id_seats">
+  </ul>
+  <br/>
+  <label for="id_full_name">Имя и фамилия:</label>
+  <input type="text" name="full_name" maxlength="100" required="" id="id_full_name">
+  <br/>
+  <label for="id_phone">Телефон:</label>
+  <input type="text" name="phone" placeholder="Телефон" required="" id="id_phone">
+  <br/>
+  <label for="id_email">Email:</label>
+  <input type="email" name="email" maxlength="100" required="" id="id_email">
+  <br/>
+  <label for="id_payment">Оплата:</label>
+  <select name="payment" id="id_payment">
+    <option value="manager">Заказ у менеджера</option>
+    <option value="privat24">Предоплата на карту Приват24</option>
+  </select>
+  <br/>
+  <label for="id_departion">Город отправления:</label>
+  <select name="departion" required="" id="id_departion">
+  </select>
+  <br/>
+  <label for="id_arrival">Город прибытия:</label>
+  <select name="arrival" required="" id="id_arrival">
+  </select>
+  <br/>
+  <button class="btn btn-primary" type="submit">Замовити</button>
+</form>
+
+
+<style>
+  input[type='checkbox']{display:none; }
+  .ordered              {color:white; background:darkgoldenrod; border:1px solid darkgoldenrod}
+  input:checked ~ label {color:white; background:green;         border:1px solid green }
+  .unordered            {color:black; background:white;         border:1px solid black}
+</style>
+
+<script src="/static/js/jquery-3.4.1.min.js" type="text/javascript"></script>
+<script>
+
+var id_full_name = document.querySelector('#id_full_name');
+var id_phone     = document.querySelector('#id_phone');
+var id_email     = document.querySelector('#id_email');
+var id_payment   = document.querySelector('#id_payment');
+var id_departion = document.querySelector('#id_departion');
+var id_arrival   = document.querySelector('#id_arrival');
+var form         = document.querySelector('#form');
+var SITE_NAME         = window.location.origin
+var order_info_url    = SITE_NAME+'/get_order_info/'
+var set_params_url    = SITE_NAME+'/set_params/'
+var skj;
+
+
+function get_order_info(){
+$.ajax({ url:order_info_url, type:'GET', async:true,success: function(response){
+  // console.log('get_order_info:', response)
+  var sk;
+  var dir;
+  var date;
+  var time;
+  var seats = [];
+  try{sk   = response.order_sk}catch{}
+  try{dir  = response.direction}catch{}
+  try{date = response.date}catch{}
+  try{time = response.order_time}catch{}
+  response.order_seats.forEach(function(seat){
+    //seats.push(seat.seat)
+    seats.push(seat)
+  })
+  var result = `
+  <ul>
+    <li>${sk}</li>
+    <li>${dir}</li>
+    <li>${date}</li>
+    <li>${time}</li>
+    <li>${seats}</li>
+  </ul>
+  `;
+  // console.log(result)
+  document.querySelector('.order_info').innerHTML = result
+  skj = response.order_sk
+  // document.querySelector('.order_info').innerHTML = 123
+  // skj = 123
+}})}
+
+
+
+
+
+
+
+
+function set_params(e){
+var data = {}
+try{
+  // data.direction = id_direction.options[id_direction.selectedIndex].text
+  // id_direction.options[id_direction.options.selectedIndex].selected = true;
+
+  data.direction = id_direction.value
+}catch(error){
+//  console.log('direction error',error)
+}
+try{
+  data.date = id_date.value
+}catch(error){
+//  console.log('date error',error)
+}
+try{
+  data.time = id_time.value
+}catch(error){
+//  console.log('time error',error)
+}
+try{
+  var array = []
+  var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+  console.log( checkboxes.length);
+  console.log( checkboxes);
+  for (var i = 0; i < checkboxes.length; i++) {
+    array.push(checkboxes[i].value)
+  }
+  console.log(array);
+  data.seats = array
+  console.log(data.seats);
+  console.log(data);
+}catch(error){
+//  console.log('seats error',error)
+}
+$.ajax({url:set_params_url, data:data, type:'POST', async:true, success:function(data){
+  get_order_info();
+  console.log(data)
+  var direction_result = '';
+  var city_result = '';
+  var time_result = '';
+  // var date_result = '';
+  var seats_result = '';
+  var i = 0;
+
+
+
+  try{
+  order_direction = data.order_direction
+  }catch{
+  order_direction = ''
+  }
+  try{
+  data.directions.forEach(direction => {
+    if(direction.name == order_direction){
+      direction_result += `<option value="${direction.code}" selected>${direction.name}</option>`;
+    }else{
+      direction_result += `<option value="${direction.code}">${direction.name}</option>`;
+    }
+  });
+  id_direction.innerHTML = direction_result;
+  }catch(error){
+  //  console.log('direction error',error)
+  }
+
+
+  // try{
+  // date_name = data.order_date
+  // }catch{
+  // date_name = ''
+  // }
+
+  // try{
+  //   data.dates.forEach(date => {
+  //     date_result += `<br>${date}`
+  //   })
+  //   id_date_result = date_result;
+  // }catch(error){
+  //  //  console.log('date error',error)
+  // }
+
+
+  try{
+  order_time = data.order_time
+  }catch{
+  order_time = ''
+  }
+  try{
+  data.times.forEach(time => {
+    if(time == order_time){
+    time_result += `<option value="${time}" selected>${time}</option>`;
+    }else{
+    time_result += `<option value="${time}">${time}</option>`;
+    }
+  });
+  id_time.innerHTML = time_result;
+  }catch(error){
+  //  console.log('times error',error)
+  }
+
+
+  function get_seat(x){
+    return data.seats_in_order.find( (seat_in_order) => seat_in_order.number === x.toString())
+  }
+  try{
+  data.seats_numbers.forEach((seat)=>{
+    try{
+      var skd = get_seat(seat).order_sk
+      // var skd = data.seats_in_order.find( (seat_in_order) => seat_in_order.number.toString() === seat.toString())
+      // новое
+      var skj = data.order_sk
+      if(skd == skj){
+        seats_result += `<span class="unordered"><input checked="" type="checkbox" name="seats" value="${seat}" id="id_seats_${i}"><label for="id_seats_${i}">${seat}</label></span>`;
+        i+=1;
+      }
+      if (skd != undefined && skd != skj){
+        seats_result += `<span class="ordered"> ${seat} </span>`;
+        i+=1;
+      }
+    }catch(error){
+    //  console.log('1', error)
+      seats_result += `<span class="unordered"><input type="checkbox" name="seats" value="${seat}" id="id_seats_${i}"><label for="id_seats_${i}">${seat}</label></span>`;
+      i+=1;
+    }
+  })
+  id_seats.innerHTML = seats_result;
+  }catch(error){
+  //  console.log('2', error)
+
+  }
+
+
+  try{
+    departion_city = data.order.departion
+    arrival_city = data.order.arrival
+  }catch{
+    departion_city = "";
+    arrival_city = "";
+  }
+  try{
+  data.cities.forEach(city => {
+    // console.log(city)
+    city_result += `<option value="${city}">${city}</option>`;
+  });
+  id_departion.innerHTML = city_result
+  id_arrival.innerHTML = city_result
+  }catch(error){
+  //  console.log('cities error',error)
+  }
+
+  try{
+  }catch(error){
+  //  console.log('... error',error)
+  }
+}})}
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  set_params();
+  get_order_info();
+  $('#id_direction').on('change', set_params)
+  $('#id_date').on('change', set_params)
+  $('#id_time').on('change', set_params)
+  $('#id_seats').on('change', set_params)
+})
+</script>

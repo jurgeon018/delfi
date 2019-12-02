@@ -1,0 +1,81 @@
+{% load i18n%}
+<div class="fix-box ">
+    <div class="fix-box__header">
+        <div class="fix-box__header_logo">
+            <a class="header-logo" href="{% url 'index' %}">
+                <img class="navbar__logo_svg" src="/static/img/logo.svg"/>
+            </a>
+        </div>
+        <div class="fix-box__header_buy-btn">
+            {% trans "Купить" %}
+        </div>
+        <div class="fix-box__header_hamburg-btn">
+            <div class="hamburger hamburger--slider js-hamburger  ">
+                <div class="hamburger-box">
+                <div class="hamburger-inner"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="fix-box__main  ">
+        <div class="fix-box__nav nav__wrap">
+            <ul class="nav__menu">
+                <li>
+                    <a class="nav__menu_item nav__menu_item-drop" id="order_tiskets" href="{% url 'index' %}">
+                        <div>{% trans "Услуги" %}</div>
+                        <i class="fas fa-angle-right"></i>
+                    </a>
+                    <ul class="nav__menu_sub main-menu__sub">
+                        <li>
+                        <div class="main-menu__sub_subtitle">{% trans "Направления" %}</div>
+                            <a class="main-menu__sub_item" href="{% url 'order' %}">{% trans "Днепр - Борисполь - Киев" %}</a>
+                        </li>
+                        <li>
+                        <div class="main-menu__sub_subtitle">{% trans "Направления" %}</div>
+                            <a class="main-menu__sub_item" href="{% url 'order' %}">{% trans "Днепр - Киев - Львов" %}</a>
+                        </li>
+                        <li>
+                            <a class="main-menu__sub_item" href="{% url 'order' %}">{% trans "Поездки в Европу" %}</a>
+                        </li>
+                        <li>
+                            <a class="main-menu__sub_item" href="{% url 'order' %}">{% trans "Заказ микроавтобуса" %}</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <li><a class="nav__menu_item" href="{% url 'park' %}">
+                    <div>{% trans "Автопарк" %}</div><i class="fas fa-angle-right"></i>
+                </a></li>
+                <li><a class="nav__menu_item" href="{% url 'about_us' %}">
+                    <div>{% trans "О нас" %}</div><i class="fas fa-angle-right"></i>
+                </a></li>
+                <li><a class="nav__menu_item" href="{% url 'contact_us' %}">
+                    <div>{% trans "Контакти" %}</div><i class="fas fa-angle-right"></i>
+                </a></li>
+                <li><a class="nav__menu_item" href="{% url 'blog'%}">
+                    <div>{% trans "Блог" %}</div><i class="fas fa-angle-right"></i>
+                </a></li>
+            </ul>
+        </div>
+        <div class="fix-box__lang lang-switcher">
+            {% include 'includes/lang.html' %}
+            <!-- <a class="lang-switcher__link lang-switcher__link-active" href="#">Ru</a>
+            <a class="lang-switcher__link" href="#">Ua</a> -->
+        </div>
+        <div class="fix-box__contact">
+            <div class="contact__wrap">
+                <div class="contact__item phone">
+                <a class="phone__item phone__item-kivstar" href="tel:+380097753602">
+                    <div>097 827 57 57 </div>
+                </a>
+                <a class="phone__item phone__item-lifecell" href="tel:+380097753602">
+                    <div>073 827 57 57</div>
+                </a>
+                <a class="phone__item phone__item-vodafone" href="tel:+380097753602">
+                    <div>095 827 57 57</div>
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

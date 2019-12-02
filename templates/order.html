@@ -1,0 +1,395 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <div class="hero tickets">
+    <div class="tickets__section ">
+      <h1 class="tickets__section_title">{% trans "Заказ билетов" %}</h1>
+      <div class="tickets__tabs">
+        <div class="tickets__tabs_header tab">
+          <div class="tab_title">{% trans "Популярные направления" %}</div>
+          <div class="tab__wrap">
+            <div class="tab__item tab__content tab__item-active" id="trip1" data-value="dk" data-value_rout="kd" data-name="Днепр - Киев" data-name_rout="Киев - Днепр">
+              {% trans "Днепр - Киев" %}
+            </div>
+            <div class="tab__item tab__content" id="trip2" data-value="kl" data-value_rout="lk" data-name="Днепр - Львов" data-name_rout="Львов - Днепр">
+              {% trans "Днепр - Львов" %}
+            </div>
+            <div class="tab__item" id="trip3" data-value="">{% trans "Европа" %}</div>
+            <div class="tab__item" id="trip4" data-value="" >{% trans "Заказ автобуса" %}</div>
+          </div>
+        </div>
+        <div class="tickets__tabs_main form-tickets">
+          {% include 'components/trip1.html' %}
+          {% include 'components/trip2.html' %}
+          {% include 'components/trip3.html' %}
+          {% include 'components/trip4.html' %}
+        </div>
+      </div>
+    </div>
+<div class="tickets__section tickets__section_1">
+  <div class="tickets__section tickets__section_bus">
+    <div class="tickets__disabled_seat ">
+      <div class="tickets__disabled-icon btn__round pulse">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="exclamation-circle" class="svg-inline--fa fa-exclamation-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="#1599fc"
+            d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z">
+          </path>
+        </svg>
+      </div>
+    </div>
+    <div class="tickets__description">
+      <div class="tickets__description-close">
+        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
+          <path fill="#F11F35"
+            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z">
+          </path>
+        </svg>
+      </div>
+      <div class="tickets__description_title">{% trans "Для выбора мест необходимо"%}:</div>
+      <div class="tickets__description_box list">
+        <div class="list_namber">01</div>
+        <div class="list_text">{% trans "Выбрать место на карте расположение мест в микроавтобусе"%}</div>
+      </div>
+      <div class="tickets__description_box list">
+        <div class="list_namber">02</div>
+        <div class="list_text">{% trans "Добавить выбранные места в забронированные"%}</div>
+      </div>
+      <div class="tickets__description_box list">
+        <div class="list_namber">03</div>
+        <div class="list_text">{% trans "В стоимость билета входит только ручная кладь."%}</div>
+      </div>
+      <div class="tickets__description_box list">
+        <div class="list_namber"></div>
+        <div class="list_text tickets__description_text">{% trans "Для более габаритного багажа воспользуйтесь расценкой"%}</div>
+      </div>
+      <a href="#calculate" class="tickets__description_btn btn btn-greyy">{% trans "Рассчитать стоимость"%}</a>
+      <div class="tickets__description_seat box-color">
+        <div class="box-color__item">
+          <div class="box-color__item_color box-color__item-yellow"></div>
+          <div class="box-color__item_text">{% trans "желтые"%} <b>— {% trans "заняты"%}</b></div>
+        </div>
+        <div class="box-color__item ">
+          <div class="box-color__item_color box-color__item-green"></div>
+          <div class="box-color__item_text">{% trans "зеленые"%} <b>— {% trans "бронь"%}</b></div>
+        </div>
+        <div class="box-color__item">
+          <div class="box-color__item_color box-color__item-white"></div>
+          <div class="box-color__item_text">{% trans "белые"%} <b>— {% trans "свободные"%}</b></div>
+        </div>
+      </div>
+      <a href="#check_seat" class="tickets__chesk_seat btn btn-greyy">{% trans "Проверить наличие мест"%}</a>
+    </div>
+    <div class="tickets__seat">
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="365" height="888.001" viewBox="0 0 365 888.001">
+        <defs>
+          <circle id="Ellipse_13" data-name="Ellipse 13" cx="13.5" cy="13.5" r="13.5" transform="translate(-14 19)" fill="#fff" />
+        </defs>
+
+        <g transform="translate(1033 -1169.211) rotate(90)">
+          <g id="bus" transform="translate(1171 669)">
+            <path id="bus-2" data-name="bus"
+              d="M-3222.1,210a541.136,541.136,0,0,1-105-10.285l-88.99-17.6a65.828,65.828,0,0,1-28.486-13.027c-6.468-5.186-12.215-11.835-12.215-19.083V-90c0-7.248,5.747-13.9,12.215-19.083a65.819,65.819,0,0,1,28.493-13.027l24.85-4.908a3,3,0,0,1,2.385-3.443l64.79-12.594a3,3,0,0,1,3.457,2.125,541.091,541.091,0,0,1,72.873-8.457,3.012,3.012,0,0,1-.063-.616,3,3,0,0,1,3-3h90a3,3,0,0,1,3,3h543.374a30.015,30.015,0,0,1,30.03,30l5.457,84.29a1023.3,1023.3,0,0,1-.042,132.917L-2578.386,180a30.014,30.014,0,0,1-30.03,30Z"
+              transform="translate(3456 153)" fill="#fff" stroke="#13293d" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" />
+          </g>
+          <g transform="translate(1383.307 690.189)">
+            <g id="row1" transform="translate(0 81.564)">
+              <g data-id="seat1" class="bus-seat" transform="translate(0 163.128)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">1</tspan>
+                </text>
+                <use class=xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat2" class="bus-seat" transform="translate(0 82.564)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">2</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat3" class="bus-seat" transform="translate(0 3)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">3</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+            </g>
+            <g id="row2" class="" transform="translate(113.95 0)">
+              <g data-id="seat4" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">4</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat5" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">5</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat6" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">6</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+            </g>
+            <g id="row3" class="" transform="translate(227.9 0)">
+              <g data-id="seat7" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">7</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat8" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">8</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat9" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">9</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+            </g>
+            <g id="row4" class="" transform="translate(341.849 0)">
+              <g data-id="seat10" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">10</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat11" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">11</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat12" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">12</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+            </g>
+            <g id="row5" class="" transform="translate(455.799 0)">
+              <g data-id="seat13" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">13</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat14" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">14</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat15" class="bus-seat" data-name="item3" transform="translate(0 4)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">15</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+            </g>
+            <g id="row6" class="" transform="translate(569.749 0)">
+              <g data-id="seat16" class="bus-seat" data-name="item1" transform="translate(0 244.692)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">16</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat17" class="bus-seat" data-name="item2" transform="translate(0 164.128)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">17</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat18" class="bus-seat" data-name="item3" transform="translate(0 84.564)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">18</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+              <g data-id="seat19" class="bus-seat" transform="translate(0 4)">
+                <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+                <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                  <tspan x="0" y="0">19</tspan>
+                </text>
+                <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+              </g>
+            </g>
+          </g>
+          <g transform="translate(1239.37 715.378)">
+            <g id="item1-7" data-name="item1" transform="translate(0 195.514)">
+              <g id="bg-22" data-name="bg" transform="translate(0 0)">
+                <rect id="Rectangle_31-20" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.16 0.108)" fill="#13293d" />
+              </g>
+              <g id="text-20" data-name="text" transform="translate(1 1)">
+                <text id="В" transform="translate(41.84 42.108) rotate(-90)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat">
+                  <tspan x="0" y="0">В</tspan>
+                </text>
+              </g>
+            </g>
+            <g data-id="seat20" class="bus-seat" data-name="item2" transform="translate(0 80.564)">
+              <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+              <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                <tspan x="0" y="0">20</tspan>
+              </text>
+              <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+            </g>
+            <g data-id="seat21" class="bus-seat" data-name="item3" transform="translate(0 0)">
+              <rect x="0.5" y="0.5" width="69" height="69" stroke="#13293d" rx="4.5" fill="#fff" />
+              <text fill="#000" font-size="22" stroke="none" transform="translate(43 39)   rotate(-90)">
+                <tspan x="0" y="0">21</tspan>
+              </text>
+              <use xlink:href="#Ellipse_13" viewBox="0 0 70 70" x="0" y="0" />
+            </g>
+          </g>
+        </g>
+      </svg>
+      <div class="tickets__seat_help">
+        <div class="tickets__seat_help-text">{% trans "Подсказки и легенда"%}</div>
+        <div class="tickets__seat_help-icon">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info-circle" class="svg-inline--fa fa-info-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="#1599fc"
+              d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z">
+            </path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=" tickets__section_img-evrop tickets__section_img-evrop-hover">
+    <div class="img__order_wrap">
+      <img class="img__order_bus" src="/static/img/evrop_img.jpg" alt="">
+    </div>
+  </div>
+  <div class=" tickets__section_img-bus tickets__section_img-bus-hover">
+    <div class="img__order_wrap">
+      <img class="img__order_bus" src="/static/img/order_bus.jpg" alt="">
+    </div>
+  </div>
+</div>
+  </div>
+  <section class=" blue ">
+    <div class="margin_nul  info-block">
+      <h1 class="info-block_title">{% trans "Все еще сомневаетесь?"%}</h1>
+      <div class="info-block_subtitle">{% trans "Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с лицензией!"%}</div>
+      <div class="info-block_button">
+        <a class="btn btn-white" href="#">{% trans "К лицензии"%}</a>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
+{% block extra_content %}
+  <div class="calculate" id="calculate">
+    <div class="calculate__wrap">
+      <div class="calculate__section">
+        <h2 class="calculate__section_title">{% trans "Согласно Закону Украины 'Об автомобильном транспорте'"%}</h2>
+        <div class="list">
+          <div class="list_namber">01</div>
+          <div class="list_text">{% trans "Ручную кладь, которая должна находиться в салоне автобуса у пассажира."%} <strong>{% trans "Вес ручной клади не должен превышать 5 кг, а габариты – 60x40x20 см."%}</strong></div>
+        </div>
+        <div class="list">
+          <div class="list_namber">02</div>
+          <div class="list_text">{% trans "Дополнительный багаж принимается к перевозке только при наличии свободного места в багажном отделении автобуса и за отдельную плату.<br> Свободное место в багажном отделении определяет водитель на посадке, принимая во
+            внимание общее количество пассажиров в автобусе, распределение по городам и другие факторы. Перевозчик имеет право отказать пассажиру в провозе дополнительного багажа."%}</div>
+        </div>
+        <div class="list">
+          <div class="list_namber">03</div>
+          <div class="list_text">{% trans "Размещение ручной клади в салоне автобуса не должна мешать свободному проходу пассажиров вдоль салона автобуса и не блокировать доступ к основным и аварийным выходам"%}</div>
+        </div>
+
+      </div>
+      <div class="calculate__section ">
+        <h3 class="calculate__section_subtitle">{% trans "За каждую единицу багажа взымается оплата в размере"%}:</h3>
+        <div class="calculate__list">
+          <div class="list_icon"><img src="/static/img/svg/box.svg" alt=""></div>
+          <div class="list_text">{% trans "Багаж размером 60x40x20"%}</div>
+          <div class="list_price">50грн</div>
+        </div>
+        <div class="calculate__list">
+          <div class="list_icon"><img src="/static/img/svg/box.svg" alt=""></div>
+          <div class="list_text">{% trans "Багаж размером 70x50x30"%}</div>
+          <div class="list_price">100грн</div>
+        </div>
+        <div class="calculate__list">
+          <div class="list_icon"><img src="/static/img/svg/box.svg" alt=""></div>
+          <div class="list_text">{% trans "Багаж размером 80x60x40"%}</div>
+          <div class="list_price">150грн</div>
+        </div>
+        <div class="list-info">
+          <div class="list_icon"><i class="fas fa-info"></i></div>
+          <div class="list_text">{% trans "Водитель не отвечает за потерю ценностей, находящихся в багажном отделении."%}</div>
+
+        </div>
+        <a class="btn btn-blue btn_send_conditions" href="#">{% trans "Принять условия"%}</a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="check_seat" id="check_seat">
+    <div class="check_seat__wrap">
+
+    </div>
+  </div>
+  <div id="tickets__disabled">
+    <div class="tickets__disabled_attention">
+      <div class="tickets__disabled_icon"><i class="fas fa-exclamation-circle"></i></div>
+      <p>{% trans "Для заказа места заполните форму."%}</p>
+    </div>
+  </div>
+
+  <div id="tickets__gone">
+    <div class="tickets__gone-wrap">
+      <div class="tickets__gone-wrap_line"></div>
+      <div class="tickets__gone-wrap_circle_left_t"></div>
+      <div class="tickets__gone-wrap_circle_left_b"></div>
+      <div class="tickets__gone-wrap_circle_t"></div>
+      <div class="tickets__gone-wrap_circle_b"></div>
+      <div class="tickets__gone_heder">
+        <div class="tickets__gone_logo">
+          <img class=" " src="/static/img/svg/logo_tisket.svg"/>
+        </div>
+        <div class="tickets__gone_top-right"></div>
+        <div class="tickets__gone_bottom-right"></div>
+      </div>
+      <div class="tickets__gone_main">
+        <div class="tickets__gone_box">
+          <div class="tickets__gone_title">{% trans "Платеж успешный!"%}</div>
+          <div class="tickets__gone_subtitle">{% trans "Ваш билет отправлено вам на почту"%}</div>
+        </div>
+        <a class="btn btn-blue" href="/">{% trans "На главную"%}</a>
+          <div class="tickets__gone_line"> </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="error_search">
+    <div class="tickets__disabled_attention">
+      <div class="tickets__disabled_icon"><i class="fas fa-exclamation-circle"></i></div>
+      <p>{% trans "Вы не выбрали ни одно место, пожалуйста выберите места!"%}</p>
+    </div>
+
+  </div>
+{% endblock extra_content %}

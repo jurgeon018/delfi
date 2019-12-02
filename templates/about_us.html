@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+  <div class="hero hero-while">
+    <div class="hero__wrap about_us ">
+      <div class="hero__section about_us_text">
+        <h1>{% trans "Кратко о нас" %}</h1>
+        <div class="hero__section_content ">
+          <p>
+            {% trans "Однажды, воспользовавшись нашими услугами, вы будете приятно удивлены комфортом и чистотой наших микроавтобусов, а также дополнительными приятными опциями. Это касается как машин на маршруте, так и на заказ." %}
+          </p>
+          <p>
+            {% trans "Под любой ваш запрос мы подберём лучшее решение для конкретно ваших потребностей - будь-то пассажирский или грузопассажирский микроавтобус Спринтер, автобусы разной вместимости, минивэн или простой легковой автомобиль. В нашем автопарке только лучшие автомобили! Любая длинная поездка превращается в увлекательное и комфортное приключение!" %}
+          </p>
+        </div>
+        <a class="btn btn-blue btn-license btn-hover" href="">{% trans "Лицензия" %}</a>
+      </div>
+      <div class="hero__section about_us_video">
+        <div class="video">
+          <img class="video_img" src="/static/img/about_us_video.jpg" alt="">
+          <div class="info-car-park__button">
+            <a href="https://www.youtube.com/embed/BErlMncOBhY" class="info-car-park__button_link btn__round pulse">
+              <div class="pulse-line"></div>
+              <span class="btn__round_block"></span>
+              <img src="/static/img/svg/play-solid.svg" class="btn__round_img" alt="">
+            </a>
+            <p>{% trans "Cмотреть видео" %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="full_bottom blue ">
+    <div class=" container-content advantages">
+      <div class="advantages__block">
+        <div class="advantages__block_img">
+          <img src="/static/img/svg/money.svg" alt="">
+        </div>
+        <div class="advantages__info">
+          <div class="advantages__info_title">{% trans "100 000" %}</div>
+          <div class="advantages__info_subtitle">{% trans "гривен секономлено благодоря нам!" %}</div>
+        </div>
+      </div>
+      <div class="advantages__block">
+        <div class="advantages__block_img">
+          <img src="/static/img/svg/money.svg" alt="">
+        </div>
+        <div class="advantages__info">
+          <div class="advantages__info_title">{% trans "3 000" %}</div>
+          <div class="advantages__info_subtitle">{% trans "фотографий сделали наши пасажиры воврема поездки" %}</div>
+        </div>
+      </div>
+      <div class="advantages__block">
+        <div class="advantages__block_img">
+          <img src="/static/img/svg/money.svg" alt="">
+        </div>
+        <div class="advantages__info">
+          <div class="advantages__info_title">{% trans "600" %}</div>
+          <div class="advantages__info_subtitle">{% trans "чоловек успели на следующий рейс благодоря нам!" %}</div>
+        </div>
+      </div>
+      <div class="advantages__block">
+        <div class="advantages__block_img">
+          <img src="/static/img/svg/money.svg" alt="">
+        </div>
+        <div class="advantages__info">
+          <div class="advantages__info_title">{% trans "5 000" %}</div>
+          <div class="advantages__info_subtitle">{% trans "успешных поездок" %}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container ">
+    <div class="container__header">
+      <div class="container__header_title">{% trans "Что говорят клиенты."%}</div>
+      <div class="container__header_subtitle">{% trans "Ми делаем все возможное для того чтобы Ваша поездка была максимально комфортной!"%}</div>
+      <div class="arrow-wrap customer-reviews__arrow">
+        <div class="arrow-prew customer-reviews_prew"><img src="/static/img/svg/prew-arrow.svg" alt=""></div>
+        <div class="arrow-next customer-reviews_next"><img src="/static/img/svg/next-arrow.svg" alt=""></div>
+      </div>
+    </div>
+    <div class="customer-reviews__wrap">
+      <div class="customer-reviews__card_wrap">
+        <div class="customer-reviews__card">
+          <div class="customer-reviews__card_img"><img src="/static/img/svg/reviews_ico.svg" alt=""></div>
+          <div class="customer-reviews__card_text">{% trans "Забронировала здесь поездку в Днепр. Все понравилось. Комфортабельное авто, опытный хороший водитель. Рекомендую"%}</div>
+        </div>
+      </div>
+      <div class="customer-reviews__card_wrap">
+        <div class="customer-reviews__card">
+          <div class="customer-reviews__card_img"><img src="/static/img/svg/reviews_ico.svg" alt=""></div>
+          <div class="customer-reviews__card_text">{% trans "Добросовестный перевозчик, знающий толк в своей деятельности по перевозки пассажиров. Рекомендую всем."%}" </div>
+        </div>
+      </div>
+      <div class="customer-reviews__card_wrap">
+        <div class="customer-reviews__card">
+          <div class="customer-reviews__card_img"><img src="/static/img/svg/reviews_ico.svg" alt=""></div>
+          <div class="customer-reviews__card_text">{% trans "Ехал в Киев с данными перевозчиком. Поездкой остался очень доволен! Очень комфортабельный автомобиль, вежливый водитель. И отъезд и прибытие в указанное время. Всем рекомендую!"%}</div>
+        </div>
+      </div>
+      <div class="customer-reviews__card_wrap">
+        <div class="customer-reviews__card">
+          <div class="customer-reviews__card_img"><img src="/static/img/svg/reviews_ico.svg" alt=""></div>
+          <div class="customer-reviews__card_text">{% trans "Забронировала здесь поездку в Днепр. Все понравилось. Комфортабельное авто, опытный хороший водитель. Рекомендую"%}</div>
+        </div>
+      </div>
+      <div class="customer-reviews__card_wrap">
+        <div class="customer-reviews__card">
+          <div class="customer-reviews__card_img"><img src="/static/img/svg/reviews_ico.svg" alt=""></div>
+          <div class="customer-reviews__card_text">{% trans "Добросовестный перевозчик, знающий толк в своей деятельности по перевозки пассажиров. Рекомендую всем."%}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="  ">
+    <div class=" container  ">
+      <div class="container__header">
+        <div class="container__header_title license_block">{% trans "Наши лицензии" %}</div>
+        <div class="container__header_subtitle">{% trans "Ми делаем все возможное для того чтобы Ваша поездка была максимально комфортной!"%}</div>
+      </div>
+      <div class="license__wrap">
+        <div class="license__item">
+          <div class="license__item_block">
+            <div class="license__item_block-content"></div>
+          </div>
+          <div class="license__item_img">
+            <a href="/static/img/licenziya_01.jpg" class="img_modal">
+              <img src="/static/img/licenziya_01.jpg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="license__item">
+          <div class="license__item_block">
+            <div class="license__item_block-content"></div>
+          </div>
+          <div class="license__item_img">
+            <a href="/static/img/licenziya_02.jpg" class="img_modal">
+              <img src="/static/img/licenziya_02.jpg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="license__item">
+          <div class="license__item_block">
+            <div class="license__item_block-content"></div>
+          </div>
+          <div class="license__item_img">
+            <a href="/static/img/licenziya_01.jpg" class="img_modal">
+              <img src="/static/img/licenziya_01.jpg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}
