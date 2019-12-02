@@ -17,8 +17,3 @@ class Feature(models.Model):
 
 
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 4ed6ed252d84ccee8d90005e9e5a44a8aeea2d97
