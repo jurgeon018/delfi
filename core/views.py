@@ -4,7 +4,8 @@ from core.models import (
   Order, Post, Bus, BusComment
 )
 from django.utils import timezone
-
+from django.views.decorators.gzip import gzip_page
+from django.views.decorators.cache import cache_page
 
 def test(request):
   request.session.cycle_key()
@@ -27,6 +28,8 @@ def order(request):
   return render(request, 'order.html', locals())
 
 
+@gzip_page
+@cache_page(60*15)
 def index(request):
   print(get_sk(request))
   bus_comments = BusComment.objects.all()

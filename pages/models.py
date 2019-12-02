@@ -1,7 +1,6 @@
 from django.db import models 
 
 
-
 class Page(models.Model):
     title = models.CharField(max_length=120)
     def __str__(self):
@@ -15,5 +14,6 @@ class Feature(models.Model):
     def __str__(self):
         return f"{self.page.title}, {self.name}, {self.value}"
     
+
 
 

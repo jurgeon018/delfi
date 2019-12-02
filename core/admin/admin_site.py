@@ -22,7 +22,6 @@ manager_admin_site.register(Question, QuestionAdmin)
 manager_admin_site.register(Post, PostAdmin)
 manager_admin_site.register(BusComment, BusCommentAdmin)
 manager_admin_site.register(Bus, BusAdmin)
-manager_admin_site.register(Page, PageAdmin)
 
 
 # admin.site.register(Direction)
