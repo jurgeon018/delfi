@@ -2,9 +2,9 @@
 {% load i18n %}
 {% block styles %}
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,500i,600,700,800,900&display=swap&subset=cyrillic" rel="stylesheet">
-<link rel="stylesheet" href="/static/css/normalize.min.css">
 
-
+  <link rel="stylesheet" href="/static/css/style_main.min.css">
+ 
 {% endblock styles %}
 {% block content %}
   <div class="hero">
@@ -100,7 +100,9 @@
     <div class="hero__footer">
         <div class="hero__footer_block">
             <p>{% trans "Узнать больше" %}</p>
-            <a class="scroll_our-servise" href="#our-servise"><div class="arrow"><i class="fas fa-angle-double-down"></i></div></a>
+            <a class="scroll_our-servise" href="#our-servise"><div class="arrow" style="   height: 14px;   width: 14px; ">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-double-down" class="svg-inline--fa fa-angle-double-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="#fff" d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z"></path></svg>
+            </div></a>
         </div>
     </div>
   </div>
@@ -352,7 +354,7 @@
 
     <link rel="stylesheet" href="/static/css/datepicker.min.css">
 
-  <link rel="stylesheet" href="/static/css/style_main.min.css">
+
 
   <link rel="stylesheet" href="/static/libs/fontawesome-free-5.11.2/css/new_all.min.css">
   <link rel="stylesheet" href="/static/css/jquery.fancybox.min.css">
@@ -366,7 +368,7 @@
 {% block scripts %}
 <script src="/static/js/jquery-3.4.1.min.js" type="text/javascript" ></script>
 <script src="/static/js/blazy.min.js" type="text/javascript"></script>
-<script src="/static/js/maskinput.min.js" type="text/javascript"></script>
+<script src="/static/js/maskinput.js" type="text/javascript"></script>
 <script src="/static/js/datepicker.min.js" type="text/javascript" ></script>
 <script src="/static/js/slick.min.js" type="text/javascript"></script>
 <script src="/static/js/jquery.fancybox.min.js" type="text/javascript"></script>
