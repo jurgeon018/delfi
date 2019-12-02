@@ -11,7 +11,7 @@ from datetime import datetime, timedelta
 from django.db import models
 from django.conf import settings 
 from django.utils.translation import ugettext as _
-
+from django.shortcuts import reverse 
 
 # %Y-%m-%d 2006-10-25
 # %m/%d/%Y 10/25/2006
@@ -156,22 +156,32 @@ class Post(models.Model):
   class Meta:
     verbose_name = _('Пост')
     verbose_name_plural = _('Посты')
+    # app_label = 'pages'
+  def get_absolute_url(self):
+      return reverse("post_detail", kwargs={"pk": self.pk})
+  
 
 
 
 
 
 class BusGood(models.Model):
+  class Meta:
+    verbose_name='Удобство автобуса'; verbose_name_plural="Удобства автобуса"; 
   text = models.TextField()
   bus  = models.ForeignKey(to="core.Bus", on_delete=models.CASCADE, related_name="goods", blank=True, null=True)
 
 
 class BusComment(models.Model):
+  class Meta:
+    verbose_name='Отзыв к автобусу'; verbose_name_plural="Отзывы к автобусу"; 
   text = models.TextField()
   bus  = models.ForeignKey(to='core.Bus', on_delete=models.CASCADE, related_name='comments', blank=True, null=True)
 
 
 class Bus(models.Model):
+  class Meta:
+    verbose_name='Автобус'; verbose_name_plural="Автобусы"; 
   name  = models.CharField(max_length=120)
   photo = models.ImageField()
   def __str__(self):

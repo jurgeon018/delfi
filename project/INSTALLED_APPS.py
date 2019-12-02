@@ -8,6 +8,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django.contrib.redirects',
     'django.contrib.flatpages',
 
@@ -17,5 +18,6 @@ INSTALLED_APPS = [
     'autotranslate',
     # 'import_export',
 
-    'core',
+    'core.apps.CoreConfig',
+    'core.apps.BlogConfig',
 ]
