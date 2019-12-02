@@ -24,6 +24,7 @@ manager_admin_site.register(BusComment, BusCommentAdmin)
 manager_admin_site.register(Bus, BusAdmin)
 
 
+
 # admin.site.register(Direction)
 # admin.site.register(Time)
 # admin.site.register(Stop)

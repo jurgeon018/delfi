@@ -17,7 +17,7 @@ INSTALLED_APPS = [
     'rosetta',
     'autotranslate',
     # 'import_export',
-
-    'core.apps.CoreConfig',
-    'core.apps.BlogConfig',
+    'core',
+    'pages',
+    
 ]
