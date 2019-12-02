@@ -8,3 +8,5 @@ admin.site.register(Contact)
 admin.site.register(Park)
 admin.site.register(Blog)
 admin.site.register(Order)
+
+

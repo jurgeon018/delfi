@@ -1,11 +1,13 @@
 from django.shortcuts import (render, get_object_or_404)
 from core.utils import (get_sk)
-from core.models import (
-  Order, Post, Bus, BusComment
-)
+from core.models import *
+from pages.models import * 
 from django.utils import timezone
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.cache import cache_page
+
+
+
 
 def test(request):
   request.session.cycle_key()
@@ -28,37 +30,3 @@ def order(request):
   return render(request, 'order.html', locals())
 
 
-@gzip_page
-@cache_page(60*15)
-def index(request):
-  bus_comments = BusComment.objects.all()
-  return render(request, 'index.html', locals())
-
-
-def park(request):
-  buses = Bus.objects.all()
-  print(get_sk(request))
-  return render(request, 'park.html', locals())
-
-
-def about_us(request):
-  print(get_sk(request))
-  return render(request, 'about_us.html', locals())
-
-
-def contact_us(request):
-  return render(request, 'contact_us.html', locals())
-
-
-def blog(request):
-  posts = Post.objects.all()
-  return render(request, 'blog.html', locals())
-
-
-def post_detail(request, pk):
-  post = get_object_or_404(Post, pk=pk)
-  return render(request, 'post_detail.html', locals())
-
-
-def thank_you(request):
-  return render(request, 'thank_you.html', locals())

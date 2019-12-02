@@ -1,16 +1,9 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from tinymce.models import HTMLField
-from django.db import models
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django_countries.fields import CountryField
-from django_countries.widgets import CountrySelectWidget
-from django.db import models
 from datetime import datetime, timedelta
-from django.db import models
 from django.conf import settings 
-from django.utils.translation import ugettext as _
 from django.shortcuts import reverse 
 
 # %Y-%m-%d 2006-10-25
@@ -133,52 +126,6 @@ class Question(models.Model):
   class Meta:
     verbose_name = _("Вопрос")
     verbose_name_plural = _("Вопросы")
-
-
-
-
-class Post(models.Model):
-  title   = models.CharField(verbose_name=_("Заголовок"),max_length=120, blank=True, null=True)
-  content = HTMLField(verbose_name=_("Контент"), blank=True, null=True)  
-  slug    = models.SlugField(verbose_name=_("Ссылка"), blank=True, null=True, max_length=255)
-  image   = models.ImageField(verbose_name=_("Картинка"), blank=True, null=True)
-  created = models.DateTimeField(verbose_name=_("Создан"), auto_now_add=True, auto_now=False)
-  updated = models.DateTimeField(verbose_name=_("Обновлен"), auto_now_add=False, auto_now=True)
-  def __str__(self):
-    return f'{self.title}'
-  class Meta:
-    verbose_name = _('Пост')
-    verbose_name_plural = _('Посты')
-    # app_label = 'pages'
-  def get_absolute_url(self):
-      return reverse("post_detail", kwargs={"pk": self.pk})
-  
-
-
-
-
-
-class BusGood(models.Model):
-  class Meta:
-    verbose_name='Удобство автобуса'; verbose_name_plural="Удобства автобуса"; 
-  text = models.TextField()
-  bus  = models.ForeignKey(to="core.Bus", on_delete=models.CASCADE, related_name="goods", blank=True, null=True)
-
-
-class BusComment(models.Model):
-  class Meta:
-    verbose_name='Отзыв к автобусу'; verbose_name_plural="Отзывы к автобусу"; 
-  text = models.TextField()
-  bus  = models.ForeignKey(to='core.Bus', on_delete=models.CASCADE, related_name='comments', blank=True, null=True)
-
-
-class Bus(models.Model):
-  class Meta:
-    verbose_name='Автобус'; verbose_name_plural="Автобусы"; 
-  name  = models.CharField(max_length=120)
-  photo = models.ImageField()
-  def __str__(self):
-    return self.name
 
 
 
