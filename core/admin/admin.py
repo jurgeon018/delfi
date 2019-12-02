@@ -12,6 +12,11 @@ import csv
 
 # from import_export.admin import ImportExportModelAdmin
 
+class PageAdmin(admin.ModelAdmin):
+  pass
+
+
+
 class ExportCsvMixin:
     def export_as_csv(self, request, queryset):
         meta = self.model._meta

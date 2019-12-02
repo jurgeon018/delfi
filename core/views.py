@@ -56,7 +56,6 @@ def blog(request):
 
 def post_detail(request, pk):
   post = get_object_or_404(Post, pk=pk)
-  comments = post.comments.filter(moderated=True)
   return render(request, 'post_detail.html', locals())
 
 

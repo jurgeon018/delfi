@@ -12,12 +12,23 @@ from core.admin import (
 )
 from filebrowser.sites import site
 from django.views.i18n import JavaScriptCatalog
+from django.contrib.sitemaps.views import sitemap 
+from django.views.generic import TemplateView
+from core.sitemaps import PostSitemap, StaticViewSitemap
+
+sitemaps = {
+  'posts': PostSitemap,
+  'static':StaticViewSitemap,
+}
+
 
 
 urlpatterns = [
   path('rosetta/',           include('rosetta.urls')),
   path('tinymce/',           include('tinymce.urls')),
   path('i18n/',              include('django.conf.urls.i18n')),
+  path('robots.txt/',        TemplateView.as_view(template_name="robots.txt"), name='robots'),
+  path('sitemap.xml/',       sitemap, {'sitemaps':sitemaps}),
   path('jsi18n/',            JavaScriptCatalog.as_view(), name='javascript-catalog'),
   path('admin/filebrowser/', site.urls),
   path('set_lang/<lang>/',   set_lang,       name="set_lang"),
