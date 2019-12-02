@@ -135,13 +135,6 @@ class Question(models.Model):
     verbose_name_plural = _("Вопросы")
 
 
-class Page(models.Model):
-  name  = models.CharField(max_length=120, blank=True, null=True)
-  title = models.CharField(max_length=120, blank=True, null=True)
-  desc  = models.CharField(max_length=120, blank=True, null=True)
-  url   = models.CharField(max_length=120, blank=True, null=True)
-  def __str__(self):
-    return f'{self.name}|{self.url}|{self.title}'
 
 
 class Post(models.Model):
