@@ -17,3 +17,25 @@ class Feature(models.Model):
 
 
 
+
+
+
+class Index(models.Model):
+    class Meta:
+        verbose_name = ''; verbose_name=""; 
+class About(models.Model):
+    class Meta:
+        verbose_name = ''; verbose_name=""; 
+class Contact(models.Model):
+    class Meta:
+        verbose_name = ''; verbose_name=""; 
+class Park(models.Model):
+    class Meta:
+        verbose_name = ''; verbose_name=""; 
+class Blog(models.Model):
+    class Meta:
+        verbose_name = ''; verbose_name=""; 
+class Order(models.Model):
+    class Meta:
+        verbose_name = ''; verbose_name=""; 
+

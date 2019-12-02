@@ -31,9 +31,7 @@ def order(request):
 @gzip_page
 @cache_page(60*15)
 def index(request):
-  print(get_sk(request))
   bus_comments = BusComment.objects.all()
-  print(bus_comments)
   return render(request, 'index.html', locals())
 
 
