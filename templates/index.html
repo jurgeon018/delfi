@@ -4,7 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,500i,600,700,800,900&display=swap&subset=cyrillic" rel="stylesheet">
 
   <link rel="stylesheet" href="/static/css/style_main.min.css">
- 
+
 {% endblock styles %}
 {% block content %}
   <div class="hero">
@@ -24,7 +24,7 @@
                     <BR>
                     <BR>{% trans "В нашем автопарке только лучшие автомобили! Любая длинная поездка превращается в увлекательное и комфортное приключение!" %}</p>
             </div>
-            <a class="btn btn-white btn-white-anime btn_link" href="">{% trans "Купить билет" %}</a>
+            <a class="btn btn-white btn-white-anime btn_link" href="/park/">{% trans "Купить билет" %}</a>
         </div>
         <div class="hero__section">
             <div class="hero__form" data-value="dk">
@@ -368,10 +368,10 @@
 {% block scripts %}
 <script src="/static/js/jquery-3.4.1.min.js" type="text/javascript" ></script>
 <script src="/static/js/blazy.min.js" type="text/javascript"></script>
-<script src="/static/js/maskinput.js" type="text/javascript"></script>
+<script src="/static/js/maskinput.min.js" type="text/javascript"></script>
 <script src="/static/js/datepicker.min.js" type="text/javascript" ></script>
 <script src="/static/js/slick.min.js" type="text/javascript"></script>
 <script src="/static/js/jquery.fancybox.min.js" type="text/javascript"></script>
-<script src="/static/js/script.min.js" type="text/javascript"></script>
+<script src="/static/js/script.js" type="text/javascript"></script>
 <!-- <script src="/static/js/order_bus.js" type="text/javascript"></script> -->
 {% endblock scripts %}

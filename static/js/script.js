@@ -1,7 +1,3 @@
-
-
-
-
   function hero_form(element) {
     if (element.length > 0) {
       var SITE_NAME = window.location.origin
@@ -208,24 +204,11 @@
     if (day.length < 2) day = '0' + day;
     return [year, month, day].join('-');
   }
-
   var forEach = function forEach(array, callback, scope) {
     for (var i = 0; i < array.length; i++) {
       callback.call(scope, i, array[i]); // passes back stuff we need
     }
   };
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function _defineProperty(obj, key, value) {
@@ -257,13 +240,39 @@ function _defineProperty(obj, key, value) {
 //
 //            imageObserver.observe(v);
 //    })
+console.log("crash");
 $(document).ready(function() {
   var _$$slick;
   var bLazy = new Blazy({
-          offset: 100 // Loads images 100px before they're visible
-      });
+    offset: 100 // Loads images 100px before they're visible
+  });
 
-        hero_form(document.getElementsByClassName('hero__form'));
+  hero_form(document.getElementsByClassName('hero__form'));
+
+  $('.btn_directions_dk').on('click',function(){
+    event.preventDefault();
+    sessionStorage.buton_send_hero_form = 'send';
+    sessionStorage.direction_hero_form = 'dk';
+    location.href="/order/";
+  })
+  $('.btn_directions_dl').on('click',function(){
+    event.preventDefault();
+    sessionStorage.buton_send_hero_form = 'send';
+    sessionStorage.direction_hero_form = 'kl';
+    location.href="/order/";
+  })
+  $('.btn_directions_europe').on('click',function(){
+    event.preventDefault();
+    sessionStorage.buton_send_hero_form = 'send';
+    sessionStorage.direction_hero_form = 'europe';
+    location.href="/order/";
+  })
+  $('.btn_directions_bus_order').on('click',function(){
+    event.preventDefault();
+    sessionStorage.buton_send_hero_form = 'send';
+    sessionStorage.direction_hero_form = 'bus_order';
+    location.href="/order/";
+  })
 
 
   $('.btn_more_park').on('click', function() {

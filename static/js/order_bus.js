@@ -26,15 +26,13 @@ $(document).ready(function() {
   // active tabs
   // ****************
 if (document.getElementsByClassName('tab__box').length > 0) {
-  if (sessionStorage.tabs_items !== undefined) {
-
-  } else {
-    if (sessionStorage.buton_send_hero_form === 'send') {
-      sessionStorage.tabs_items = document.querySelector('[data-value="' + sessionStorage.direction_hero_form + '"]').id
+  if (sessionStorage.buton_send_hero_form === 'send') {
+        sessionStorage.tabs_items = document.querySelector('[data-value="' + sessionStorage.direction_hero_form + '"]').id
+  }else {
+    if (sessionStorage.tabs_items !== undefined) {
     } else {
-      sessionStorage.tabs_items = document.getElementsByClassName('tab__item')[0].id
+        sessionStorage.tabs_items = document.getElementsByClassName('tab__item')[0].id
     }
-
   }
 }
 
@@ -66,6 +64,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
 
     forEach(tablinks, function(index, value) {
       value.onclick = function(event) {
+        sessionStorage.tabs_items = value.id;
         active_tabs(tablinks, tabcontent, event.target.id);
       };
     });
@@ -88,8 +87,9 @@ if (document.getElementsByClassName('tab__box').length > 0) {
     });
 
     var tabLinksactive, tabBoxContent;
-
+console.log(tab_id_active);
     tabLinksactive = document.getElementById(tab_id_active);
+    console.log(tabLinksactive);
     tabLinksactive.classList.add('tab__item-active');
 
     tabBoxContent = document.querySelector('[data-tab="' + tab_id_active + '"]');
