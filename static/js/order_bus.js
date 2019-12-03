@@ -124,6 +124,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
 
 
   function reservation_seat(element, direction_value, cites_arrival = false, cites_departure = false, date_hero_form = false, rerouting = false) {
+    console.log(direction_value);
     var SITE_NAME = window.location.origin
     var order_info_url = SITE_NAME + '/set_params/';
     var data = {};
@@ -849,6 +850,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
     var city__select__input = tabactiveBoxContent.querySelectorAll('.input-tickets__box-sites input');
     var sitis_json_value = $(city__select__input).serializeArray();
     var city_departion_rerouting, city_arrival_rerouting;
+
     sitis_json_value.forEach(function(item, i) {
       if (item['name'] == "arrival") {
         city_departion_rerouting = item['value'];
@@ -869,7 +871,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
 
     var tabcontent = document.getElementsByClassName('tab__box');
     var tablinks = document.getElementsByClassName('tab__item');
-    reservation_seat(tabactiveBoxContent, tab_item_rerouting_value, city_arrival_rerouting, city_departion_rerouting, false, true);
+    reservation_seat(tabactiveBoxContent, tab_item_rerouting_value_rout, city_arrival_rerouting, city_departion_rerouting, false, true);
 
 
 

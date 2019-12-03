@@ -179,7 +179,7 @@ function form_ajax_static_class(form,url_form){
       form_json[obj.name] = obj.value;
 
     });
-console.log("crash");
+ 
 
     $.ajax({
       url: url_form,
