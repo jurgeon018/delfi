@@ -63,7 +63,7 @@ def test_mail(request):
 
 
 
-
+@csrf_exempt
 def create_bus_comment(request, bus_pk):
   print(request.POST)
   BusComment.objects.create(
