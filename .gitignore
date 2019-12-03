@@ -1,7 +1,7 @@
 static_root/
 # Byte-compiled / optimized / DLL files
 __pycache__/
-*.py[cod]
+oy*.py[cod]
 *$py.class
 
 # C extensions
