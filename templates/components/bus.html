@@ -51,7 +51,7 @@
               </div>
               <div data-id="#two" class="tabs-content">
                 <div class="form_coments">
-                  <form class="" action="{% url 'create_bus_comment' bus.pk%}" method="POST">
+                  <form class="form__coments_buss" action="{% url 'create_bus_comment' bus.pk%}" method="POST">
                     {% csrf_token %}
                     <div class="contact-us__form_wrap">
                       <div class="input-tickets__grops ">
@@ -131,16 +131,16 @@
                           </div>
                         </div>
                       </div>
-               
+
                       <div class="input-tickets__grops input-tickets__grops-100">
                         <div class="input-tickets__grops_title">{% trans "Оставьте свое сообщение" %}</div>
                         <div class="input-tickets__main">
-                          <textarea class="contact-us__textarea" name="text" rows="6" cols="80"></textarea>
+                          <textarea class="contact-us__textarea" name="text" rows="4" cols="80"></textarea>
                         </div>
                       </div>
                     </div>
                     <div class="  contact-us__control">
-                      <button type="submit" class=" btn btn-blue">{% trans "Отправить сообщение" %}</button>
+                      <input  value='{% trans "Отправить сообщение" %}' type="submit" class=" btn btn-blue"></input>
                     </div>
                   </form>
                 </div>
