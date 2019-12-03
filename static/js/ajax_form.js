@@ -17,6 +17,14 @@ if(document.getElementById('bus_bus_order')){
 if(document.getElementById('form_contact_form')){
   valide_form('#form_contact_form','.input-tickets__grops','/create_contact/');
 }
+if(document.getElementsByClassName('form__coments_buss').length>0){
+  $('.form__coments_buss').each(function(index, form) {
+    // console.log(form.action);
+    // console.log();
+    valide_form_class(form,form.action);
+  })
+//   valide_form_class('.form__coments_buss','.input-tickets__grops' );
+}
 
 }
 
@@ -88,6 +96,136 @@ var url_form_tab  = url_form;
   }
 
 }
+
+
+
+
+function valide_form_class(form,url_form){
+  var lang_site;
+  var errore_text = {};
+
+  lang_site = location_leng();
+  switch (lang_site) {
+    case 'uk':
+      errore_text.required = 'Поле обов\'язково для заповнення';
+      errore_text.email = 'Поле має містити email';
+      break;
+    case 'ru':
+      errore_text.required = 'Поле обязательно для заполнения';
+      errore_text.email = 'Поле должно содержать email';
+      break;
+    case 'en':
+      errore_text.required = 'The field is required';
+      errore_text.email = 'The field must contain an email';
+      break;
+    default:
+      errore_text.required = 'Поле обов\'язково для заповнення.';
+      errore_text.email = 'Поле має містити email.';
+  }
+
+
+  $(form).validate({
+    errorPlacement: function(event, validator) {
+      console.log(validator);
+
+      $(validator).parents('.input-tickets__grops').append($(event));
+
+    },
+    rules: {
+      email: {
+        required: true,
+        email: true,
+      },
+      phone: {
+        required: true,
+
+      }
+    },
+
+    messages: {
+      email: {
+        required: errore_text.required,
+        email: errore_text.email
+      },
+      phone: {
+        required: errore_text.required,
+      }
+    },
+
+    submitHandler: function(form) {
+
+       form_ajax_static_class(form,url_form);
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+function form_ajax_static_class(form,url_form){
+
+    var form_input, form_json={},url_form;
+    var SITE_NAME = window.location.origin
+    var url_form =   url_form;
+    form_input = $(form).serializeArray();
+    var flag_chesk = 0;
+    $(form_input).each(function(index, obj) {
+      form_json[obj.name] = obj.value;
+
+    });
+console.log("crash");
+
+    $.ajax({
+      url: url_form,
+      type: 'POST',
+      data:form_input,
+      async: true,
+      success: function(order) {
+        $.fancybox.open({
+          src: '#form_send_done_comment',
+          type: 'inline',
+          touch: false,
+          autoStart: false,
+          padding: 0,
+          hideOnClose: false,
+          showCloseButton: true,
+          opts: {
+            afterShow: function(instance, current) { }
+          }
+        })
+
+
+      }
+    })
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function form_ajax_static(id_form,url_form){
 
 
@@ -100,8 +238,8 @@ function form_ajax_static(id_form,url_form){
     form_json[obj.name] = obj.value;
 
   });
-console.log(url_form);
-console.log(form_input);
+// console.log(url_form);
+// console.log(form_input);
 
   $.ajax({
     url: url_form,
@@ -109,7 +247,6 @@ console.log(form_input);
     data:form_input,
     async: true,
     success: function(order) {
-      console.log(order);
       $.fancybox.open({
         src: '#form_send_done',
         type: 'inline',
@@ -122,6 +259,8 @@ console.log(form_input);
           afterShow: function(instance, current) { }
         }
       })
+
+
     }
   })
 
