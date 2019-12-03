@@ -7,6 +7,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('order', '__first__'),
     ]
 
     operations = [
@@ -23,41 +24,11 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Order',
+            name='Page',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('full_name', models.CharField(blank=True, max_length=120, null=True, verbose_name='Полное имя')),
-                ('phone', models.CharField(blank=True, max_length=120, null=True, verbose_name='Номер телефона')),
-                ('email', models.EmailField(blank=True, max_length=254, null=True, verbose_name='Емайл')),
-                ('departion', models.CharField(blank=True, max_length=120, null=True, verbose_name='Город отправления')),
-                ('arrival', models.CharField(blank=True, max_length=120, null=True, verbose_name='Город прибытия')),
-                ('sk', models.CharField(blank=True, max_length=120, null=True, unique=True)),
-                ('ordered', models.BooleanField(default=False, verbose_name='завершен')),
-                ('pdf', models.FileField(blank=True, null=True, upload_to='pdfs/', verbose_name='Билет')),
-                ('created', models.DateTimeField(auto_now_add=True, null=True, verbose_name='Создан')),
-                ('updated', models.DateTimeField(auto_now=True, null=True, verbose_name='Обновлен')),
+                ('title', models.CharField(max_length=120)),
             ],
-            options={
-                'verbose_name': 'Заказ',
-                'verbose_name_plural': 'Заказы',
-            },
-        ),
-        migrations.CreateModel(
-            name='Question',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=120, verbose_name='Имя')),
-                ('email', models.EmailField(max_length=254, verbose_name='Емайл')),
-                ('phone', models.CharField(max_length=120, verbose_name='Телефон')),
-                ('question', models.CharField(max_length=120, verbose_name='Тип вопроса')),
-                ('message', models.TextField(verbose_name='Вопрос')),
-                ('created', models.DateTimeField(auto_now_add=True, null=True, verbose_name='Создан')),
-                ('updated', models.DateTimeField(auto_now=True, null=True, verbose_name='Обновлен')),
-            ],
-            options={
-                'verbose_name': 'Вопрос',
-                'verbose_name_plural': 'Вопросы',
-            },
         ),
         migrations.CreateModel(
             name='Race',
@@ -123,7 +94,7 @@ class Migration(migrations.Migration):
             name='SeatInOrder',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('order', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='seats', to='core.Order', verbose_name='Заказ')),
+                ('order', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='seats', to='order.Order', verbose_name='Заказ')),
                 ('race', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='seats', to='core.Race', verbose_name='Рейс')),
                 ('seat', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='core.Seat', verbose_name='Место')),
             ],
@@ -138,32 +109,13 @@ class Migration(migrations.Migration):
             field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='core.Time', verbose_name='Время отправки'),
         ),
         migrations.CreateModel(
-            name='Payment',
+            name='Feature',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('status', models.CharField(blank=True, max_length=120, null=True)),
-                ('ip', models.CharField(blank=True, max_length=120, null=True)),
-                ('amount', models.CharField(blank=True, max_length=120, null=True)),
-                ('currency', models.CharField(blank=True, max_length=120, null=True)),
-                ('sender_phone', models.CharField(blank=True, max_length=120, null=True)),
-                ('sender_first_name', models.CharField(blank=True, max_length=120, null=True)),
-                ('sender_last_name', models.CharField(blank=True, max_length=120, null=True)),
-                ('sender_card_mask2', models.CharField(blank=True, max_length=120, null=True)),
-                ('sender_card_bank', models.CharField(blank=True, max_length=120, null=True)),
-                ('sender_card_type', models.CharField(blank=True, max_length=120, null=True)),
-                ('sender_card_country', models.CharField(blank=True, max_length=120, null=True)),
-                ('timestamp', models.DateTimeField(auto_now_add=True, null=True, verbose_name='Время')),
-                ('order', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='core.Order', verbose_name='Заказ')),
+                ('name', models.CharField(max_length=50)),
+                ('value', models.TextField()),
+                ('page', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.Page', verbose_name='features')),
             ],
-            options={
-                'verbose_name': 'Оплата',
-                'verbose_name_plural': 'Оплата',
-            },
-        ),
-        migrations.AddField(
-            model_name='order',
-            name='race',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, related_name='orders', to='core.Race', verbose_name='Рейс'),
         ),
         migrations.AddField(
             model_name='direction',
@@ -176,5 +128,3 @@ class Migration(migrations.Migration):
             field=models.ManyToManyField(blank=True, null=True, to='core.Time'),
         ),
     ]
-
-
