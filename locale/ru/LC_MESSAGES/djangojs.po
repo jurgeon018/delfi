@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 18:06+0200\n"
+"POT-Creation-Date: 2019-12-03 20:14+0200\n"
 "PO-Revision-Date: 2019-11-25 17:07+0202\n"
 "Last-Translator: b'  <>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,14 +21,12 @@ msgstr ""
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: static/js/order_bus.js:844
+#: static/js/order_bus.js:798 static/js/order_bus_es6.js:878
 msgid "Всі ваші місця доступні для бронювання!"
 msgstr "Все ваши места доступны для бронирования"
 
-#: static/js/order_bus.js:941
-msgid "Місце під номером: "
-msgstr "Место под номером:"
+#~ msgid "Місце під номером: "
+#~ msgstr "Место под номером:"
 
-#: static/js/order_bus.js:961
-msgid " зайняте"
-msgstr "занято"
+#~ msgid " зайняте"
+#~ msgstr "занято"
