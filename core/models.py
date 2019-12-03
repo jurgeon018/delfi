@@ -18,6 +18,10 @@ from django.shortcuts import reverse
 # %H:%M    14:30
 
 
+
+
+
+
 class Time(models.Model):
   time = models.TimeField("Время рейса", blank=True, null=True)
   def __str__(self): return f'{self.time}'
@@ -121,7 +125,7 @@ class Payment(models.Model):
     return f'{self.order}|{self.amount}|{self.currency}'
   class Meta: 
     app_label = "order"
-    verbose_name = 'Оплата'; verbose_name_plural = 'Оплата'; 
+    verbose_name = 'Оплата'; verbose_name_plural = 'Оплаты'; 
 
 
 
@@ -248,6 +252,13 @@ class Service(models.Model):
   class Meta:
       app_label = 'pages'
       verbose_name = 'Услуги'; verbose_name_plural="Услуги"; 
+
+
+
+
+
+
+
 
 
 

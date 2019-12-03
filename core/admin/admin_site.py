@@ -10,29 +10,34 @@ class ManagerAdmin(admin.AdminSite):
 
 manager_admin_site = ManagerAdmin(name='manager_admin_site')
 
-manager_admin_site.register(Direction)
-manager_admin_site.register(Time)
-manager_admin_site.register(Stop)
-manager_admin_site.register(Seat)
+# core 
+manager_admin_site.register(Direction, DirectionAdmin)
+manager_admin_site.register(Time, TimeAdmin)
+manager_admin_site.register(Stop, StopAdmin)
+manager_admin_site.register(Seat, SeatAdmin)
 manager_admin_site.register(SeatInOrder, SeatInOrderAdmin)
 manager_admin_site.register(Race, RaceAdmin)
 
-manager_admin_site.register(Index)
-manager_admin_site.register(About)
-manager_admin_site.register(Park)
-manager_admin_site.register(Blog)
-manager_admin_site.register(Service)
+# pages 
+manager_admin_site.register(Index, IndexAdmin)
+manager_admin_site.register(About, AboutAdmin)
+manager_admin_site.register(Park, ParkAdmin)
+manager_admin_site.register(Blog, BlogAdmin)
+manager_admin_site.register(Service, ServiceAdmin)
 
-manager_admin_site.register(BusComment)
-manager_admin_site.register(BusGood)
-manager_admin_site.register(Bus)
+# content
+manager_admin_site.register(Bus, BusAdmin)
+manager_admin_site.register(BusGood, BusGoodAdmin)
+manager_admin_site.register(BusComment, BusCommentAdmin)
 manager_admin_site.register(Post, PostAdmin)
 
-manager_admin_site.register(Order)
-manager_admin_site.register(Payment)
-manager_admin_site.register(Contact)
-manager_admin_site.register(EuropeContact)
-manager_admin_site.register(BusContact)
+
+# order 
+manager_admin_site.register(Order, OrderAdmin)
+manager_admin_site.register(Payment, PaymentAdmin)
+manager_admin_site.register(Contact, ContactAdmin)
+manager_admin_site.register(EuropeContact, EuropeContactAdmin)
+# manager_admin_site.register(BusContact, BusContactAdmin)
 
 
 

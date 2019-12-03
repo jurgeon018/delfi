@@ -15,37 +15,14 @@ from django.views.decorators.cache import cache_page
 
 
 
-def test(request):
+
+def order(request):
   request.session.cycle_key()
-  Order.objects.get_or_create(sk=get_sk(request))
-  created_time = timezone.now()-timezone.timedelta(minutes=20)
+  created_time = timezone.now()-timezone.timedelta(minutes=2)
   orders = Order.objects.filter(
     created__lte=created_time,
     ordered=False
   ).delete()
-  return render(request, 'test.html', locals())
-
-
-def order(request):
-  request.session.cycle_key()
-  # created_time = timezone.now()-timezone.timedelta(minutes=20)
-  # orders = Order.objects.filter(
-  #   created__lte=created_time,
-  #   ordered=False
-  # ).delete()
-  return render(request, 'order.html', locals())
-
-
-
-def order(request):
-  request.session.cycle_key()
-  created_time = timezone.now()-timezone.timedelta(minutes=20)
-  orders = Order.objects.filter(
-    created__lte=created_time,
-    ordered=False
-  ).delete()
-
-
   return render(request, 'order.html', locals())
 
 
