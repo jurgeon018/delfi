@@ -12,10 +12,6 @@ from django.views.decorators.cache import cache_page
 
 
 
-
-
-
-
 def order(request):
   request.session.cycle_key()
   created_time = timezone.now()-timezone.timedelta(minutes=2)
