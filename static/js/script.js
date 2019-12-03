@@ -361,7 +361,12 @@ $(document).ready(function() {
     e.preventDefault();
     $('.nav__menu_sub').toggleClass('main-menu__sub-active');
   });
-
+  $("#order_tiskets").on('click', function() {
+    if (document.documentElement.clientWidth < 781) {
+      console.log("crash");
+      location.href = "/order/";
+    }
+  })
   function hasClass(element, className) {
     return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
   }

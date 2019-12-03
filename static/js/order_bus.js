@@ -44,7 +44,13 @@ if (document.getElementsByClassName('tab__box').length > 0) {
     }
 
   }
+  function pay_tisket() {
+    $('.pay_tisket').on('click', function() {
+      event.preventDefault();
 
+      check_seat_buss();
+    });
+  }
 
   function tabevent(box, item, tab_active_id, cites_arrival = false, cites_departure = false, date = false) {
     var info_tabs = null;
@@ -1020,6 +1026,7 @@ console.log(tab_id_active);
     if (document.documentElement.clientWidth < 781) {
       var steps = $('.tab__box-active').find(".input-tickets__box");
       var count = steps.length;
+
       steps.each(function(i) {
         var page_step = i + 1;
 
@@ -1033,6 +1040,7 @@ console.log(tab_id_active);
           $(this).wrap("<div class='fieldset__box' id='step" + i + "'></div>");
 
           if (i == 0) {
+
             createNextButton(i); // to do
 
             $('.tab__box-active').find("#step" + i).show();
