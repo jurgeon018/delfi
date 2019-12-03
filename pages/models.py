@@ -1,10 +1,7 @@
 from django.db import models 
 from tinymce.models import HTMLField
 from django.utils.translation import ugettext_lazy as _
-<<<<<<< HEAD
 from django.shortcuts import reverse
-=======
->>>>>>> fee366e55bb6a84399b51967e46e7a3435802310
 
 
 class Post(models.Model):
