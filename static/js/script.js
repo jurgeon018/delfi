@@ -247,6 +247,37 @@ $(document).ready(function() {
     offset: 100 // Loads images 100px before they're visible
   });
 
+  $(".license__wrap").slick({
+    dots: true,
+    infinite: true,
+    speed: 300,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    nextArrow: '.customer-reviews_next',
+    prevArrow: '.customer-reviews_prew',
+    responsive: [{
+      breakpoint: 1100,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        // infinite: true,
+        dots: false
+      }
+    }, {
+      breakpoint: 850,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    }, {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }]
+  });
+
   hero_form(document.getElementsByClassName('hero__form'));
 
   $('.btn_directions_dk').on('click',function(){
@@ -737,36 +768,7 @@ $(document).ready(function() {
       Width: 660
     });
   });
-  $(".license__wrap").slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    nextArrow: '.customer-reviews_next',
-    prevArrow: '.customer-reviews_prew',
-    responsive: [{
-      breakpoint: 1100,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        // infinite: true,
-        dots: false
-      }
-    }, {
-      breakpoint: 850,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    }, {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }]
-  });
+
   $(".bus-slider").slick((_$$slick = {
     dots: true,
     infinite: true,
