@@ -10,7 +10,7 @@ from core.utils import *
 from django.contrib import messages
 from datetime import datetime, date, time, timedelta
 from django.utils.translation import ugettext as _
-from pages.models import *
+
 
 
 

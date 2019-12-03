@@ -17,7 +17,10 @@ INSTALLED_APPS = [
     'rosetta',
     'autotranslate',
     # 'import_export',
-    'core',
-    'pages',
+    'core.apps.CoreConfig',
+    'pages.apps.PageConfig',
+    'content.apps.ContentConfig',
+    'order.apps.OrderConfig',
+    
 
 ]

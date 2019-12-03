@@ -5,6 +5,11 @@ from django.contrib.auth import get_user_model
 from datetime import datetime, timedelta
 from django.conf import settings 
 from django.shortcuts import reverse 
+from django.db import models 
+from tinymce.models import HTMLField
+from django.utils.translation import ugettext_lazy as _
+from django.shortcuts import reverse
+
 
 # %Y-%m-%d 2006-10-25
 # %m/%d/%Y 10/25/2006
@@ -52,22 +57,6 @@ class Race(models.Model):
   class Meta: verbose_name = 'Рейс'; verbose_name_plural = 'Рейсы'
 
 
-class SeatInOrder(models.Model):
-  seat  = models.ForeignKey('core.Seat', verbose_name="Место" ,blank=True, null=True, on_delete=models.CASCADE)
-  order = models.ForeignKey('core.Order',verbose_name="Заказ" ,related_name='seats', blank=True, null=True, on_delete=models.CASCADE)
-  race  = models.ForeignKey('core.Race', verbose_name="Рейс" ,related_name='seats', blank=True, null=True, on_delete=models.CASCADE)
-  def __str__(self): return f'{self.seat}|{self.order.sk}|{self.race}'
-  class Meta: verbose_name = 'Место в заказе'; verbose_name_plural = 'Места в заказе'; 
-
-
-class StopInRace(models.Model):
-  stop = models.ForeignKey('core.Stop', verbose_name='Остановка',      on_delete=models.CASCADE, blank=True, null=True)
-  time = models.ForeignKey('core.Time', verbose_name='Время остановки',on_delete=models.CASCADE, blank=True, null=True)
-  race = models.ForeignKey('core.Race', verbose_name='Рейс',           on_delete=models.CASCADE, blank=True, null=True, related_name='stops', )
-  def __str__(self): return f'{self.time.time}|{self.stop.name}'
-  class Meta: verbose_name = 'Остановка в рейсе'; verbose_name_plural = 'Остановки в рейсе'
-
-
 class Order(models.Model):
   full_name = models.CharField(_("Полное имя"),max_length=120, blank=True, null=True)
   phone     = models.CharField("Номер телефона",max_length=120, blank=True, null=True)
@@ -91,7 +80,27 @@ class Order(models.Model):
     return price
     # return self.race.price
   def __str__(self): return f'{self.sk}|{self.full_name}|{self.race}'
-  class Meta: verbose_name = 'Заказ'; verbose_name_plural = 'Заказы'
+  class Meta: 
+    app_label = 'order'
+    verbose_name = 'Заказ'; verbose_name_plural = 'Заказы'
+
+
+class SeatInOrder(models.Model):
+  seat  = models.ForeignKey('core.Seat', verbose_name="Место" ,blank=True, null=True, on_delete=models.CASCADE)
+  order = models.ForeignKey(to=Order, verbose_name="Заказ", related_name='seats', blank=True, null=True, on_delete=models.CASCADE)
+  race  = models.ForeignKey('core.Race', verbose_name="Рейс" ,related_name='seats', blank=True, null=True, on_delete=models.CASCADE)
+  def __str__(self): return f'{self.seat}|{self.order.sk}|{self.race}'
+  class Meta: verbose_name = 'Место в заказе'; verbose_name_plural = 'Места в заказе'; 
+
+
+class StopInRace(models.Model):
+  stop = models.ForeignKey('core.Stop', verbose_name='Остановка',      on_delete=models.CASCADE, blank=True, null=True)
+  time = models.ForeignKey('core.Time', verbose_name='Время остановки',on_delete=models.CASCADE, blank=True, null=True)
+  race = models.ForeignKey('core.Race', verbose_name='Рейс',           on_delete=models.CASCADE, blank=True, null=True, related_name='stops', )
+  def __str__(self): return f'{self.time.time}|{self.stop.name}'
+  class Meta: verbose_name = 'Остановка в рейсе'; verbose_name_plural = 'Остановки в рейсе'
+
+
 
 
 class Payment(models.Model):
@@ -110,7 +119,9 @@ class Payment(models.Model):
   timestamp           = models.DateTimeField(verbose_name='Время',auto_now_add=True, blank=True, null=True)
   def __str__(self):
     return f'{self.order}|{self.amount}|{self.currency}'
-  class Meta: verbose_name = 'Оплата'; verbose_name_plural = 'Оплата'; 
+  class Meta: 
+    app_label = "order"
+    verbose_name = 'Оплата'; verbose_name_plural = 'Оплата'; 
 
 
 
@@ -129,6 +140,7 @@ class Contact(models.Model):
   def __str__(self):
     return f'{self.name}|{self.email}|{self.phone}|{self.question}|{self.message}'
   class Meta:
+    app_label = "order"
     verbose_name = _("Вопрос")
     verbose_name_plural = _("Вопросы")
 
@@ -142,7 +154,10 @@ class EuropeContact(models.Model):
   peoples  = models.IntegerField()
   created  = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
   updated  = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
-
+  class Meta:
+    app_label = "order"
+    verbose_name = _("Заказ поездки в Европу")
+    verbose_name_plural = _("Заказ поездки в Европу")
 
 
 class BusContact(models.Model):
@@ -153,6 +168,10 @@ class BusContact(models.Model):
   peoples  = models.IntegerField()
   created  = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
   updated  = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
+  class Meta:
+    app_label = "order"
+    verbose_name = _("Заказ Микроавтобуса")
+    verbose_name_plural = _("Заказ Микроавтобуса")
 
 
 
@@ -167,4 +186,130 @@ class BusContact(models.Model):
 
 
 
+
+
+
+
+class Index(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField(blank=True, null=True)
+    def __str__(self):
+      return f'{self.title}, {self.description}'
+    class Meta:
+        app_label = 'pages'
+        verbose_name = 'Главная'; verbose_name_plural="Главная"; 
+
+
+class About(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField(blank=True, null=True)
+    def __str__(self):
+      return f'{self.title}, {self.description}'
+    class Meta:
+        app_label = 'pages'
+        verbose_name = 'О нас'; verbose_name_plural="О нас"; 
+
+
+class Contact(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField(blank=True, null=True)
+    def __str__(self):
+      return f'{self.title}, {self.description}'
+    class Meta:
+        app_label = 'pages'
+        verbose_name = 'Контакты'; verbose_name_plural="Контакты"; 
+
+
+class Park(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField(blank=True, null=True)
+    def __str__(self):
+      return f'{self.title}, {self.description}'
+    class Meta:
+        app_label = 'pages'
+        verbose_name = 'Автопарк'; verbose_name_plural="Автопарк"; 
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length=20)
+    description = models.TextField(blank=True, null=True)
+    def __str__(self):
+      return f'{self.title}, {self.description}'
+    class Meta:
+        app_label = 'pages'
+        verbose_name = 'Блог'; verbose_name_plural="Блог"; 
+
+
+class Service(models.Model):
+  title = models.CharField(max_length=20)
+  description = models.TextField(blank=True, null=True)
+  def __str__(self):
+    return f'{self.title}, {self.description}'
+  class Meta:
+      app_label = 'pages'
+      verbose_name = 'Услуги'; verbose_name_plural="Услуги"; 
+
+
+
+
+class Post(models.Model):
+  title   = models.CharField(verbose_name=_("Заголовок"),max_length=120, blank=True, null=True)
+  description = models.TextField(blank=True, null=True)
+  content = HTMLField(verbose_name=_("Контент"), blank=True, null=True)  
+  slug    = models.SlugField(verbose_name=_("Ссылка"), blank=True, null=True, max_length=255)
+  image   = models.ImageField(verbose_name=_("Картинка"), blank=True, null=True)
+  created = models.DateTimeField(verbose_name=_("Создан"), auto_now_add=True, auto_now=False)
+  updated = models.DateTimeField(verbose_name=_("Обновлен"), auto_now_add=False, auto_now=True)
+  def __str__(self):
+    return f'{self.title}'
+  class Meta:
+    app_label = 'content'
+    verbose_name = _('Пост'); verbose_name_plural = _('Посты')
+  def get_absolute_url(self):
+      return reverse("post_detail", kwargs={"pk": self.pk})
+
+
+
+class BusGood(models.Model):
+  class Meta:
+    app_label = 'content'
+    verbose_name='Удобство автобуса'; verbose_name_plural="Удобства автобуса"; 
+  text = models.TextField()
+  bus  = models.ForeignKey(to="Bus", on_delete=models.CASCADE, related_name="goods", blank=True, null=True)
+
+
+class BusComment(models.Model):
+  class Meta:
+    app_label = 'content'
+    verbose_name='Отзыв к автобусу'; verbose_name_plural="Отзывы к автобусу"; 
+  text = models.TextField()
+  bus  = models.ForeignKey(to='Bus', on_delete=models.CASCADE, related_name='comments', blank=True, null=True)
+  moderated = models.BooleanField(default=True)
+
+
+class Bus(models.Model):
+  class Meta:
+    app_label = 'content'
+    verbose_name='Автобус'; verbose_name_plural="Автобусы"; 
+  name  = models.CharField(max_length=120)
+  photo = models.ImageField()
+  def __str__(self):
+    return self.name
+
+
+
+
+class Page(models.Model):
+    title = models.CharField(max_length=120)
+    def __str__(self):
+        return f"{self.title}"
+
+
+class Feature(models.Model):
+    page = models.ForeignKey(to=Page, verbose_name='features', on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    value = models.TextField()
+    def __str__(self):
+        return f"{self.page.title}, {self.name}, {self.value}"
+    
 

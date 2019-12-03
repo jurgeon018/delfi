@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{page.title}}</title>
-  <meta name="description" content="{{page.desc}}"/>
+  <meta name="description" content="{{page.description}}"/>
   {% block styles %}
     {% include 'includes/styles.html' %}
   {% endblock styles %}
@@ -37,7 +37,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-148727847-2');
   </script>
 </body>
