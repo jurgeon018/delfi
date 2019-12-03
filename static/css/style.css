@@ -1711,10 +1711,11 @@ label.error {
   .hero__img {
     height: 75%;
     z-index: 0;
+    overflow: visible;
   }
-}
-
-@media (max-width: 992px) {
+  .about_us__hero-control .btn_more_park {
+    width: 200px;
+  }
   .hero {
     background: #fff;
   }
