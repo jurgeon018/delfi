@@ -19,5 +19,5 @@ INSTALLED_APPS = [
     # 'import_export',
     'core',
     'pages',
-    
+
 ]

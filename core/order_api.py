@@ -177,15 +177,11 @@ def create_order(request):
   order.save()
   # send_user_mail(order)
   send_order_mail()
-
-
 # для тестовых целей, чтобы каждый раз не вводить номер карты
   order.ordered = True 
   order.save()
   return redirect('thank_you')
 #
-
-
   return redirect('pay')
 
 

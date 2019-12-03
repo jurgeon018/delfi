@@ -35,6 +35,8 @@ class ExportCsvMixin:
 
 class BusAdmin(admin.ModelAdmin):
   pass
+
+
 class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
 # class OrderAdmin(ImportExportModelAdmin):
   actions = ['export_as_csv'] 
@@ -267,13 +269,12 @@ class RaceAdmin(admin.ModelAdmin):
   view_on_site = False 
 
 
-class QuestionAdmin(admin.ModelAdmin):
+class ContactAdmin(admin.ModelAdmin):
     list_display = [
       'name',
       'email',
       'phone',
-      'question',
-      'message',
+      'comment',
       'created',
       'updated',
     ]
@@ -281,8 +282,7 @@ class QuestionAdmin(admin.ModelAdmin):
       'name',
       'email',
       'phone',
-      'question',
-      'message',
+      'comment',
       'created',
       'updated',
     ]
@@ -290,11 +290,10 @@ class QuestionAdmin(admin.ModelAdmin):
       "name",
       "email",
       "phone",
-      "question",
-      "message",
+      "comment",
     ]
     list_filter = [
-      'question',
+      'comment',
       'created',
       'updated',
     ]
@@ -370,7 +369,6 @@ class PostAdmin(admin.ModelAdmin):
     'created',
     'updated',
   ]
-
 
 
 class BusCommentAdmin(admin.ModelAdmin):

@@ -10,7 +10,7 @@ from core.utils import *
 from django.contrib import messages
 from datetime import datetime, date, time, timedelta
 from django.utils.translation import ugettext as _
-
+from pages.models import *
 
 
 
@@ -62,29 +62,92 @@ def test_mail(request):
   return redirect('test_mail')
 
 
+
+
 def create_bus_comment(request, bus_pk):
   print(request.POST)
   BusComment.objects.create(
     text = request.POST.get('text'),
     bus  = Bus.objects.get(pk=bus_pk),
   )
-  send_comment_mail()
+  send_mail(
+    subject = 'Получено отзыв к автобусу',
+    # message = get_template('contact_message.txt').render({'message':message}),
+    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/buscomment/',
+    from_email = settings.DEFAULT_FROM_EMAIL,
+    recipient_list = [settings.DEFAULT_FROM_EMAIL],
+    fail_silently=True,
+  )
   try: return redirect(request.META.get('HTTP_REFERER'))
   except: return redirect('/')
 
 
-def create_question(request):
-  Contact.objects.create(
-    name     = request.POST.get('name', ''),
-    email    = request.POST.get('email', ''),
-    message  = request.POST.get('comment', ''),
-    question = request.POST.get('question', ''),
-    phone    = request.POST.get('phone', ''),
+
+
+@csrf_exempt
+def create_europe_order(request):
+  print(request.POST)
+  name    = request.POST.get('name','')
+  phone   = request.POST.get('phone', '')
+  email   = request.POST.get('email', '')
+  comment = request.POST.get('comment', '')
+  peoples = request.POST.get('count_piople', '')
+  order   = EuropeContact.objects.create(
+    name    = name,
+    phone   = phone,
+    email   = email,
+    comment = comment,
+    peoples = int(peoples),
+  )
+  send_mail(
+    subject = 'Получено заказ автобуса на Европу.',
+    # message = get_template('contact_message.txt').render({'message':message}),
+    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/europecontact/',
+    from_email = settings.DEFAULT_FROM_EMAIL,
+    recipient_list = [settings.DEFAULT_FROM_EMAIL],
+    fail_silently=True,
+  )
+
+  return HttpResponse('OK, 200')
+
+
+
+@csrf_exempt
+def create_bus_order(request):
+  print(request.POST)
+  name    = request.POST.get('name','')
+  phone   = request.POST.get('phone', '')
+  email   = request.POST.get('email', '')
+  comment = request.POST.get('comment', '')
+  peoples = request.POST.get('count_piople', '')
+  order   = BusContact.objects.create(
+    name    = name,
+    phone   = phone,
+    email   = email,
+    comment = comment,
+    peoples = int(peoples),
+  )
+  send_bus_mail()
+  return HttpResponse('OK, 200')
+
+
+
+@csrf_exempt
+def create_contact(request):
+  print(request.POST)
+  name    = request.POST.get('name','')
+  phone   = request.POST.get('phone','')
+  email   = request.POST.get('email','')
+  comment = request.POST.get('comment','')
+  contact = Contact.objects.create(
+    name=name,
+    phone=phone,
+    email=email,
+    comment=comment,
   )
   send_contact_mail()
-  messages.success(request, _('Запитання було добавлений у адмінку'))
-  try: return redirect(request.META.get('HTTP_REFERER'))
-  except: return redirect('contact_us')
+  return HttpResponse('OK, 200')
+
 
 
 

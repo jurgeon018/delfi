@@ -6,7 +6,7 @@
       <div class="hero__section contact-us__section_form">
         <h1>{% trans "Связаться с нами" %}</h1>
         <div class="contact-us__section_form-content ">
-          <form class="" id="form_contact_form" action="{% url 'create_question' %}" method="POST">
+          <form class="" id="form_contact_form" action="{% url 'create_contact' %}" method="POST">
             {% csrf_token %}
             <div class="contact-us__form_wrap">
               <div class="input-tickets__grops ">

@@ -8,8 +8,6 @@ manager_admin_site.register(About)
 manager_admin_site.register(Contact)
 manager_admin_site.register(Park)
 manager_admin_site.register(Blog)
-manager_admin_site.register(Order)
-
 
 
 

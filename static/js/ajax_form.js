@@ -15,7 +15,7 @@ if(document.getElementById('bus_bus_order')){
 }
 
 if(document.getElementById('form_contact_form')){
-  valide_form('#form_contact_form','.input-tickets__grops','/form_contact_bus/');
+  valide_form('#form_contact_form','.input-tickets__grops','/create_contact/');
 }
 
 }
@@ -102,29 +102,28 @@ function form_ajax_static(id_form,url_form){
   });
 console.log(url_form);
 console.log(form_input);
-$.fancybox.open({
-  src: '#form_send_done',
-  type: 'inline',
-  touch: false,
-  autoStart: false,
-  padding: 0,
-  hideOnClose: false,
-  showCloseButton: true,
-  opts: {
-    afterShow: function(instance, current) { }
-  }
-})
-//   $.ajax({
-//     url: url_form,
-//     type: 'POST',
-//     data:form_input,
-//     async: true,
-//     success: function(order) {
-// console.log(order);
-//
-//
-//     }
-//   })
+
+  $.ajax({
+    url: url_form,
+    type: 'POST',
+    data:form_input,
+    async: true,
+    success: function(order) {
+      console.log(order);
+      $.fancybox.open({
+        src: '#form_send_done',
+        type: 'inline',
+        touch: false,
+        autoStart: false,
+        padding: 0,
+        hideOnClose: false,
+        showCloseButton: true,
+        opts: {
+          afterShow: function(instance, current) { }
+        }
+      })
+    }
+  })
 
 
 }
