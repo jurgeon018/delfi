@@ -1,8 +1,6 @@
 static_root/
 # Byte-compiled / optimized / DLL files
 __pycache__/
-migrations/
-migrations/*
 *.py[cod]
 *$py.class
 

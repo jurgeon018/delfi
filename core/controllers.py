@@ -127,7 +127,14 @@ def create_bus_order(request):
     comment = comment,
     peoples = int(peoples),
   )
-  send_bus_mail()
+  send_mail(
+    subject = 'Получено заказ Микроавтобуса для поездки по Украине.',
+    # message = get_template('contact_message.txt').render({'message':message}),
+    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/orderbus/',
+    from_email = settings.DEFAULT_FROM_EMAIL,
+    recipient_list = [settings.DEFAULT_FROM_EMAIL],
+    fail_silently=True,
+  )
   return HttpResponse('OK, 200')
 
 
@@ -145,7 +152,14 @@ def create_contact(request):
     email=email,
     comment=comment,
   )
-  send_contact_mail()
+  send_mail(
+    subject = 'Получено контактные данные и вопрос',
+    # message = get_template('contact_message.txt').render({'message':message}),
+    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/order/contact/',
+    from_email = settings.DEFAULT_FROM_EMAIL,
+    recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
+    fail_silently=True,
+  )
   return HttpResponse('OK, 200')
 
 

@@ -7,13 +7,8 @@ from .inlines import *
 from core.models import *
 from core.forms import RaceForm
 from django.http import HttpResponse 
-import csv 
-
-
 # from import_export.admin import ImportExportModelAdmin
-
-class PageAdmin(admin.ModelAdmin):
-  pass
+import csv 
 
 
 
@@ -33,12 +28,224 @@ class ExportCsvMixin:
     export_as_csv.short_description = "Export Selected"
 
 
+
+# core 
+
+class DirectionAdmin(admin.ModelAdmin):
+  pass
+
+
+class TimeAdmin(admin.ModelAdmin):
+  pass
+
+
+class StopAdmin(admin.ModelAdmin):
+  pass
+
+
+class SeatAdmin(admin.ModelAdmin):
+  pass
+
+
+class SeatInOrderAdmin(admin.ModelAdmin):
+  def get_order(self, obj):
+    # option = "change" # "delete | history | change"
+    # massiv = []
+    # if obj.order:
+    #   obj  = obj.order
+    #   app   = obj._meta.app_label
+    #   model = obj._meta.model_name
+    #   url   = f'admin:{app}_{model}_{option}'
+    #   args  = (obj.pk,)
+    #   href  = reverse(url, args=args)
+    #   name  = f'{obj.order.full_name}, {obj.order.phone}, {obj.order.race.direction}'
+    #   link = f"<a href={href}>{name}</a>"
+    #   return mark_safe(link)
+    return f'{obj.order.full_name}, {obj.order.phone}'#, {obj.order.race.direction}'
+
+  get_order.short_description = "Заказ"
+  def get_race(self, obj):
+    # option = "change" # "delete | history | change"
+    # massiv = []
+    # if obj.race:
+    #   obj  = obj.race
+    #   app   = obj._meta.app_label
+    #   model = obj._meta.model_name
+    #   url   = f'admin:{app}_{model}_{option}'
+    #   args  = (obj.pk,)
+    #   href  = reverse(url, args=args)
+    #   name  = f'{obj.race.direction}, {obj.race.time.time}, {obj.race.date}, {obj.race.price}, {obj.race.is_full}'
+    #   link = f"<a href={href}>{name}</a>"
+    #   return mark_safe(link)
+    f'{obj.race.direction}, {obj.race.time.time}, {obj.race.date}, {obj.race.price}, {obj.race.is_full}'
+  get_race.short_description = "Рейс"
+  list_display = [
+    'seat',
+    'get_race',
+    'get_order',
+  ]
+  fields = [
+    'seat',
+    'get_race',
+    'get_order',
+  ]
+  readonly_fields = [
+    'seat',
+    'get_race',
+    'get_order',
+  ]
+
+
+class RaceAdmin(admin.ModelAdmin):
+  # def save_model(self, request, obj, form, change):
+  #   date_from = request.POST.get('date_from', '')
+  #   date_to   = request.POST.get('date_to', '')
+  #   start     = datetime.strptime(date_from, '%Y-%m-%d')
+  #   end       = datetime.strptime(date_to, '%Y-%m-%d')
+  #   dates = []
+  #   while start <= end:
+  #     dates.append(start.date())
+  #     start += timedelta(days=1)
+  #   for date in dates:
+  #     print(date)
+  #     race, created = Race.objects.get_or_create(
+  #       date=date,
+  #       time=Time.objects.get(id=request.POST.get('time', '')),
+  #     )
+  #     if created:
+  #       race.direction=Direction.objects.get(id=request.POST.get('direction', ''))
+  #       race.price    =request.POST.get('price', '')
+  #       race.save()
+  #   return super().save_model(request, obj, form, change)
+  # actions = []
+  actions_on_top = True
+  acitons_on_bottom = True 
+  actions_selection_couner = True 
+  date_hierarchy = 'date' # 'created' | 'updated' |'date'
+  empty_value_display = '???'
+  change_list_template = 'races_change_list.html'
+  # form = RaceForm
+  # exclude = [
+  # ]
+  fields = []
+  # fieldsets = []
+  # filter_horizontal = ()
+  # filter_vertical = ()
+  # form # get_form()
+  # formfield_overrides = {
+  #     models.ManyToManyField: {'widget': widgets.CheckboxSelectMultiple},
+  #     # models.DateTimeField: {'widget': widgets.TextInput}
+  # }
+  inlines = [
+    StopInRaceInline, 
+    SeatInOrderInline
+  ]
+  list_display = [
+    'id',
+    'direction',
+    'time',
+    'date',
+    'price'
+  ]
+  list_display_links = [
+  ]
+  list_editable = [
+    'price'
+  ]
+  list_filter = [
+    'direction',
+    'time',
+    'date',
+    'price'
+  ]
+  list_max_show_all = 300
+  list_per_page = 20
+  list_select_related = False
+  ordering = (
+    '-id',
+  )
+  # paginator
+  # prepopulated_fields
+  # preserve_filters
+  # radio_fields
+  # autocomplete_fields
+  raw_id_fields = [
+  ]
+  readonly_fields = [
+    # "direction",
+    # "time",
+    # "date",
+    # "price",
+    "is_full",
+  ]
+  save_as = False
+  save_as_continue = True 
+  save_on_top = True
+  search_fields = [
+    "direction__name",
+  ]
+  # show_full_result_count
+  # sortable_by
+  view_on_site = False 
+
+
+# pages 
+
+class IndexAdmin(admin.ModelAdmin):
+  pass 
+
+
+class AboutAdmin(admin.ModelAdmin):
+  pass
+
+
+class ParkAdmin(admin.ModelAdmin):
+  pass
+
+
+class BlogAdmin(admin.ModelAdmin):
+  pass
+
+
+class ServiceAdmin(admin.ModelAdmin):
+  pass
+
+
+# content 
+
 class BusAdmin(admin.ModelAdmin):
   pass
 
 
+class BusGoodAdmin(admin.ModelAdmin):
+  pass
+
+
+class BusCommentAdmin(admin.ModelAdmin):
+    list_display = [
+      'text',
+    ]
+
+
+class PostAdmin(admin.ModelAdmin):
+  list_per_page = 4
+  search_fields = [
+    'title'
+  ]
+  list_filter = [
+    'created',
+    'updated',
+  ]
+  list_display = [
+    'title',
+    'created',
+    'updated',
+  ]
+
+
+# order
+
 class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
-# class OrderAdmin(ImportExportModelAdmin):
   actions = ['export_as_csv'] 
   def get_race(self, obj):
     option = "change" # "delete | history | change"
@@ -176,97 +383,10 @@ class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
   view_on_site = False 
 
 
-class RaceAdmin(admin.ModelAdmin):
-  # def save_model(self, request, obj, form, change):
-  #   date_from = request.POST.get('date_from', '')
-  #   date_to   = request.POST.get('date_to', '')
-  #   start     = datetime.strptime(date_from, '%Y-%m-%d')
-  #   end       = datetime.strptime(date_to, '%Y-%m-%d')
-  #   dates = []
-  #   while start <= end:
-  #     dates.append(start.date())
-  #     start += timedelta(days=1)
-  #   for date in dates:
-  #     print(date)
-  #     race, created = Race.objects.get_or_create(
-  #       date=date,
-  #       time=Time.objects.get(id=request.POST.get('time', '')),
-  #     )
-  #     if created:
-  #       race.direction=Direction.objects.get(id=request.POST.get('direction', ''))
-  #       race.price    =request.POST.get('price', '')
-  #       race.save()
-  #   return super().save_model(request, obj, form, change)
-  # actions = []
-  actions_on_top = True
-  acitons_on_bottom = True 
-  actions_selection_couner = True 
-  date_hierarchy = 'date' # 'created' | 'updated' |'date'
-  empty_value_display = '???'
-  change_list_template = 'races_change_list.html'
-  # form = RaceForm
-  # exclude = [
-  # ]
-  fields = []
-  # fieldsets = []
-  # filter_horizontal = ()
-  # filter_vertical = ()
-  # form # get_form()
-  # formfield_overrides = {
-  #     models.ManyToManyField: {'widget': widgets.CheckboxSelectMultiple},
-  #     # models.DateTimeField: {'widget': widgets.TextInput}
-  # }
-  inlines = [
-    StopInRaceInline, 
-    SeatInOrderInline
-  ]
-  list_display = [
-    'id',
-    'direction',
-    'time',
-    'date',
-    'price'
-  ]
-  list_display_links = [
-  ]
-  list_editable = [
-    'price'
-  ]
-  list_filter = [
-    'direction',
-    'time',
-    'date',
-    'price'
-  ]
-  list_max_show_all = 300
-  list_per_page = 20
-  list_select_related = False
-  ordering = (
-    '-id',
-  )
-  # paginator
-  # prepopulated_fields
-  # preserve_filters
-  # radio_fields
-  # autocomplete_fields
-  raw_id_fields = [
-  ]
-  readonly_fields = [
-    # "direction",
-    # "time",
-    # "date",
-    # "price",
-    "is_full",
-  ]
-  save_as = False
-  save_as_continue = True 
-  save_on_top = True
-  search_fields = [
-    "direction__name",
-  ]
-  # show_full_result_count
-  # sortable_by
-  view_on_site = False 
+class PaymentAdmin(admin.ModelAdmin):
+  exclude = []
+  # list_display_links = ['amt','timestamp','ccy','paycountry']
+  # inlines = [OrderInline]
 
 
 class ContactAdmin(admin.ModelAdmin):
@@ -300,80 +420,11 @@ class ContactAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 
-class SeatInOrderAdmin(admin.ModelAdmin):
-  def get_order(self, obj):
-    # option = "change" # "delete | history | change"
-    # massiv = []
-    # if obj.order:
-    #   obj  = obj.order
-    #   app   = obj._meta.app_label
-    #   model = obj._meta.model_name
-    #   url   = f'admin:{app}_{model}_{option}'
-    #   args  = (obj.pk,)
-    #   href  = reverse(url, args=args)
-    #   name  = f'{obj.order.full_name}, {obj.order.phone}, {obj.order.race.direction}'
-    #   link = f"<a href={href}>{name}</a>"
-    #   return mark_safe(link)
-    return f'{obj.order.full_name}, {obj.order.phone}'#, {obj.order.race.direction}'
-
-  get_order.short_description = "Заказ"
-  def get_race(self, obj):
-    # option = "change" # "delete | history | change"
-    # massiv = []
-    # if obj.race:
-    #   obj  = obj.race
-    #   app   = obj._meta.app_label
-    #   model = obj._meta.model_name
-    #   url   = f'admin:{app}_{model}_{option}'
-    #   args  = (obj.pk,)
-    #   href  = reverse(url, args=args)
-    #   name  = f'{obj.race.direction}, {obj.race.time.time}, {obj.race.date}, {obj.race.price}, {obj.race.is_full}'
-    #   link = f"<a href={href}>{name}</a>"
-    #   return mark_safe(link)
-    f'{obj.race.direction}, {obj.race.time.time}, {obj.race.date}, {obj.race.price}, {obj.race.is_full}'
-  get_race.short_description = "Рейс"
-  list_display = [
-    'seat',
-    'get_race',
-    'get_order',
-  ]
-  fields = [
-    'seat',
-    'get_race',
-    'get_order',
-  ]
-  readonly_fields = [
-    'seat',
-    'get_race',
-    'get_order',
-  ]
+class EuropeContactAdmin(admin.ModelAdmin):
+  pass
 
 
-class PaymentAdmin(admin.ModelAdmin):
-  exclude = []
-  # list_display_links = ['amt','timestamp','ccy','paycountry']
-  # inlines = [OrderInline]
-
-
-class PostAdmin(admin.ModelAdmin):
-  list_per_page = 4
-  search_fields = [
-    'title'
-  ]
-  list_filter = [
-    'created',
-    'updated',
-  ]
-  list_display = [
-    'title',
-    'created',
-    'updated',
-  ]
-
-
-class BusCommentAdmin(admin.ModelAdmin):
-    list_display = [
-      'text',
-    ]
+class BusContact(admin.ModelAdmin):
+  pass 
 
 

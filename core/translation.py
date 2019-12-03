@@ -29,8 +29,8 @@ class AboutTranslationOptions(TranslationOptions):
         'title',
         'description',
     )
-@register(Contact)
-class ContactTranslationOptions(TranslationOptions):
+@register(ContactUs)
+class ContactUsTranslationOptions(TranslationOptions):
     fields = (
         'title',
         'description',

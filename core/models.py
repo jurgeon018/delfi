@@ -18,6 +18,10 @@ from django.shortcuts import reverse
 # %H:%M    14:30
 
 
+
+
+
+
 class Time(models.Model):
   time = models.TimeField("Время рейса", blank=True, null=True)
   def __str__(self): return f'{self.time}'
@@ -121,7 +125,7 @@ class Payment(models.Model):
     return f'{self.order}|{self.amount}|{self.currency}'
   class Meta: 
     app_label = "order"
-    verbose_name = 'Оплата'; verbose_name_plural = 'Оплата'; 
+    verbose_name = 'Оплата'; verbose_name_plural = 'Оплаты'; 
 
 
 
@@ -138,11 +142,11 @@ class Contact(models.Model):
   created  = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
   updated  = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
   def __str__(self):
-    return f'{self.name}|{self.email}|{self.phone}|{self.question}|{self.message}'
+    return f'{self.name}|{self.email}|{self.phone}|{self.comment}'
   class Meta:
     app_label = "order"
-    verbose_name = _("Вопрос")
-    verbose_name_plural = _("Вопросы")
+    verbose_name = _("Контакт")
+    verbose_name_plural = _("Контакты")
 
 
 
@@ -210,7 +214,7 @@ class About(models.Model):
         verbose_name = 'О нас'; verbose_name_plural="О нас"; 
 
 
-class Contact(models.Model):
+class ContactUs(models.Model):
     title = models.CharField(max_length=20)
     description = models.TextField(blank=True, null=True)
     def __str__(self):
@@ -248,6 +252,13 @@ class Service(models.Model):
   class Meta:
       app_label = 'pages'
       verbose_name = 'Услуги'; verbose_name_plural="Услуги"; 
+
+
+
+
+
+
+
 
 
 

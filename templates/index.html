@@ -1,11 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% block styles %}
-<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,500i,600,700,800,900&display=swap&subset=cyrillic" rel="stylesheet">
 
-  <link rel="stylesheet" href="/static/css/style_main.min.css">
-
-{% endblock styles %}
 {% block content %}
   <div class="hero">
     <div class="hero__img">
@@ -298,7 +293,7 @@
           <h1 class="info-block_title">{% trans "Все еще сомневаетесь?" %}</h1>
           <div class="info-block_subtitle">{% trans "Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с лицензией!" %}</div>
           <div class="info-block_button">
-              <a class="btn btn-white" href="#">{% trans "К лицензии" %}</a>
+              <a class="btn btn-white" href="/about_us/">{% trans "К лицензии" %}</a>
           </div>
       </div>
   </section>
@@ -350,21 +345,7 @@
       </div>
   </section>
 {% endblock content %}
-  {% block extra_styles %}
 
-    <link rel="stylesheet" href="/static/css/datepicker.min.css">
-
-
-
-  <link rel="stylesheet" href="/static/libs/fontawesome-free-5.11.2/css/new_all.min.css">
-  <link rel="stylesheet" href="/static/css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="/static/css/slick.min.css">
-  <link rel="stylesheet" href="/static/css/slick-theme.min.css">
-
-
-
-
-  {% endblock extra_styles %}
 {% block scripts %}
 <script src="/static/js/jquery-3.4.1.min.js" type="text/javascript" ></script>
 <script src="/static/js/blazy.min.js" type="text/javascript"></script>
