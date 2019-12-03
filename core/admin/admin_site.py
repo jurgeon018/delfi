@@ -35,6 +35,7 @@ manager_admin_site.register(EuropeContact)
 manager_admin_site.register(BusContact)
 
 
+
 # admin.site.register(Direction)
 # admin.site.register(Time)
 # admin.site.register(Stop)

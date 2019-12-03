@@ -16,7 +16,6 @@ class PageAdmin(admin.ModelAdmin):
   pass
 
 
-
 class ExportCsvMixin:
     def export_as_csv(self, request, queryset):
         meta = self.model._meta
@@ -38,7 +37,6 @@ class BusAdmin(admin.ModelAdmin):
 
 
 class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
-# class OrderAdmin(ImportExportModelAdmin):
   actions = ['export_as_csv'] 
   def get_race(self, obj):
     option = "change" # "delete | history | change"

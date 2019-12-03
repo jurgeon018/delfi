@@ -70,7 +70,7 @@ def about_us(request):
 
 
 def contact_us(request):
-  page = Contact.objects.first()
+  page = ContactUs.objects.first()
   return render(request, 'contact_us.html', locals())
 
 
