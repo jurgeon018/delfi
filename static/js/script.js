@@ -278,32 +278,35 @@ $(document).ready(function() {
     }]
   });
 
-  hero_form(document.getElementsByClassName('hero__form'));
 
-  $('.btn_directions_dk').on('click',function(){
-    event.preventDefault();
-    sessionStorage.buton_send_hero_form = 'send';
-    sessionStorage.direction_hero_form = 'dk';
-    location.href="/order/";
-  })
-  $('.btn_directions_dl').on('click',function(){
-    event.preventDefault();
-    sessionStorage.buton_send_hero_form = 'send';
-    sessionStorage.direction_hero_form = 'kl';
-    location.href="/order/";
-  })
-  $('.btn_directions_europe').on('click',function(){
-    event.preventDefault();
-    sessionStorage.buton_send_hero_form = 'send';
-    sessionStorage.direction_hero_form = 'europe';
-    location.href="/order/";
-  })
-  $('.btn_directions_bus_order').on('click',function(){
-    event.preventDefault();
-    sessionStorage.buton_send_hero_form = 'send';
-    sessionStorage.direction_hero_form = 'bus_order';
-    location.href="/order/";
-  })
+    $('.btn_directions_dk').on('click',function(){
+      event.preventDefault();
+      sessionStorage.buton_send_hero_form = 'send_menu';
+      sessionStorage.direction_hero_form = 'dk';
+      location.href="/order/";
+    })
+    $('.btn_directions_dl').on('click',function(){
+      event.preventDefault();
+      console.log("crash");
+      sessionStorage.buton_send_hero_form = 'send_menu';
+      sessionStorage.direction_hero_form = 'kl';
+      location.href="/order/";
+    })
+    $('.btn_directions_europe').on('click',function(){
+      event.preventDefault();
+      sessionStorage.buton_send_hero_form = 'send_menu';
+      sessionStorage.direction_hero_form = 'europe';
+      location.href="/order/";
+    })
+    $('.btn_directions_bus_order').on('click',function(){
+      event.preventDefault();
+      sessionStorage.buton_send_hero_form = 'send_menu';
+      sessionStorage.direction_hero_form = 'bus_order';
+      location.href="/order/";
+    })
+
+
+  hero_form(document.getElementsByClassName('hero__form'));
 
 
   $('.btn_more_park').on('click', function() {

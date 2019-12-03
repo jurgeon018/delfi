@@ -29,11 +29,18 @@ if (document.getElementsByClassName('tab__box').length > 0) {
   if (sessionStorage.buton_send_hero_form === 'send') {
         sessionStorage.tabs_items = document.querySelector('[data-value="' + sessionStorage.direction_hero_form + '"]').id
   }else {
-    if (sessionStorage.tabs_items !== undefined) {
-    } else {
-        sessionStorage.tabs_items = document.getElementsByClassName('tab__item')[0].id
+    if (sessionStorage.buton_send_hero_form === 'send_menu') {
+          sessionStorage.tabs_items = document.querySelector('[data-value="' + sessionStorage.direction_hero_form + '"]').id
+          sessionStorage.buton_send_hero_form ='';
+    }else {
+      if (sessionStorage.tabs_items !== undefined) {
+      } else {
+          sessionStorage.tabs_items = document.getElementsByClassName('tab__item')[0].id
+      }
     }
+
   }
+
 }
 
   if (document.getElementsByClassName('tab__box').length > 0) {
@@ -86,7 +93,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
     });
 
     var tabLinksactive, tabBoxContent;
-console.log(tab_id_active);
+// console.log(tab_id_active);
     tabLinksactive = document.getElementById(tab_id_active);
     console.log(tabLinksactive);
     tabLinksactive.classList.add('tab__item-active');
@@ -123,6 +130,7 @@ console.log(tab_id_active);
     $($(element).find('form').serializeArray()).each(function(index, obj) {
       data[obj.name] = obj.value;
     });
+    console.log(data);
     if (sessionStorage.buton_send_hero_form === 'send') {
       data.arrival = cites_arrival;
       data.departion = cites_departure;
@@ -145,12 +153,12 @@ console.log(tab_id_active);
         $('.select__intup').find('input').attr('value', "");
 
         SKJ = order.order_sk
-        console.log(element);
-        console.log(cites_departure);
+        // console.log(element);
+        // console.log(cites_departure);
         data_update(element, '.data_departure', order.cities, false, cites_departure);
         data_update(element, '.data_arrival', order.cities, false, cites_arrival);
-        console.log(cites_departure);
-        console.log(cites_arrival);
+        // console.log(cites_departure);
+        // console.log(cites_arrival);
         var data_order = order;
 
         resize_select_form_tiskets();
