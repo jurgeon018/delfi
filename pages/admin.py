@@ -1,12 +1,24 @@
 from django.contrib import admin 
 from pages.models import * 
+from core.admin.admin_site import manager_admin_site
 
 
-admin.site.register(Index)
-admin.site.register(About)
-admin.site.register(Contact)
-admin.site.register(Park)
-admin.site.register(Blog)
-admin.site.register(Order)
+manager_admin_site.register(Index)
+manager_admin_site.register(About)
+manager_admin_site.register(Contact)
+manager_admin_site.register(Park)
+manager_admin_site.register(Blog)
+
+
+
+
+
+
+
+
+
+
+
+
 
 

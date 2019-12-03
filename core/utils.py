@@ -81,16 +81,6 @@ def get_sk(request):
 
 
 
-def send_comment_mail():
-  send_mail(
-    subject = 'Comment form Received',
-    # message = get_template('contact_message.txt').render({'message':message}),
-    message = 'Було отримано відгук. Перейдіть по цій ссилці: {CURRENT_DOMEN}/admin/blog/comment/',
-    from_email = settings.DEFAULT_FROM_EMAIL,
-    recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
-    fail_silently=True,
-  )
-
 
 def send_contact_mail():
   send_mail(

@@ -113,12 +113,17 @@ class Payment(models.Model):
   class Meta: verbose_name = 'Оплата'; verbose_name_plural = 'Оплата'; 
 
 
-class Question(models.Model):
+
+
+
+
+
+
+class Contact(models.Model):
   name     = models.CharField("Имя",max_length=120)
   email    = models.EmailField("Емайл")
   phone    = models.CharField("Телефон",max_length=120)
-  question = models.CharField("Тип вопроса",max_length=120)
-  message  = models.TextField("Вопрос")
+  comment  = models.TextField("Вопрос")
   created  = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
   updated  = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
   def __str__(self):
@@ -126,6 +131,36 @@ class Question(models.Model):
   class Meta:
     verbose_name = _("Вопрос")
     verbose_name_plural = _("Вопросы")
+
+
+
+class EuropeContact(models.Model):
+  name     = models.CharField("Имя",max_length=120)
+  phone    = models.CharField("Телефон",max_length=120)
+  email    = models.EmailField("Емайл")
+  comment  = models.TextField("Вопрос")
+  peoples  = models.IntegerField()
+  created  = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
+  updated  = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
+
+
+
+class BusContact(models.Model):
+  name     = models.CharField("Имя",max_length=120)
+  phone    = models.CharField("Телефон",max_length=120)
+  email    = models.EmailField("Емайл")
+  comment  = models.TextField("Вопрос")
+  peoples  = models.IntegerField()
+  created  = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
+  updated  = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
+
+
+
+
+
+
+
+
 
 
 
