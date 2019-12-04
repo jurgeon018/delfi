@@ -28,23 +28,42 @@ class ExportCsvMixin:
     export_as_csv.short_description = "Export Selected"
 
 
-
 # core 
 
 class DirectionAdmin(admin.ModelAdmin):
-  pass
+  list_display = [
+    'id',
+    "code",
+    "name",
+  ]
+
 
 
 class TimeAdmin(admin.ModelAdmin):
-  pass
+  list_display = [
+    'id',
+    'time',
+  ]
+  list_editable = [
+    'time',
+  ]
 
 
 class StopAdmin(admin.ModelAdmin):
-  pass
+  list_display = [
+    'id',
+    'name',
+  ]
+  list_editable = [
+    'name',
+  ]
 
 
 class SeatAdmin(admin.ModelAdmin):
-  pass
+  list_display = [
+    'id',
+    # ''
+  ]
 
 
 class SeatInOrderAdmin(admin.ModelAdmin):
@@ -214,21 +233,58 @@ class ServiceAdmin(admin.ModelAdmin):
 # content 
 
 class BusAdmin(admin.ModelAdmin):
-  pass
+  list_display = [
+    "id",
+    "name",
+    "photo"
+  ]
+  list_display_links = [
+    "id",
+  ]
+  list_editable = [
+    "name",
+    "photo",
+  ]
 
 
 class BusGoodAdmin(admin.ModelAdmin):
-  pass
+  list_filter = [
+    "bus",
+  ]
+  list_display = [
+    "id",
+    "text",
+    "bus",
+  ]
+  list_display_links = [
+    "id",
+  ]
+  list_editable = [
+    "text",
+    "bus",
+  ]
+  list_per_page = 100
 
 
 class BusCommentAdmin(admin.ModelAdmin):
-    list_display = [
-      'text',
-    ]
+  list_display_links = [
+    'id',
+  ]
+  list_display = [
+    'id',
+    'text',
+    'bus',
+    'moderated',
+  ]
+  list_editable = [
+    'text',
+    'bus',
+    'moderated',
+  ]
 
 
 class PostAdmin(admin.ModelAdmin):
-  list_per_page = 4
+  list_per_page = 100
   search_fields = [
     'title'
   ]
@@ -237,11 +293,21 @@ class PostAdmin(admin.ModelAdmin):
     'updated',
   ]
   list_display = [
+    'id',
     'title',
+    'slug',
+    'image',
     'created',
     'updated',
   ]
-
+  list_display_links = [
+    'id',
+  ]
+  list_editable = [
+    'title',
+    'slug',
+    'image',
+  ]
 
 # order
 
@@ -342,19 +408,11 @@ class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
     'updated',
   ]
   list_max_show_all = 100
-  list_per_page = 10
-  list_select_related = False
+  list_per_page = 100
+  # list_select_related = False
   ordering = (
     '-id',
   )
-  # paginator
-  # prepopulated_fields
-  # preserve_filters
-  # radio_fields
-  # autocomplete_fields
-  # raw_id_fields = [
-  #   'race'
-  # ]
   readonly_fields = [
     'full_name',
     'phone',
@@ -378,53 +436,73 @@ class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
     "phone",
     "email",
   ]
-  # show_full_result_count
-  # sortable_by
   view_on_site = False 
 
 
 class PaymentAdmin(admin.ModelAdmin):
   exclude = []
-  # list_display_links = ['amt','timestamp','ccy','paycountry']
-  # inlines = [OrderInline]
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = [
-      'name',
-      'email',
-      'phone',
-      'comment',
-      'created',
-      'updated',
-    ]
-    readonly_fields = [
-      'name',
-      'email',
-      'phone',
-      'comment',
-      'created',
-      'updated',
-    ]
-    search_fields = [
-      "name",
-      "email",
-      "phone",
-      "comment",
-    ]
-    list_filter = [
-      'comment',
-      'created',
-      'updated',
-    ]
-    list_per_page = 10
+  list_display = [
+    'name',
+    'phone',
+    'email',
+    'comment',
+    'created',
+    'updated',
+  ]
+  list_filter = [
+    "created",
+    'updated',
+  ] 
+  search_fields = [
+    'name',
+    'phone',
+    'email',
+  ]
 
 
 class EuropeContactAdmin(admin.ModelAdmin):
-  pass
+  list_display = [
+    'name',
+    'phone',
+    'email',
+    'comment',
+    'peoples',
+    'created',
+    'updated',
+  ]
+  list_filter = [
+    "peoples",
+    "created",
+    'updated',
+  ] 
+  search_fields = [
+    'name',
+    'phone',
+    'email',
+  ]
 
 
-class BusContact(admin.ModelAdmin):
-  pass 
-
+class BusContactAdmin(admin.ModelAdmin):
+  list_display = [
+    'name',
+    'phone',
+    'email',
+    'comment',
+    'peoples',
+    'created',
+    'updated',
+  ]
+  list_filter = [
+    "peoples",
+    "created",
+    'updated',
+  ] 
+  search_fields = [
+    'name',
+    'phone',
+    'email',
+  ]  
 

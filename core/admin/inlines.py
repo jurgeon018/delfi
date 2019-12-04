@@ -36,7 +36,6 @@ class OrderInline(admin.StackedInline):
 
 
 class BusCommentInline(admin.StackedInline):
-# class CommentInline(admin.TabularInline):
     model = BusComment
     extra = 3
 

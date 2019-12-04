@@ -1,4 +1,6 @@
-{% load i18n %}
+{% load i18n urls %}
+{% get_available_languages as LANGUAGES %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,19 @@
   {% block styles %}
     {% include 'includes/styles.html' %}
   {% endblock styles %}
-  {% include 'includes/hreflang.html' %}
+  {% for language_code, language_name in LANGUAGES %}
+  <link
+      rel="alternate"
+      href="{% translate_url language_code %}" 
+      hreflang="{{ language_code }}"
+  />
+  {% endfor %}
+  <link 
+    rel="alternate" 
+    href="x-default"
+    hreflang="https://www.delfibus.com.ua/"
+  >
+
   <meta name=“robots” content=“noindex,nofollow”>
   <script type="text/javascript">
     var SKJ;
