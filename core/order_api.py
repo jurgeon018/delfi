@@ -89,6 +89,9 @@ def set_params(request):
     response['order_seats'] = [seat.seat.number for seat in order.seats.all()]
   except:
     print('time error')
+  for k, v in response.items():
+    print(k)
+    print(v)
   return JsonResponse(response)
 
 

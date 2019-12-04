@@ -37,30 +37,5 @@ manager_admin_site.register(Order, OrderAdmin)
 manager_admin_site.register(Payment, PaymentAdmin)
 manager_admin_site.register(Contact, ContactAdmin)
 manager_admin_site.register(EuropeContact, EuropeContactAdmin)
-# manager_admin_site.register(BusContact, BusContactAdmin)
+manager_admin_site.register(BusContact, BusContactAdmin)
 
-
-
-# admin.site.register(Direction)
-# admin.site.register(Time)
-# admin.site.register(Stop)
-# admin.site.register(Seat)
-# admin.site.register(SeatInOrder, SeatInOrderAdmin)
-# admin.site.register(Race, RaceAdmin)
-
-# admin.site.register(Index)
-# admin.site.register(About)
-# admin.site.register(Park)
-# admin.site.register(Blog)
-# admin.site.register(Service)
-
-# admin.site.register(BusComment)
-# admin.site.register(BusGood)
-# admin.site.register(Bus)
-# admin.site.register(Post, PostAdmin)
-
-# admin.site.register(Order)
-# admin.site.register(Payment)
-# admin.site.register(Contact)
-# admin.site.register(EuropeContact)
-# admin.site.register(BusContact)
