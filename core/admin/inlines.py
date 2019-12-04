@@ -3,26 +3,27 @@ from core.models import *
 
 
 
-class StopInRaceInline(admin.StackedInline):
-  model = StopInRace
-  exclude = []
-  extra = 1
+# class StopInRaceInline(admin.StackedInline):
+#   model = StopInRace
+#   exclude = []
+#   extra = 1
 
 
 class SeatInOrderInline(admin.StackedInline):
-  def has_delete_permission(self, request, obj):
-    return False
-  def has_add_permission(self, request, obj):
-    return False
+  # def has_delete_permission(self, request, obj):
+  #   return False
+  # def has_add_permission(self, request, obj):
+  #   return False
   
   model = SeatInOrder
   extra = 0
-  fields = [
-    'seat'
-  ]
-  readonly_fields = [
-    'seat',
-  ]
+  exclude = []
+  # fields = [
+  #   'seat'
+  # ]
+  # readonly_fields = [
+  #   'seat',
+  # ]
 
 
 class OrderInline(admin.StackedInline):

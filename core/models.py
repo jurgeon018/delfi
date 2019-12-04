@@ -164,12 +164,12 @@ class SeatInOrder(models.Model):
   class Meta: verbose_name = 'Место в заказе'; verbose_name_plural = 'Места в заказе'; 
 
 
-class StopInRace(models.Model):
-  stop = models.ForeignKey('core.Stop', verbose_name='Остановка',      on_delete=models.CASCADE, blank=True, null=True)
-  time = models.ForeignKey('core.Time', verbose_name='Время остановки',on_delete=models.CASCADE, blank=True, null=True)
-  race = models.ForeignKey('core.Race', verbose_name='Рейс',           on_delete=models.CASCADE, blank=True, null=True, related_name='stops', )
-  def __str__(self): return f'{self.time.time}|{self.stop.name}'
-  class Meta: verbose_name = 'Остановка в рейсе'; verbose_name_plural = 'Остановки в рейсе'
+# class StopInRace(models.Model):
+#   stop = models.ForeignKey('core.Stop', verbose_name='Остановка',      on_delete=models.CASCADE, blank=True, null=True)
+#   time = models.ForeignKey('core.Time', verbose_name='Время остановки',on_delete=models.CASCADE, blank=True, null=True)
+#   race = models.ForeignKey('core.Race', verbose_name='Рейс',           on_delete=models.CASCADE, blank=True, null=True, related_name='stops', )
+#   def __str__(self): return f'{self.time.time}|{self.stop.name}'
+#   class Meta: verbose_name = 'Остановка в рейсе'; verbose_name_plural = 'Остановки в рейсе'
 
 
 

@@ -9,6 +9,7 @@ EMAIL_USE_TLS = True
 # https://myaccount.google.com/lesssecureapps
 EMAIL_HOST_USER = config("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+print(EMAIL_HOST_PASSWORD, EMAIL_HOST_USER)
 # /etc/profile
 
 

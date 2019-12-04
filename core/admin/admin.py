@@ -6,6 +6,7 @@ from django.urls import reverse
 from .inlines import *
 from core.models import *
 from core.forms import RaceForm
+from django import forms
 from django.http import HttpResponse 
 # from import_export.admin import ImportExportModelAdmin
 import csv 
@@ -36,7 +37,12 @@ class DirectionAdmin(admin.ModelAdmin):
     "code",
     "name",
   ]
-
+  list_editable = [
+    'name',
+  ]
+  formfield_overrides = {
+    models.ManyToManyField:{'widget':forms.CheckboxSelectMultiple}
+  }
 
 
 class TimeAdmin(admin.ModelAdmin):
@@ -62,24 +68,30 @@ class StopAdmin(admin.ModelAdmin):
 class SeatAdmin(admin.ModelAdmin):
   list_display = [
     'id',
-    # ''
+    'number'
+  ]
+  list_editable = [
+    'number',
+  ]
+  list_display_links = [
+    'id'
   ]
 
 
 class SeatInOrderAdmin(admin.ModelAdmin):
   def get_order(self, obj):
-    # option = "change" # "delete | history | change"
-    # massiv = []
-    # if obj.order:
-    #   obj  = obj.order
-    #   app   = obj._meta.app_label
-    #   model = obj._meta.model_name
-    #   url   = f'admin:{app}_{model}_{option}'
-    #   args  = (obj.pk,)
-    #   href  = reverse(url, args=args)
-    #   name  = f'{obj.order.full_name}, {obj.order.phone}, {obj.order.race.direction}'
-    #   link = f"<a href={href}>{name}</a>"
-    #   return mark_safe(link)
+  #   option = "change" # "delete | history | change"
+  #   massiv = []
+  #   if obj.order:
+  #     obj  = obj.order
+  #     app   = obj._meta.app_label
+  #     model = obj._meta.model_name
+  #     url   = f'admin:{app}_{model}_{option}'
+  #     args  = (obj.pk,)
+  #     href  = reverse(url, args=args)
+  #     name  = f'{obj.order.full_name}, {obj.order.phone}, {obj.order.race.direction}'
+  #     link = f"<a href={href}>{name}</a>"
+  #     return mark_safe(link)
     return f'{obj.order.full_name}, {obj.order.phone}'#, {obj.order.race.direction}'
 
   get_order.short_description = "Заказ"
@@ -156,7 +168,7 @@ class RaceAdmin(admin.ModelAdmin):
   #     # models.DateTimeField: {'widget': widgets.TextInput}
   # }
   inlines = [
-    StopInRaceInline, 
+    # StopInRaceInline, 
     SeatInOrderInline
   ]
   list_display = [
@@ -211,23 +223,113 @@ class RaceAdmin(admin.ModelAdmin):
 # pages 
 
 class IndexAdmin(admin.ModelAdmin):
-  pass 
+  def has_delete_permission(self, request):
+    return False
+  def has_add_permission(self, request):
+    count = Index.objects.all().count()
+    if count == 0:
+      return True
+    return False
+  list_display = [
+    'id',
+    'title',
+    'description',
+  ]
+  list_editable = [
+    'title',
+    'description',
+  ]
+  list_display_links = [
+    'id',
+  ]
 
 
 class AboutAdmin(admin.ModelAdmin):
-  pass
+  def has_delete_permission(self, request):
+    return False
+  def has_add_permission(self, request):
+    count = About.objects.all().count()
+    if count == 0:
+      return True
+    return False
+  list_display = [
+    'id',
+    'title',
+    'description',
+  ]
+  list_editable = [
+    'title',
+    'description',
+  ]
+  list_display_links = [
+    'id',
+  ]
 
 
 class ParkAdmin(admin.ModelAdmin):
-  pass
+  def has_delete_permission(self, request):
+    return False
+  def has_add_permission(self, request):
+    count = Park.objects.all().count()
+    if count == 0:
+      return True
+    return False
+  list_display = [
+    'id',
+    'title',
+    'description',
+  ]
+  list_editable = [
+    'title',
+    'description',
+  ]
+  list_display_links = [
+    'id',
+  ]
 
 
 class BlogAdmin(admin.ModelAdmin):
-  pass
+  def has_delete_permission(self, request):
+    return False
+  def has_add_permission(self, request):
+    count = Blog.objects.all().count()
+    if count == 0:
+      return True
+    return False
+  list_display = [
+    'id',
+    'title',
+    'description',
+  ]
+  list_editable = [
+    'title',
+    'description',
+  ]
+  list_display_links = [
+    'id',
+  ]
 
 
 class ServiceAdmin(admin.ModelAdmin):
-  pass
+  def has_delete_permission(self, request):
+    return False
+  def has_add_permission(self, request):
+    count = Service.objects.all().count()
+    if count == 0:
+      return True
+    return False
+  list_display = [
+    'id',
+    'title',
+    'description',
+  ]
+  list_editable = [
+    'title',
+    'description',
+  ]
+  list_display_links = [
+    'id',
+  ]
 
 
 # content 
@@ -414,12 +516,12 @@ class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
     '-id',
   )
   readonly_fields = [
-    'full_name',
-    'phone',
-    'email',
-    'departion',
-    'arrival',
-    'get_race',
+    # 'full_name',
+    # 'phone',
+    # 'email',
+    # 'departion',
+    # 'arrival',
+    # 'get_race',
     # 'get_direction',
     # 'date',
     # 'time',
@@ -430,7 +532,7 @@ class OrderAdmin(admin.ModelAdmin, ExportCsvMixin):
   ]
   save_as = False
   save_as_continue = True 
-  save_on_top = False
+  save_on_top = True 
   search_fields = [
     "full_name",
     "phone",

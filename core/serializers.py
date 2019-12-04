@@ -42,10 +42,10 @@ class SeatInOrderSerializer(serializers.ModelSerializer):
     exclude = []
 
 
-class StopInRaceSerializer(serializers.ModelSerializer):
-  class Meta:
-    model = StopInRace
-    exclude = []
+# class StopInRaceSerializer(serializers.ModelSerializer):
+#   class Meta:
+#     model = StopInRace
+#     exclude = []
 
 
 class OrderSerializer(serializers.ModelSerializer):

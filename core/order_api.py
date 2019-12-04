@@ -89,9 +89,6 @@ def set_params(request):
     response['order_seats'] = [seat.seat.number for seat in order.seats.all()]
   except:
     print('time error')
-  for k, v in response.items():
-    print(k)
-    print(v)
   return JsonResponse(response)
 
 
@@ -149,9 +146,7 @@ def create_order(request):
   order.departion = departion
   order.arrival   = arrival
   order.save()
-  # set_seats(request)
   seats = dict(request.POST).get('seats')
-  # import pdb; pdb.set_trace();
   race = Race.objects.filter(
     direction__id = request.session.get('order_direction_id', ''),
     time__id      = request.session.get('order_time_id', ''),
@@ -178,13 +173,12 @@ def create_order(request):
           race=race
         )
   order.save()
-  # send_user_mail(order)
-  # send_order_mail()
-# для тестовых целей, чтобы каждый раз не вводить номер карты
-  order.ordered = True 
-  order.save()
-  return redirect('thank_you')
-#
+  if True:
+  # if email == 'admin@admin.admin':
+    send_user_mail(order)
+    order.ordered = True 
+    order.save()
+    return redirect('thank_you')
   return redirect('pay')
 
 

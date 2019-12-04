@@ -52,16 +52,6 @@ def set_lang(request, lang=None):
 
 
 
-def test_mail(request):
-  # http://localhost:8000/en/admin/order/order/337/change/
-  order = Order.objects.get(sk='vbekd254fi79e4c87ofb5gifg8xiw8qy')
-  # save_user_order(order)
-  # return redirect('index')
-  # save_user_order(order)
-  # send_user_mail(order)
-  return redirect('test_mail')
-
-
 
 @csrf_exempt
 def create_bus_comment(request, bus_pk):

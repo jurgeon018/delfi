@@ -98,6 +98,9 @@ def pay_callback(request):
     payment.save()
     order.ordered=True
     order.save()
+
     send_order_mail()
+    send_user_mail(order)
+
     return redirect('thank_you')
 

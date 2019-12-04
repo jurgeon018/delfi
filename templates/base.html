@@ -7,6 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{page.title}}</title>
+  <link rel="shortcut icon" type="image/png" href="/static/favicon.ico">
   <meta name="description" content="{{page.description}}"/>
   {% block styles %}
     {% include 'includes/styles.html' %}
@@ -18,16 +19,19 @@
       hreflang="{{ language_code }}"
   />
   {% endfor %}
-  <link 
+  <!-- <link 
     rel="alternate" 
     href="x-default"
     hreflang="https://www.delfibus.com.ua/"
-  >
-
+  /> -->
+  <link 
+    rel="alternate" 
+    href="x-default"
+    hreflang="{% translate_url uk %}"
+  />
   <meta name=“robots” content=“noindex,nofollow”>
   <script type="text/javascript">
     var SKJ;
-
   </script>
 </head>
 <body>
@@ -40,7 +44,6 @@
   </div>
   {% block extra_content %}{% endblock extra_content %}
   {% block extra_styles %}{% endblock extra_styles %}
-
   <script type="text/javascript" src="{% url 'javascript-catalog' %}"></script>
   {% block scripts %}
     {% include 'includes/scripts.html' %}

@@ -8,7 +8,6 @@ import random
 import string
 from django.core.mail import send_mail
 from django.conf import settings
-# from weasyprint import HTML
 from django.core.files import File
 from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
@@ -17,6 +16,18 @@ from django.urls import path
 
 
 CURRENT_DOMEN = settings.CURRENT_DOMEN
+
+
+def send_order_mail():
+  send_mail(
+    subject = 'Order form Received',
+    # message = get_template('contact_message.txt').render({'message':message}),
+    message = 'Було отримано замовлення. Перейдіть по цій ссилці: {CURRENT_DOMEN}/admin/order/order/',
+    from_email = settings.DEFAULT_FROM_EMAIL,
+    recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
+    fail_silently=True,
+  )
+
 
 
 def send_user_mail(order):
@@ -56,10 +67,11 @@ def save_user_order(order):
 
 
 def render_to_pdf(template_name, context={}):
+  from weasyprint import HTML
   html_string = render_to_string('ticket.html', {'people': 'people'})
   html_string = render_to_string(template_name, context)
-  html = HTML(string=html_string)
-  result = html.write_pdf()
+  html     = HTML(string=html_string)
+  result   = html.write_pdf()
   response = HttpResponse(content_type='application/pdf;')
   response['Content-Disposition'] = 'inline; filename=list_people.pdf'
   # response['Content-Transfer-Encoding'] = 'binary'
@@ -71,9 +83,6 @@ def render_to_pdf(template_name, context={}):
   return response
 
 
-
-
-
 def get_sk(request):
   sk = request.session.session_key
   if not sk: request.session.cycle_key()
@@ -82,15 +91,7 @@ def get_sk(request):
 
 
 
+# https://www.codingforentrepreneurs.com/blog/html-template-to-pdf-in-django
+# CFE HTML Template to PDF in Django
 
 
-
-def send_order_mail():
-  send_mail(
-    subject = 'Order form Received',
-    # message = get_template('contact_message.txt').render({'message':message}),
-    message = 'Було отримано замовлення. Перейдіть по цій ссилці: {CURRENT_DOMEN}/admin/order/order/',
-    from_email = settings.DEFAULT_FROM_EMAIL,
-    recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
-    fail_silently=True,
-  )
