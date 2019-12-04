@@ -49,6 +49,9 @@
   .hero__section_content {
     width: 90%;
   }
+  .footer-info__logo_pay {
+    display: none !important;
+  }
 }
 
 @media (max-width: 780px) {
@@ -434,6 +437,21 @@ section {
 
 .contact-us__textarea {
   resize: none;
+}
+
+.footer-info__logo_pay {
+  width: 145px !important;
+}
+
+.footer-info__logo_wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-info__logo_wrap .footer-info__logo_item img {
+  height: 100%;
+  width: auto;
 }
 
 .slick-dots li button:before {
