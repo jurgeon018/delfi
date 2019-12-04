@@ -57,8 +57,8 @@ def test_mail(request):
   order = Order.objects.get(sk='vbekd254fi79e4c87ofb5gifg8xiw8qy')
   # save_user_order(order)
   # return redirect('index')
-  save_user_order(order)
-  send_user_mail(order)
+  # save_user_order(order)
+  # send_user_mail(order)
   return redirect('test_mail')
 
 
@@ -70,14 +70,14 @@ def create_bus_comment(request, bus_pk):
     text = request.POST.get('text'),
     bus  = Bus.objects.get(pk=bus_pk),
   )
-  send_mail(
-    subject = 'Получено отзыв к автобусу',
-    # message = get_template('contact_message.txt').render({'message':message}),
-    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/buscomment/',
-    from_email = settings.DEFAULT_FROM_EMAIL,
-    recipient_list = [settings.DEFAULT_FROM_EMAIL],
-    fail_silently=True,
-  )
+  # send_mail(
+  #   subject = 'Получено отзыв к автобусу',
+  #   # message = get_template('contact_message.txt').render({'message':message}),
+  #   message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/buscomment/',
+  #   from_email = settings.DEFAULT_FROM_EMAIL,
+  #   recipient_list = [settings.DEFAULT_FROM_EMAIL],
+  #   fail_silently=True,
+  # )
   try: return redirect(request.META.get('HTTP_REFERER'))
   except: return redirect('/')
 
@@ -99,14 +99,14 @@ def create_europe_order(request):
     comment = comment,
     peoples = int(peoples),
   )
-  send_mail(
-    subject = 'Получено заказ автобуса на Европу.',
-    # message = get_template('contact_message.txt').render({'message':message}),
-    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/europecontact/',
-    from_email = settings.DEFAULT_FROM_EMAIL,
-    recipient_list = [settings.DEFAULT_FROM_EMAIL],
-    fail_silently=True,
-  )
+  # send_mail(
+  #   subject = 'Получено заказ автобуса на Европу.',
+  #   # message = get_template('contact_message.txt').render({'message':message}),
+  #   message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/europecontact/',
+  #   from_email = settings.DEFAULT_FROM_EMAIL,
+  #   recipient_list = [settings.DEFAULT_FROM_EMAIL],
+  #   fail_silently=True,
+  # )
 
   return HttpResponse('OK, 200')
 
@@ -127,14 +127,14 @@ def create_bus_order(request):
     comment = comment,
     peoples = int(peoples),
   )
-  send_mail(
-    subject = 'Получено заказ Микроавтобуса для поездки по Украине.',
-    # message = get_template('contact_message.txt').render({'message':message}),
-    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/orderbus/',
-    from_email = settings.DEFAULT_FROM_EMAIL,
-    recipient_list = [settings.DEFAULT_FROM_EMAIL],
-    fail_silently=True,
-  )
+  # send_mail(
+  #   subject = 'Получено заказ Микроавтобуса для поездки по Украине.',
+  #   # message = get_template('contact_message.txt').render({'message':message}),
+  #   message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/pages/orderbus/',
+  #   from_email = settings.DEFAULT_FROM_EMAIL,
+  #   recipient_list = [settings.DEFAULT_FROM_EMAIL],
+  #   fail_silently=True,
+  # )
   return HttpResponse('OK, 200')
 
 
@@ -152,14 +152,14 @@ def create_contact(request):
     email=email,
     comment=comment,
   )
-  send_mail(
-    subject = 'Получено контактные данные и вопрос',
-    # message = get_template('contact_message.txt').render({'message':message}),
-    message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/order/contact/',
-    from_email = settings.DEFAULT_FROM_EMAIL,
-    recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
-    fail_silently=True,
-  )
+  # send_mail(
+  #   subject = 'Получено контактные данные и вопрос',
+  #   # message = get_template('contact_message.txt').render({'message':message}),
+  #   message = 'Перейдите по этой ссылке: {CURRENT_DOMEN}/admin/order/contact/',
+  #   from_email = settings.DEFAULT_FROM_EMAIL,
+  #   recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
+  #   fail_silently=True,
+  # )
   return HttpResponse('OK, 200')
 
 

@@ -10,9 +10,12 @@ from django.utils import timezone
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.cache import cache_page
 
+from django.shortcuts import redirect 
+
 
 
 def order(request):
+  # return redirect('thank_you')
   request.session.cycle_key()
   created_time = timezone.now()-timezone.timedelta(minutes=2)
   orders = Order.objects.filter(
