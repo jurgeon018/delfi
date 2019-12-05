@@ -24,6 +24,7 @@ def set_params(request):
   direction = request.POST.get('direction', None)
   date      = request.POST.get('date', None)
   time      = request.POST.get('time', None)
+  print('request.POST:\n', request.POST, '\n')
   if direction:
     direction = Direction.objects.get(code=direction)
     request.session['order_direction_id'] = direction.id
@@ -37,6 +38,7 @@ def set_params(request):
   if time:
     time = Time.objects.get(time=str(time))
     request.session['order_time_id'] = time.id
+    print('123', request.session.items())
     response['order_time'] = time.time
 
   directions = DirectionSerializer(Direction.objects.all(), many=True)
@@ -89,23 +91,28 @@ def set_params(request):
     response['order_seats'] = [seat.seat.number for seat in order.seats.all()]
   except:
     print('time error')
+  # for k,v in response.items():
+  #   print(k)
+  #   print(v)
+  #   print()
   return JsonResponse(response)
 
 
 @csrf_exempt
 def get_seats(request):
   response = {}
-
+  print('321',request.session.items())
+  order_direction_id = request.session.get('order_direction_id','')
+  order_date = request.session.get('order_date','')
+  order_time_id = request.session.get('order_time_id','')
   race = Race.objects.filter(
-    direction__id=request.session['order_direction_id'],
-    date=request.session['order_date'],
-    time__id=request.session['order_time_id'],
+    direction__id=order_direction_id,
+    date=order_date,
+    time__id=order_time_id,
   )
   if race.exists():
     race = race.first()
     seats = {}
-    # print(Seat.objects.values_list('number', flat=True))
-    # response['seats_numbers'] = [seat.number for seat in Seat.objects.all()]
     response['seats_numbers'] = list(Seat.objects.values_list('number', flat=True))
     seats_in_order = []
     seats_in_order_qs = SeatInOrder.objects.filter(race=race)
@@ -119,13 +126,22 @@ def get_seats(request):
         'order_sk': order_sk
       })
       response['seats_in_order'] = seats_in_order
-
+  else:
+    print(order_time_id)
+    race = Race.objects.filter(
+      direction__id=order_direction_id,
+      date=order_date,
+      time__id=order_time_id,
+    )
+    print(race)
+    print(Time.objects.get(id=order_time_id))
+    return HttpResponse('race_doesnt exists')
   sk = get_sk(request)
-  print(sk)
+  print('1',sk)
   order = Order.objects.get(sk=sk, ordered=False)
   response['order_sk'] = order.sk
   response['order_seats'] = [seat.seat.number for seat in order.seats.all()]
-
+  # import pdb; pdb.set_trace();
   return JsonResponse(response)
 
 
@@ -173,9 +189,8 @@ def create_order(request):
           race=race
         )
   order.save()
-  if True:
-  # if email == 'admin@admin.admin':
-    send_user_mail(order)
+  # if True:
+  if email == 'admin@admin.admin':
     order.ordered = True 
     order.save()
     return redirect('thank_you')

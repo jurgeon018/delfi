@@ -98,9 +98,16 @@ def pay_callback(request):
     payment.save()
     order.ordered=True
     order.save()
-
-    send_order_mail()
+    send_mail(
+      subject = 'Order form Received',
+      # message = get_template('contact_message.txt').render({'message':message}),
+      message = f'Було отримано замовлення. Перейдіть по цій ссилці: {settings.CURRENT_DOMEN}/admin/order/order/',
+      from_email = settings.DEFAULT_FROM_EMAIL,
+      recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
+      fail_silently=True,
+    )
     send_user_mail(order)
-
     return redirect('thank_you')
+
+
 

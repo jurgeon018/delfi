@@ -1,11 +1,10 @@
 from django.shortcuts import (render, get_object_or_404)
-from core.utils import (get_sk)
 from core.models import *
 from django.utils import timezone
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.cache import cache_page
 from django.shortcuts import (render, get_object_or_404)
-from core.utils import (get_sk)
+from core.utils import *
 from django.utils import timezone
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.cache import cache_page
@@ -18,28 +17,11 @@ import os
 
 
 
-
-
-def test_pdf(request):
-  # HTML('http://samplewebsite.com/').write_pdf('/localdirectory/test.pdf',
-  #   stylesheets=[CSS(string='body { font-size: 10px }')]
-  # )
-  # CSS(settings.STATIC_ROOT +  'css/main.css')
-
-
-  # template = "home_page.html"
-  template = "ticket.html"
-  # static = settings.STATIC_ROOT
-  # static = os.path.join(settings.BASE_DIR, "static_root")
-  static = os.path.join(settings.BASE_DIR, "static")
-  # html_template = get_template(template)
-  html_template = get_template(template).render()
-  # pdf_file = HTML(string=html_template).write_pdf(stylesheets=[CSS(string='body { font-size: 100px }')])
-  pdf_file = HTML(string=html_template).write_pdf(stylesheets=[CSS(static+'/ticket.css')])
-  response = HttpResponse(pdf_file, content_type='application/pdf')
-  response['Content-Disposition'] = 'filename="home_page.pdf"'
+def test_mail(request):
+  pdf = send_user_mail()
+  response = HttpResponse(pdf, content_type='application/pdf')
+  response['Content-Disposition'] = 'attachment; filename="Invoice_12341231.pdf"'
   return response
-    
 
 
 def order(request):

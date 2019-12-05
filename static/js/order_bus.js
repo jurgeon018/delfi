@@ -531,6 +531,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
       data: data_all,
       async: true,
       success: function(order) {
+        console.log()
         // var sk_order = order.order_sk
         var bus_seats = order.seats_numbers;
         for (key in bus_seats) {

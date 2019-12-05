@@ -24,6 +24,9 @@ sitemaps = {
 
 
 urlpatterns = [
+
+  path('test_mail/', test_mail, name='test_mail'),
+
   path('rosetta/',           include('rosetta.urls')),
   path('tinymce/',           include('tinymce.urls')),
   path('i18n/',              include('django.conf.urls.i18n')),
@@ -33,7 +36,6 @@ urlpatterns = [
   path('admin/filebrowser/', site.urls),
 
   path('set_lang/<lang>/',   set_lang,       name="set_lang"),
-  path('test_pdf/',          test_pdf,       name='test_pdf'),
   path('set_params/',        set_params,     name='set_params'),
   path('get_seats/',         get_seats,      name="get_seats"),
   path('create_order/',      create_order,   name='create_order'),

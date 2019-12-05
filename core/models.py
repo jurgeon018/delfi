@@ -30,8 +30,8 @@ class Order(models.Model):
   pdf       = models.FileField("Билет",upload_to='pdfs/', null=True, blank=True)
   created   = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
   updated   = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
-  # objects   = 
 
+  
   @property
   def price(self):
     price = 0
