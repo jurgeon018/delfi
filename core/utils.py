@@ -13,7 +13,7 @@ from django.core.mail import EmailMessage
 from django.template.loader import render_to_string
 import tempfile
 from django.urls import path
-from weasyprint import HTML, CSS 
+# from weasyprint import HTML, CSS 
 from core.models import Order 
 import os 
 

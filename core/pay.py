@@ -106,7 +106,7 @@ def pay_callback(request):
       recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
       fail_silently=True,
     )
-    send_user_mail(order)
+    # send_user_mail(order)
     return redirect('thank_you')
 
 
