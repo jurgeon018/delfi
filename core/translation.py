@@ -1,11 +1,3 @@
-# @register(Direction)
-# class DirectionTranslationOptions(TranslationOptions):
-#     fields = (
-#         'name',
-#     )
-
-
-
 from modeltranslation.translator import translator, TranslationOptions, register
 from .models import *
 
@@ -43,6 +35,12 @@ class ParkTranslationOptions(TranslationOptions):
     )
 @register(Blog)
 class BlogTranslationOptions(TranslationOptions):
+    fields = (
+        'title',
+        'description',
+    )
+@register(Service)
+class ServiceTranslationOptions(TranslationOptions):
     fields = (
         'title',
         'description',
