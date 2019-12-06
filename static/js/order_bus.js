@@ -114,7 +114,10 @@ if (document.getElementsByClassName('tab__box').length > 0) {
       $('.tickets__section_img-bus').addClass('tickets__section_img-bus-hover');
       $('.tickets__section_bus').removeClass('tickets__section_bus-hover');
     }
-    if (tabBoxContent.querySelectorAll('.input-tickets__box-sites .input-tickets__grops ').length > 0) {
+    console.log("tyt");
+    console.log(tabBoxContent );
+    console.log(tabBoxContent.querySelectorAll('.input-tickets__box-sites .input-tickets__grops'));
+    if (tabBoxContent.querySelectorAll('.input-tickets__box-sites .input-tickets__grops').length > 0) {
       reservation_seat(tabBoxContent, tabBoxContent.dataset.value, cites_arrival, cites_departure, date);
       forEach(tabBoxContent.querySelectorAll('.input-tickets__box-sites .input-tickets__grops '), function(index, value) {
         value.classList.remove('input-tickets__grops-disabled');
@@ -124,6 +127,7 @@ if (document.getElementsByClassName('tab__box').length > 0) {
 
 
   function reservation_seat(element, direction_value, cites_arrival = false, cites_departure = false, date_hero_form = false, rerouting = false) {
+console.log("tyt");
     console.log(direction_value);
     var SITE_NAME = window.location.origin
     var order_info_url = SITE_NAME + '/set_params/';
@@ -1045,7 +1049,8 @@ function check_seat_buss() {
             order_not_chesk.push(item)
           }
         });
-
+        console.log(create_order);
+        console.log(order_not_chesk.length > 0);
         if (order_not_chesk.length > 0) {
 
           $.fancybox.open({

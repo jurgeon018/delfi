@@ -7,7 +7,7 @@
               <div class="bus-slider_section-line"></div>
 
 
-              <img class="b-lazy " data-src="/static/img/bus.png" alt=" ">
+              <img class="b-lazy " data-lazy="/static/img/bus.png" alt=" ">
             </div>
             <div data-id="#two" class="viwse_comments bus-slider_main_content">
               {% for comment in bus.comments.all %}
@@ -21,12 +21,42 @@
               </div>
               {% endfor %}
             </div>
+            <div data-id="#three" class="viwse_comments bus-slider_main_content gallery__bus">
+
+            <div class="gallery__bus_control gallery__bus_control-left">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-left" class="svg-inline--fa fa-arrow-left fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M257.5 445.1l-22.2 22.2c-9.4 9.4-24.6 9.4-33.9 0L7 273c-9.4-9.4-9.4-24.6 0-33.9L201.4 44.7c9.4-9.4 24.6-9.4 33.9 0l22.2 22.2c9.5 9.5 9.3 25-.4 34.3L136.6 216H424c13.3 0 24 10.7 24 24v32c0 13.3-10.7 24-24 24H136.6l120.5 114.8c9.8 9.3 10 24.8.4 34.3z"></path></svg>
+            </div>
+            <div class="gallery__bus_wrap">
+              <div class="gallery__bus_item">
+                <img class="b-lazy " data-lazy="/static/img/bus.png" alt="">
+              </div>
+              <div class="gallery__bus_item">
+                <img class="b-lazy " data-lazy="/static/img/bus.png" alt="">
+              </div>
+              <div class="gallery__bus_item">
+                <img class="b-lazy " data-lazy="/static/img/bus.png" alt="">
+              </div>
+              <div class="gallery__bus_item">
+                <img class="b-lazy " data-lazy="/static/img/bus.png" alt="">
+              </div>
+              <div class="gallery__bus_item">
+                <img class="b-lazy " data-lazy="/static/img/bus.png" alt="">
+              </div>
+
+            </div>
+            <div class="gallery__bus_control gallery__bus_control-right">
+              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="arrow-right" class="svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z"></path></svg>
+            </div>
+
+
+            </div>
           </div>
           <div class="bus-slider_section">
             <div class="bus-slider_section-title">{{bus.name}}</div>
             <div class="tabs">
               <nav class="tabs-list">
                 <a class="tabs-list-item tabs-list-item-active" href="#one">{% trans "Удобства" %}</a>
+                <a class="tabs-list-item " href="#three">{% trans "Галерея" %}</a>
                 <a class="tabs-list-item" href="#two">{% trans "Отзыв" %}</a>
               </nav>
               <div data-id="#one" class="tabs-content tabs-content-active ">
@@ -145,6 +175,27 @@
                   </form>
                 </div>
               </div>
+              <div data-id="#three" class="tabs-content  ">
+                <div class="equipment">
+                  <div class="equipment_title">{% trans "Идеальная комплектация для поездки!" %}</div>
+                  <div class="equipment_box">
+                    {% for good in bus.goods.all %}
+                    <div class="equipment_item"><i class="fas fa-check"></i>{{good.text}}</div>
+                    {% endfor %}
+                  </div>
+                  <div class="equipment_control">
+                    <div class=" btn_directions_bus_order btn btn-greyy">
+                      {% trans "Забронировать" %}
+                    </div>
+                    <a href="{% url 'order' %}">
+                    <div class="btn btn-blue">
+                      {% trans "Купить билет" %}
+                    </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>

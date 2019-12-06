@@ -8,12 +8,12 @@ from core.utils import *
 from django.utils import timezone
 from django.views.decorators.gzip import gzip_page
 from django.views.decorators.cache import cache_page
-from django.shortcuts import redirect 
+from django.shortcuts import redirect
 from django.conf import settings
 from django.http import HttpResponse
-from weasyprint import HTML, CSS
+# from weasyprint import HTML, CSS
 from django.template.loader import get_template
-import os 
+import os
 
 
 def test_mail(request):
@@ -37,7 +37,7 @@ def order(request):
 def index(request):
   bus_comments = BusComment.objects.filter(moderated=True)
   # page,_ = Page.objects.get_or_create(name='index')
-  # meta_title = page.features.title 
+  # meta_title = page.features.title
   page = Index.objects.first()
   return render(request, 'index.html', locals())
 
@@ -73,7 +73,3 @@ def post_detail(request, pk):
 
 def thank_you(request):
   return render(request, 'thank_you.html', locals())
-
-
-
-

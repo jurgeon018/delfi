@@ -1,9 +1,9 @@
 {% load i18n %}
 <div class="tab__box tab__box-active" data-tab="trip1" data-value="dk">
-<form method='POST' action="{% url 'create_order' %} "   class="tickets_trip">
+<form method='POST'action="{% url 'create_order' %} "  class="tickets_trip">
   {% csrf_token %}
     <div class="tickets__box_seat tickets__box_seat-active">
-    <div class="input-tickets__box input-tickets__box-si`">
+    <div class="input-tickets__box input-tickets__box-sites">
         <div class="input-tickets__grops data_departure ">
         <div class="input-tickets__grops_title">{% trans "Город отправления" %}</div>
         <div class="input-tickets__main">

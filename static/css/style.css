@@ -3034,6 +3034,86 @@ label.error {
   width: 90%;
 }
 
+.gallery__bus {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery__bus .gallery__bus_wrap {
+  height: 100%;
+}
+
+.gallery__bus .gallery__bus_wrap .slick-list {
+  height: 100%;
+}
+
+.gallery__bus .gallery__bus_wrap .slick-list .slick-track {
+  height: 100%;
+}
+
+.gallery__bus_control {
+  background: #1599FC;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  transition: .3s;
+}
+
+.gallery__bus_control svg {
+  margin: 10px;
+  height: 20px;
+}
+
+.gallery__bus_control svg path {
+  fill: #fff;
+}
+
+.gallery__bus_control:hover {
+  cursor: pointer;
+  transition: .3s;
+}
+
+.gallery__bus_control-left {
+  transform: translateX(-50%);
+  justify-content: flex-end;
+}
+
+.gallery__bus_control-left:hover {
+  transform: translateX(-50%) scale(1.15);
+}
+
+.gallery__bus_control-right {
+  right: 0px;
+  transform: translateX(50%);
+}
+
+.gallery__bus_control-right:hover {
+  transform: translateX(50%) scale(1.15);
+}
+
+.slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.gallery__bus_item {
+  height: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery__bus_item img {
+  height: 70%;
+  width: auto;
+}
+
 @media (max-width: 1650px) {
   .bus {
     position: relative;
@@ -3052,6 +3132,7 @@ label.error {
     top: 500px;
     display: flex;
     align-items: center;
+    z-index: 20;
   }
   .bus-slider-nexts i {
     font-size: 30px;
