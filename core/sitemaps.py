@@ -2,6 +2,9 @@ from django.contrib.sitemaps import Sitemap
 from core.models import *
 from django.urls import reverse  
 
+
+
+
 class PostSitemap(Sitemap):
     i18n = True 
     def items(self):
@@ -22,4 +25,7 @@ class StaticViewSitemap(Sitemap):
         ]
     def location(self, item):
         return reverse(item)
+
+
+
 

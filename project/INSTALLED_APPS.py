@@ -12,15 +12,17 @@ INSTALLED_APPS = [
     'django.contrib.redirects',
     'django.contrib.flatpages',
 
-    'crispy_forms',
+    # 'crispy_forms',
     'tinymce',
     'rosetta',
     'autotranslate',
     # 'import_export',
     'core.apps.CoreConfig',
-    'pages.apps.PageConfig',
-    'content.apps.ContentConfig',
-    'order.apps.OrderConfig',
     
-
+    # 'pages.apps.PageConfig',
+    # 'content.apps.ContentConfig',
+    # 'order.apps.OrderConfig',
+    'boilerplate.pages.apps.PageConfig',
+    'boilerplate.content.apps.ContentConfig',
+    'boilerplate.order.apps.OrderConfig',
 ]
