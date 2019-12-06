@@ -70,24 +70,13 @@
       <!-- bus-card -->
       <div class="bus-card">
         {% for bus in buses %}
-          {% if  forloop.counter == 1 %}
-            <div class="bus-card__item bus-card__item-active" data-slide="{{forloop.counter}}">
-              <div class="bus-card__item_img">
-                <div class="bus-card__item-line"></div>
-
-                <img class="b-lazy " data-src="{{bus.photo.url}}" alt=" ">
-              </div>
-              <div class="bus-card__item_title">{{bus.name}}</div>
+          <div class="bus-card__item {% if  forloop.counter == 1 %}bus-card__item-active{% endif %}" data-slide="{{forloop.counter}}">
+            <div class="bus-card__item_img">
+              <div class="bus-card__item-line"></div>
+              <img class="b-lazy " data-src="{{bus.photo.url}}" alt=" ">
             </div>
-          {% else %}
-            <div class="bus-card__item" data-slide="{{forloop.counter}}">
-              <div class="bus-card__item_img">
-                <div class="bus-card__item-line"></div>
-                  <img class="b-lazy " data-src="{{bus.photo.url}}" alt=" ">
-              </div>
-              <div class="bus-card__item_title">{{bus.name}}</div>
-            </div>
-          {% endif %}
+            <div class="bus-card__item_title">{{bus.name}}</div>
+          </div>
         {% endfor %}
       </div>
       <!-- bus-card -->
@@ -98,7 +87,7 @@
       <h1 class="info-block_title">{% trans "Все еще сомневаетесь?" %}</h1>
       <div class="info-block_subtitle">{% trans "Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с лицензией!" %}</div>
       <div class="info-block_button">
-        <a class="btn btn-white" href="/about_us/">{% trans "К лицензии" %}</a>
+        <a class="btn btn-white" href="{% url 'about_us' %}">{% trans "К лицензии" %}</a>
       </div>
     </div>
   </section>

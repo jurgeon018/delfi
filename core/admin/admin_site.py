@@ -29,6 +29,7 @@ manager_admin_site.register(Service, ServiceAdmin)
 manager_admin_site.register(Bus, BusAdmin)
 manager_admin_site.register(BusGood, BusGoodAdmin)
 manager_admin_site.register(BusComment, BusCommentAdmin)
+manager_admin_site.register(BusPhoto, BusPhotoAdmin)
 manager_admin_site.register(Post, PostAdmin)
 
 

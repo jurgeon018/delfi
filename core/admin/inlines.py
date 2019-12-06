@@ -38,7 +38,12 @@ class OrderInline(admin.StackedInline):
 
 class BusCommentInline(admin.StackedInline):
     model = BusComment
-    extra = 3
+    extra = 0
+
+
+class BusPhotoInline(admin.StackedInline):
+  model = BusPhoto
+  extra = 0
 
 
 class RaceInline(admin.StackedInline):

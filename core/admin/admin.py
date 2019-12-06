@@ -347,6 +347,10 @@ class BusAdmin(admin.ModelAdmin):
     "name",
     "photo",
   ]
+  inlines = [
+    BusPhotoInline,
+    BusCommentInline
+  ]
 
 
 class BusGoodAdmin(admin.ModelAdmin):
@@ -384,6 +388,17 @@ class BusCommentAdmin(admin.ModelAdmin):
     'moderated',
   ]
 
+class BusPhotoAdmin(admin.ModelAdmin):
+  list_display_links = [
+    'id',
+  ]
+  list_display = [
+    'id',
+    'photo',
+  ]
+  list_editable = [
+    'photo',
+  ]
 
 class PostAdmin(admin.ModelAdmin):
   list_per_page = 100

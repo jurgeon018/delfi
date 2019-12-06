@@ -237,26 +237,6 @@ class Service(models.Model):
       verbose_name = 'Услуги'; verbose_name_plural="Услуги"; 
 
 
-
-
-
-
-class Page(models.Model):
-    title = models.CharField(max_length=120)
-    def __str__(self):
-        return f"{self.title}"
-
-
-class Feature(models.Model):
-    page = models.ForeignKey(to=Page, verbose_name='features', on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
-    value = models.TextField()
-    def __str__(self):
-        return f"{self.page.title}, {self.name}, {self.value}"
-    
-
-
-
 ####################################################################
 # content 
 
@@ -277,24 +257,6 @@ class Post(models.Model):
       return reverse("post_detail", kwargs={"pk": self.pk})
 
 
-
-class BusGood(models.Model):
-  text = models.TextField( verbose_name="Удобство", )
-  bus  = models.ForeignKey(verbose_name="Автобус", to="Bus", on_delete=models.CASCADE, related_name="goods", blank=True, null=True)
-  class Meta:
-    app_label = 'content'
-    verbose_name='Удобство автобуса'; verbose_name_plural="Удобства автобуса"; 
-
-
-class BusComment(models.Model):
-  text      = models.TextField( verbose_name="Отзыв")
-  bus       = models.ForeignKey(verbose_name="Автобус", to='Bus', on_delete=models.CASCADE, related_name='comments', blank=True, null=True)
-  moderated = models.BooleanField(verbose_name="Отображается", default=False)
-  class Meta:
-    app_label = 'content'
-    verbose_name='Отзыв к автобусу'; verbose_name_plural="Отзывы к автобусу"; 
-
-
 class Bus(models.Model):
   class Meta:
     app_label = 'content'
@@ -306,4 +268,34 @@ class Bus(models.Model):
 
 
 
-####################################################################
+class BusGood(models.Model):
+  text = models.TextField( verbose_name="Удобство", )
+  bus  = models.ForeignKey(verbose_name="Автобус", to="Bus", on_delete=models.CASCADE, related_name="goods", blank=True, null=True)
+  def __str__(self):
+    return f"{self.text}"
+  class Meta:
+    app_label = 'content'
+    verbose_name='Удобство автобуса'; verbose_name_plural="Удобства автобуса"; 
+
+
+class BusComment(models.Model):
+  text      = models.TextField( verbose_name="Отзыв")
+  bus       = models.ForeignKey(verbose_name="Автобус", to='Bus', on_delete=models.CASCADE, related_name='comments', blank=True, null=True)
+  moderated = models.BooleanField(verbose_name="Отображается", default=False)
+  def __str__(self):
+    return f"{self.id}"
+  class Meta:
+    app_label = 'content'
+    verbose_name='Отзыв к автобусу'; verbose_name_plural="Отзывы к автобусу"; 
+
+
+class BusPhoto(models.Model):
+  photo = models.ImageField()
+  alt   = models.CharField(max_length=120, blank=True, null=True)
+  bus   = models.ForeignKey(Bus, related_name="photoes", on_delete=models.CASCADE)
+  def __str__(self):
+    return f"{self.photo}"
+  class Meta:
+    app_label = 'content'
+    verbose_name="Фотография автобуса"; verbose_name_plural="Фотографии автобусов"
+
