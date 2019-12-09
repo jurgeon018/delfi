@@ -1311,6 +1311,12 @@ label.error {
   }
 }
 
+@media (max-width: 1510px) {
+  .phone__item {
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 1435px) {
   .fix-box__contact {
     padding: 10px 10px;
@@ -1824,6 +1830,10 @@ label.error {
 .our-servise__wrap {
   margin: 40px 0;
   height: 600px;
+}
+
+.our-servise__wrap .slick-list .slick-track {
+  align-items: flex-start;
 }
 
 .card {
