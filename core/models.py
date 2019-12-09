@@ -290,7 +290,7 @@ class BusComment(models.Model):
 
 
 class BusPhoto(models.Model):
-  photo = models.ImageField()
+  photo = models.ImageField(upload_to='bus_pics/')
   alt   = models.CharField(max_length=120, blank=True, null=True)
   bus   = models.ForeignKey(Bus, related_name="photoes", on_delete=models.CASCADE)
   def __str__(self):
@@ -298,4 +298,6 @@ class BusPhoto(models.Model):
   class Meta:
     app_label = 'content'
     verbose_name="Фотография автобуса"; verbose_name_plural="Фотографии автобусов"
+
+
 

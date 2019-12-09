@@ -25,7 +25,7 @@
         <div class="gallery__bus_wrap">
           {% for photo in bus.photoes.all %}
           <div class="gallery__bus_item">
-            <img class="b-lazy " data-lazy="{{photo.photo.url}}" alt="photo.alt">
+            <img class="b-lazy " data-lazy="{{photo.photo.url}}" alt="{{photo.alt}}">
           </div>
           {% endfor %}
           <div class="gallery__bus_item">
