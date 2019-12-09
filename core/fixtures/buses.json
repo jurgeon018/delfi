@@ -1,9 +1,45 @@
 [
-    { "model": "content.Bus", "pk":1, "fields":{"name":"Mercedes-Benz Sprinter", "photo":"/bus_pics/bus.png"}},
-    { "model": "content.Bus", "pk":2, "fields":{"name":"Mercedes-Benz Sprinter", "photo":"/bus_pics/bus.png"}},
-    { "model": "content.Bus", "pk":3, "fields":{"name":"Mercedes-Benz Sprinter", "photo":"/bus_pics/bus.png"}},
+    { "model": "content.Bus", "pk":1, "fields":{"name":"Mercedes-Benz Sprinter AE0068IH", "photo":"/bus_pics/AE0068IH_1.png"}},
+    { "model": "content.Bus", "pk":2, "fields":{"name":"Mercedes-Benz Sprinter AE0068IT", "photo":"/bus_pics/AE0068IT_0.png"}},
+    { "model": "content.Bus", "pk":3, "fields":{"name":"Mercedes-Benz Sprinter AE4416IH", "photo":"/bus_pics/AE4416IH_0.png"}},
     { "model": "content.Bus", "pk":4, "fields":{"name":"Mercedes-Benz Sprinter", "photo":"/bus_pics/bus.png"}},
     { "model": "content.Bus", "pk":5, "fields":{"name":"Mercedes-Benz Sprinter", "photo":"/bus_pics/bus.png"}},
+
+
+    {"model":"content.BusPhoto", "pk":1,  "fields":{"photo":"/bus_pics/AE0068IH_2.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":2,  "fields":{"photo":"/bus_pics/AE0068IH_3.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":3,  "fields":{"photo":"/bus_pics/AE0068IH_4.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":4,  "fields":{"photo":"/bus_pics/AE0068IH_5.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":5,  "fields":{"photo":"/bus_pics/AE0068IH_6.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":6,  "fields":{"photo":"/bus_pics/AE0068IH_7.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":7,  "fields":{"photo":"/bus_pics/AE0068IH_8.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":8,  "fields":{"photo":"/bus_pics/AE0068IH_9.jpg",  "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":9,  "fields":{"photo":"/bus_pics/AE0068IH_10.jpg", "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":10, "fields":{"photo":"/bus_pics/AE0068IH_11.jpg", "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":11, "fields":{"photo":"/bus_pics/AE0068IH_12.jpg", "alt":"autobus", "bus":1}},
+    {"model":"content.BusPhoto", "pk":12, "fields":{"photo":"/bus_pics/AE0068IH_13.jpg", "alt":"autobus", "bus":1}},
+
+    {"model":"content.BusPhoto", "pk":13, "fields":{"photo":"/bus_pics/AE0068IT_1.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":14, "fields":{"photo":"/bus_pics/AE0068IT_2.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":15, "fields":{"photo":"/bus_pics/AE0068IT_3.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":16, "fields":{"photo":"/bus_pics/AE0068IT_4.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":17, "fields":{"photo":"/bus_pics/AE0068IT_5.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":18, "fields":{"photo":"/bus_pics/AE0068IT_6.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":19, "fields":{"photo":"/bus_pics/AE0068IT_7.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":20, "fields":{"photo":"/bus_pics/AE0068IT_8.jpg", "alt":"autobus", "bus":2}},
+    {"model":"content.BusPhoto", "pk":21, "fields":{"photo":"/bus_pics/AE0068IT_9.jpg", "alt":"autobus", "bus":2}},
+
+    {"model":"content.BusPhoto", "pk":22, "fields":{"photo":"/bus_pics/AE4416IH_1_1.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":23, "fields":{"photo":"/bus_pics/AE4416IH_1_2.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":24, "fields":{"photo":"/bus_pics/AE4416IH_2.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":25, "fields":{"photo":"/bus_pics/AE4416IH_4.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":26, "fields":{"photo":"/bus_pics/AE4416IH_5.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":27, "fields":{"photo":"/bus_pics/AE4416IH_6.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":28, "fields":{"photo":"/bus_pics/AE4416IH_7.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":29, "fields":{"photo":"/bus_pics/AE4416IH_8.jpg", "alt":"autobus", "bus":3}},
+    {"model":"content.BusPhoto", "pk":30, "fields":{"photo":"/bus_pics/AE4416IH_9.jpg", "alt":"autobus", "bus":3}},
+
+
 
 
     { "model": "content.BusGood", "pk":1, "fields":{"text":"Комфортные сидения",   "bus":1}},
@@ -61,5 +97,6 @@
 
     { "model": "content.BusComment", "pk":9,  "fields":{"text":"Добросовестный перевозчик, знающий толк в своей деятельности по перевозки пассажиров. Рекомендую всем.",           "bus":5}},
     { "model": "content.BusComment", "pk":10, "fields":{"text":"Забронировала здесь поездку в Днепр. Все понравилось. Комфортабельное авто, опытный хороший водитель. Рекомендую", "bus":5}}
+
 
 ]
