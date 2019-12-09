@@ -6,11 +6,11 @@ from datetime import datetime, timedelta
 from django.conf import settings 
 from django.shortcuts import reverse 
 from django.db import models 
-from tinymce.models import HTMLField
 from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import reverse
 
 
+from tinymce.models import HTMLField
 
 
 ####################################################################
