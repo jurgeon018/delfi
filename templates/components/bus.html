@@ -4,7 +4,7 @@
     <div class="bus-slider_section bus-slider_section-content">
       <div data-id="#one" class="bus-slider_section_img bus-slider_main_content bus-slider_main_content-active">
         <div class="bus-slider_section-line"></div>
-        <img class="b-lazy " data-lazy="/static/img/bus.png" alt=" ">
+        <img class="b-lazy " data-lazy="{{bus.photo.url}}" alt=" ">
       </div>
       <div data-id="#two" class="viwse_comments bus-slider_main_content">
         {% for comment in bus.comments.all %}
