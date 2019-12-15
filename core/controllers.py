@@ -7,9 +7,10 @@ from django.utils.translation import ugettext as _
 from core.forms import *
 from core.models import *
 from core.utils import *
+from core.tasks import *
 from django.contrib import messages
-from datetime import datetime, date, time, timedelta
 from django.utils.translation import ugettext as _
+from project.celery import app 
 
 
 
@@ -17,26 +18,7 @@ from django.utils.translation import ugettext as _
 def create_multiple_races(request):
   form = RaceForm(request.POST or None)
   if request.method == 'POST':
-    date_from = request.POST.get('date_from', '')
-    date_to   = request.POST.get('date_to', '')
-    start     = datetime.strptime(date_from, '%Y-%m-%d')
-    end       = datetime.strptime(date_to, '%Y-%m-%d')
-    direction = Direction.objects.get(id=request.POST.get('direction', ''))
-    time      = Time.objects.get(id=request.POST.get('time', ''))
-    dates     = []
-    while start <= end:
-      dates.append(start.date())
-      start += timedelta(days=1)
-    for date in dates:
-      print(date)
-      race, created = Race.objects.get_or_create(
-        direction=direction,
-        date=date,
-        time=time,
-      )
-      if created:
-        race.price=request.POST.get('price','')
-        race.save()
+    create.delay(request.POST)
   print(request.POST)
   return render(request, 'create_multiple_races.html', locals())
 

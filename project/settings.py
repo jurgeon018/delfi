@@ -87,3 +87,51 @@ LIQPAY_PRIVATE_KEY = "sandbox_RBR5FM04gXXt25MLzVmP7eyarKDWIKXw86MEMkvm"
 
 # LIQPAY_PUBLIC_KEY = "i3466565002"
 # LIQPAY_PRIVATE_KEY="85pd0UjyxXThv8RQpmPld4Z406wGZF4huAfqDHaB"
+
+
+
+
+
+
+
+
+
+
+# REDIS_HOST = 'localhost'
+# REDIS_PORT = '6379'
+# BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+# BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600} 
+# CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+
+# CELERY_TIMEZONE = 'Asia/Makassar'
+CELERY_BROKER_URL = 'amqp://127.0.0.1//'
+# CELERY_BROKER_URL = 'redis://127.0.0.1:6379//'
+# CELERY_ACCEPT_CONTENT = ['json']
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_BEAT_SCHEDULE = {
+    # 'third-task':{
+    #     'task':'app1.tasks.task_three',
+    #     'schedule': 2.0,
+    #     # 'args': 
+    # },
+    # 'fourth-task':{
+    #     'task':'app1.tasks.task_four',
+    #     'schedule': 3.0,
+    #     # 'args': 
+    # },
+    # 'fifth-task':{
+    #     'task':'app1.tasks.task_five',
+    #     'schedule': crontab(minute=59, hour=23),
+    #     # 'schedule': crontab(minute=0, hour='*/3,10-19'),
+    #     # 'schedule': crontab(hour=16, day_of_week=5),
+    #     # 'schedule': 3600.0,
+    #     # 'schedule': solar('sunset', -37.81753, 144.96715),
+    # },
+    # 'sixth-task':{
+    #     'task':'core.tasks.create_races_every_night',
+    #     'schedule':3.0
+    # }
+
+}
+

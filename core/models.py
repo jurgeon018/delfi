@@ -124,6 +124,7 @@ class Direction(models.Model):
   name  = models.CharField("Направление",max_length=120, blank=True, null=True)
   times = models.ManyToManyField('core.Time', blank=True, null=True)
   stops = models.ManyToManyField('core.Stop', blank=True, null=True)
+  price = models.DecimalField(decimal_places=2, max_digits=9, blank=True, null=True, default=10)
   def __str__(self):return f'{self.name}'  
   class Meta: verbose_name = 'Направление'; verbose_name_plural = 'Направления'; 
 
@@ -170,6 +171,10 @@ class SeatInOrder(models.Model):
 #   race = models.ForeignKey('core.Race', verbose_name='Рейс',           on_delete=models.CASCADE, blank=True, null=True, related_name='stops', )
 #   def __str__(self): return f'{self.time.time}|{self.stop.name}'
 #   class Meta: verbose_name = 'Остановка в рейсе'; verbose_name_plural = 'Остановки в рейсе'
+
+
+
+
 
 
 

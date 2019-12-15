@@ -1,4 +1,6 @@
 from core.order_api import *
+from core.tasks import * 
+
 
 @csrf_exempt
 def pay(request):
@@ -17,7 +19,7 @@ def pay(request):
       'amount': float(total_price),
       'currency': 'UAH',
       'description': str(f"{order.full_name}, {order.race}"),
-      'order_id': str(order.id),
+      'order_id': str(order.id+1000),
       'version': '3',
       'sandbox': 1, # sandbox mode, set to 1 to enable it
       'server_url': f'{CURRENT_DOMEN}pay_callback/', # url to callback view
@@ -106,7 +108,7 @@ def pay_callback(request):
       recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
       fail_silently=True,
     )
-    # send_user_mail(order)
+    send_user_mail.delay(order.id)
     return redirect('thank_you')
 
 
