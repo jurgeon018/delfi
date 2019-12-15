@@ -14,7 +14,7 @@ ADMINS = (
 )
 ROOT_URLCONF = 'core.urls'
 WSGI_APPLICATION = 'project.wsgi.application'
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru'
 # LANGUAGE_CODE = 'en-us' 
 TIME_ZONE = 'Europe/Kiev'
 # TIME_ZONE = 'UTC'
