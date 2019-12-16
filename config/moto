@@ -1,0 +1,19 @@
+server{
+    listen 80;
+    server_name moto.mendela.xyz;
+    location /media {
+        alias /home/jurgeon/projects/moto/src/media;
+    }
+    location /static {
+        alias /home/jurgeon/projects/moto/src/static_root;
+    }
+    location / {
+        uwsgi_pass unix:/home/jurgeon/projects/moto/src/config/moto.sock;
+        include /etc/nginx/uwsgi_params;
+    }
+}
+
+
+
+
+

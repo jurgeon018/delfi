@@ -1,0 +1,115 @@
+
+# EXAMPLES
+
+# systemd symlink
+
+sudo ln -s /home/jurgeon/projects/agro/src/config/agro.service             /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/captain/src/config/captain.service       /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/delfi/src/config/delfi.service           /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/gao/src/config/gao.service               /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/margo/src/config/margo.service           /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/moto/src/config/moto.service             /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/olimp/src/config/olimp.service           /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/starwayua/src/config/starwayua.service   /etc/systemd/system/
+
+sudo ln -s /home/jurgeon/projects/starwayusa/src/config/starwayusa.service /etc/systemd/system/
+
+
+
+
+
+# nginx symlink
+
+sudo ln -s /home/jurgeon/projects/agro/src/config/agro             /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/captain/src/config/captain       /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/delfi/src/config/delfi           /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/gao/src/config/gao               /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/margo/src/config/margo           /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/moto/src/config/moto             /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/olimp/src/config/olimp           /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/starwayua/src/config/starwayua   /etc/nginx/sites-enabled/
+
+sudo ln -s /home/jurgeon/projects/starwayusa/src/config/starwayusa /etc/nginx/sites-enabled/
+
+sudo rm /etc/nginx/sites-enabled/default
+
+
+
+# celery service symlink 
+
+sudo ln -s /home/jurgeon/projects/agro/src/config/celery_agro_worker.conf              /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/agro/src/config/celery_agro_beat.conf                /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/captain/src/config/celery_captain_worker.conf        /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/captain/src/config/celery_captain_beat.conf          /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/delfi/src/config/celery_delfi_worker.conf            /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/delfi/src/config/celery_delfi_beat.conf              /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/gao/src/config/celery_gao_worker.conf                /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/gao/src/config/celery_gao_beat.conf                  /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/margo/src/config/celery_margo_worker.conf            /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/margo/src/config/celery_margo_beat.conf              /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/moto/src/config/celery_moto_worker.conf              /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/moto/src/config/celery_moto_beat.conf                /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/olimp/src/config/celery_olimp_worker.conf            /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/olimp/src/config/celery_olimp_beat.conf              /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/starwayua/src/config/celery_starwayua_worker.conf    /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/starwayua/src/config/celery_starwayua_beat.conf      /etc/supervisor/conf.d/
+
+sudo ln -s /home/jurgeon/projects/starwayusa/src/config/celery_starwayusa_worker.conf  /etc/supervisor/conf.d/
+sudo ln -s /home/jurgeon/projects/starwayusa/src/config/celery_starwayusa_beat.conf    /etc/supervisor/conf.d/
+
+
+# celery logs 
+
+sudo touch /var/log/celery/agro_worker.log
+sudo touch /var/log/celery/agro_beat.log
+
+sudo touch /var/log/celery/captain_worker.log
+sudo touch /var/log/celery/captain_beat.log
+
+sudo touch /var/log/celery/delfi_worker.log
+sudo touch /var/log/celery/delfi_beat.log
+
+sudo touch /var/log/celery/gao_worker.log
+sudo touch /var/log/celery/gao_beat.log
+
+sudo touch /var/log/celery/margo_worker.log
+sudo touch /var/log/celery/margo_beat.log
+
+sudo touch /var/log/celery/moto_worker.log
+sudo touch /var/log/celery/moto_beat.log
+
+sudo touch /var/log/celery/olimp_worker.log
+sudo touch /var/log/celery/olimp_beat.log
+
+sudo touch /var/log/celery/starwayua_worker.log
+sudo touch /var/log/celery/starwayua_beat.log
+
+sudo touch /var/log/celery/starwayusa_worker.log
+sudo touch /var/log/celery/starwayusa_beat.log
+
+
+
+
+
+
