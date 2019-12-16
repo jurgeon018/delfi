@@ -1,6 +1,5 @@
 server{
-    listen 80;
-    server_name moto.mendela.xyz;
+    server_name delfi.mendela.xyz;
     location /media {
         alias /home/jurgeon/projects/moto/src/media;
     }
@@ -11,9 +10,28 @@ server{
         uwsgi_pass unix:/home/jurgeon/projects/moto/src/config/moto.sock;
         include /etc/nginx/uwsgi_params;
     }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/delfi.mendela.xyz/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/delfi.mendela.xyz/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
 }
 
 
 
 
 
+server{
+    if ($host = delfi.mendela.xyz) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    server_name delfi.mendela.xyz;
+    return 404; # managed by Certbot
+
+
+}

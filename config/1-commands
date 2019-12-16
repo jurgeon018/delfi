@@ -24,12 +24,12 @@ sudo supervisorctl update
 
 #sudo supervisorctl stop delfiworker
 sudo supervisorctl start delfiworker
-sudo supervisorctl restart delfiworker
+#sudo supervisorctl restart delfiworker
 #sudo supervisorctl status delfiworker
 
 #sudo supervisorctl stop delfibeat
 sudo supervisorctl start delfibeat
-sudo supervisorctl restart delfibeat
+#sudo supervisorctl restart delfibeat
 #sudo supervisorctl status delfibeat
 
 
@@ -38,39 +38,23 @@ sudo certbot --nginx -d delfi.mendela.xyz
 sudo certbot renew --dry-run
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+sudo tail -f /var/log/nginx/error.log
+sudo tail -f /var/log/celery/moto_worker.log
+sudo tail -f /var/log/celery/moto_beat.log
+sudo tail -f /var/log/celery/delfi_worker.log
+sudo tail -f /var/log/celery/delfi_beat.log
 
 
 # https://askubuntu.com/questions/903354/difference-between-systemctl-and-service-commands
 # https://stackoverflow.com/questions/43537851/difference-between-systemctl-and-service-command
-
-sudo tail -F /var/log/nginx/error.log
-sudo ls UWSGI_SOCKETS_DIR
-sudo journalctl -u uwsgi
-sudo nginx -t
-sudo service nginx configtest
-
-
-
-
-
 sudo service uwsgi start 
 sudo service nginx start 
 sudo service uwsgi restart 
 sudo service nginx restart 
-
-
 sudo /etc/init.d/nginx start 
 sudo /etc/init.d/nginx restart
 #sudo reboot
+sudo ls UWSGI_SOCKETS_DIR
+sudo journalctl -u uwsgi
+sudo nginx -t
+sudo service nginx configtest
