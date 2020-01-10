@@ -364,8 +364,13 @@
       var $input = $(this).parent().find('input');
       var input_value = parseInt($input.val());
 
-      if (isNaN(input_value)) {
-        input_value = 0;
+      if (isNaN(input_value) ) {
+        input_value = 1;
+      }
+      if (input_value>0) {
+
+      }else {
+        input_value = 1;
       }
       $input.val(input_value);
 

@@ -2,12 +2,12 @@ from celery import shared_task, task
 from celery.task import periodic_task
 from celery.schedules import crontab
 
-from project.celery import app 
+from project.celery import app
 
 from datetime import timedelta
 from django.utils import timezone
-from time import sleep 
-from weasyprint import HTML, CSS
+from time import sleep
+# from weasyprint import HTML, CSS
 from core.models import *
 from django.http import HttpResponse
 from io import BytesIO, StringIO
@@ -20,7 +20,7 @@ from django.template.loader import render_to_string
 import tempfile
 import os
 from datetime import datetime, date, time, timedelta
-from core.models import * 
+from core.models import *
 
 
 
@@ -89,7 +89,7 @@ def send_user_mail(order_id):
   # response['Content-Disposition'] = 'attachment; filename="Invoice_12341231.pdf"'
   # return response
 
-  
+
 
 
 # @periodic_task(run_every=crontab(), name="create_races_every_night")
