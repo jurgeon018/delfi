@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{%block content %}
+<div class="container  error">
+  <div class="error__section">
+    <div class="error__section_main">
+      <div class="error__section_box error__section_box-left ">
+        <div class="error__section_box-subtitle">Ooops!</div>
+        <div class="error__section_box-title">Мы не можем найти нужную страницу.</div>
+      </div>
+      <div class="error__section_box error__section_box-right">
+        <div class="error__section_box-text">
+          Вы всегда можете вернуться на главную и заказать билет на желаемый рейс
+        </div>
+        <div class="error__section_box_control">
+           <a class="btn  btn btn-blue  error_main_page-link" href="">На головну</a>
+           <a class="btn    btn btn-blue error_bus_page-link " href="">Оформить билет</a>
+        </div>
+      </div>
+    </div>
+
+ </div>
+ <div class="error__section">
+   <div class="error__section_img">
+     <img src="/static/img/404_mask.png" alt="">
+   </div>
+ </div>
+</div>
+{%endblock content %}
