@@ -59,6 +59,7 @@ urlpatterns += i18n_patterns(
   path('order/',        order,        name='order'),
   path('about_us/',     about_us,     name='about_us'),
   path('thank_you/',    thank_you,    name='thank_you'),
+  path('404/',          page404,      name="page404"),
   prefix_default_language=True,
 )
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

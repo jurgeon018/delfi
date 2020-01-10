@@ -62,3 +62,7 @@ def post_detail(request, pk):
 
 def thank_you(request):
   return render(request, 'thank_you.html', locals())
+
+
+def page404(request):
+  return render(request, '404.html', locals())
