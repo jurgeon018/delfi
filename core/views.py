@@ -28,7 +28,8 @@ def order(request):
 
 
 def index(request):
-  bus_comments = BusComment.objects.filter(moderated=True)
+  bus_comments = BusComment.objects.filter(moderated=False)
+  print(bus_comments)
   page = Index.objects.first()
   return render(request, 'index.html', locals())
 
