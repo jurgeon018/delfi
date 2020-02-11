@@ -67,3 +67,13 @@ def thank_you(request):
 
 def page404(request):
   return render(request, '404.html', locals())
+
+
+def oferta(request):
+  from django.conf import settings 
+  from django.http import FileResponse
+  path = os.path.join(settings.STATICFILES_DIRS[0], 'pdf', 'oferta.pdf')
+  response = FileResponse(open(path, 'rb'), content_type='application/pdf')
+  return response
+
+
