@@ -10,7 +10,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.shortcuts import reverse
 
 
-from tinymce.models import HTMLField
+# from tinymce.models import HTMLField
+from tinymce import HTMLField
 
 
 ####################################################################
