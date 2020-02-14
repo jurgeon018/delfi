@@ -8,68 +8,74 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-03 20:20+0200\n"
-"PO-Revision-Date: 2019-12-03 20:19+0202\n"
-"Last-Translator: b'  <>'\n"
+"POT-Creation-Date: 2020-02-11 14:50+0200\n"
+"PO-Revision-Date: 2020-02-11 14:52+0202\n"
+"Last-Translator: b'  <jurgeon018@gmail.com>'\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
 "X-Translated-Using: django-rosetta 0.9.3\n"
 
-#: core/models.py:65
+#: core/models.py:20
 msgid "Полное имя"
 msgstr "Полное имя"
 
-#: core/models.py:149
+#: core/models.py:81
 msgid "Контакт"
 msgstr "Контакты"
 
-#: core/models.py:150
+#: core/models.py:82
 msgid "Контакты"
 msgstr "Контакты"
 
-#: core/models.py:164 core/models.py:165
+#: core/models.py:95
 msgid "Заказ поездки в Европу"
 msgstr "Заказ поездки в европу"
 
-#: core/models.py:178 core/models.py:179
+#: core/models.py:96
+msgid "Заказы поездок в Европу"
+msgstr "Заказ поездки в европу"
+
+#: core/models.py:109
 msgid "Заказ Микроавтобуса"
 msgstr "Заказ Микроавтобуса"
 
-#: core/models.py:268
+#: core/models.py:110
+msgid "Заказы Микроавтобуса"
+msgstr "Заказ Микроавтобуса"
+
+#: core/models.py:249
 msgid "Заголовок"
 msgstr "Заголовок"
 
-#: core/models.py:270
+#: core/models.py:251
 msgid "Контент"
 msgstr "Контент"
 
-#: core/models.py:271
+#: core/models.py:252
 msgid "Ссылка"
 msgstr "Ссылка"
 
-#: core/models.py:272
+#: core/models.py:253
 msgid "Картинка"
 msgstr "Картинка"
 
-#: core/models.py:273
+#: core/models.py:254
 msgid "Создан"
 msgstr "Создан"
 
-#: core/models.py:274
+#: core/models.py:255
 msgid "Обновлен"
 msgstr "Обновлен"
 
-#: core/models.py:279
+#: core/models.py:260
 msgid "Пост"
 msgstr "Пост"
 
-#: core/models.py:279
+#: core/models.py:260
 msgid "Посты"
 msgstr "Посты"
 
@@ -91,11 +97,11 @@ msgstr "Посты"
 msgid "Home"
 msgstr "Домой"
 
-#: project/settings.py:25
+#: project/settings.py:26
 msgid "Russian"
 msgstr "Русский"
 
-#: project/settings.py:27
+#: project/settings.py:28
 msgid "Ukrainian"
 msgstr "Украинский"
 
@@ -106,12 +112,12 @@ msgstr "Кратко о нас"
 #: templates/about_us.html:10
 msgid ""
 "Однажды, воспользовавшись нашими услугами, вы будете приятно удивлены "
-"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными "
-"опциями. Это касается как машин на маршруте, так и на заказ."
+"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными"
+" опциями. Это касается как машин на маршруте, так и на заказ."
 msgstr ""
 "Однажды, воспользовавшись нашими услугами, вы будете приятно удивлены "
-"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными "
-"опциями. Это касается как машин на маршруте, так и на заказ."
+"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными"
+" опциями. Это касается как машин на маршруте, так и на заказ."
 
 #: templates/about_us.html:13
 msgid ""
@@ -124,8 +130,8 @@ msgstr ""
 "Под любой ваш запрос мы подберём лучшее решение для конкретно ваших "
 "потребностей - будь-то пассажирский или грузопассажирский микроавтобус "
 "Спринтер, автобусы разной вместимости, минивэн или простой легковой "
-"автомобиль.В нашем автопарке только лучшие автомобили! Любая длинная поездка "
-"превращается в увликательное и комфортное приключение!"
+"автомобиль.В нашем автопарке только лучшие автомобили! Любая длинная поездка"
+" превращается в увликательное и комфортное приключение!"
 
 #: templates/about_us.html:16
 msgid "Лицензия"
@@ -258,8 +264,8 @@ msgstr ""
 
 #: templates/admin/auth/user/add_form.html:6
 msgid ""
-"First, enter a username and password. Then, you'll be able to edit more user "
-"options."
+"First, enter a username and password. Then, you'll be able to edit more user"
+" options."
 msgstr ""
 
 #: templates/admin/auth/user/add_form.html:8
@@ -372,8 +378,8 @@ msgstr ""
 #: templates/admin/delete_confirmation.html:31
 #, python-format
 msgid ""
-"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the "
-"following protected related objects:"
+"Deleting the %(object_name)s '%(escaped_object)s' would require deleting the"
+" following protected related objects:"
 msgstr ""
 
 #: templates/admin/delete_confirmation.html:38
@@ -480,16 +486,16 @@ msgstr ""
 
 #: templates/admin/invalid_setup.html:12
 msgid ""
-"Something's wrong with your database installation. Make sure the appropriate "
-"database tables have been created, and make sure the database is readable by "
-"the appropriate user."
+"Something's wrong with your database installation. Make sure the appropriate"
+" database tables have been created, and make sure the database is readable "
+"by the appropriate user."
 msgstr ""
 
 #: templates/admin/login.html:37
 #, python-format
 msgid ""
-"You are authenticated as %(username)s, but are not authorized to access this "
-"page. Would you like to login to a different account?"
+"You are authenticated as %(username)s, but are not authorized to access this"
+" page. Would you like to login to a different account?"
 msgstr ""
 
 #: templates/admin/login.html:57
@@ -515,8 +521,8 @@ msgstr ""
 
 #: templates/admin/object_history.html:38
 msgid ""
-"This object doesn't have a change history. It probably wasn't added via this "
-"admin site."
+"This object doesn't have a change history. It probably wasn't added via this"
+" admin site."
 msgstr ""
 
 #: templates/admin/pagination.html:10 templates/admin/search_form.html:9
@@ -592,74 +598,79 @@ msgstr "Блог"
 msgid "Последние новости и полезная информация"
 msgstr "Последние новости и полезная информация"
 
-#: templates/components/bus.html:29
+#: templates/components/bus.html:56
 msgid "Удобства"
 msgstr "Удобства"
 
-#: templates/components/bus.html:30
+#: templates/components/bus.html:57
+msgid "Галерея"
+msgstr ""
+
+#: templates/components/bus.html:58
 msgid "Отзыв"
 msgstr "Отзыв"
 
-#: templates/components/bus.html:34
+#: templates/components/bus.html:62 templates/components/bus.html:178
 msgid "Идеальная комплектация для поездки!"
 msgstr "Идеально подходит для организации поездки!"
 
-#: templates/components/bus.html:42 templates/components/trip3.html:96
-#: templates/components/trip4.html:123
+#: templates/components/bus.html:70 templates/components/bus.html:186
+#: templates/components/trip3.html:96 templates/components/trip4.html:123
 msgid "Забронировать"
 msgstr "Забронировать"
 
-#: templates/components/bus.html:46 templates/components/trip1.html:482
-#: templates/components/trip2.html:480 templates/index.html:22
+#: templates/components/bus.html:74 templates/components/bus.html:190
+#: templates/components/trip1.html:482 templates/components/trip2.html:481
+#: templates/index.html:22
 msgid "Купить билет"
 msgstr "Купить билет"
 
-#: templates/components/bus.html:58 templates/components/trip1.html:395
-#: templates/components/trip2.html:392 templates/components/trip3.html:7
+#: templates/components/bus.html:86 templates/components/trip1.html:395
+#: templates/components/trip2.html:393 templates/components/trip3.html:7
 #: templates/components/trip4.html:7 templates/contact_us.html:13
 msgid "Имя и фамилия"
 msgstr "Имя и фамилия"
 
-#: templates/components/bus.html:81 templates/components/trip1.html:418
-#: templates/components/trip2.html:415 templates/components/trip3.html:26
+#: templates/components/bus.html:109 templates/components/trip1.html:418
+#: templates/components/trip2.html:416 templates/components/trip3.html:26
 #: templates/components/trip4.html:26 templates/contact_us.html:36
 msgid "Телефон"
 msgstr "Телефон"
 
-#: templates/components/bus.html:102 templates/components/trip1.html:439
-#: templates/components/trip2.html:436 templates/components/trip3.html:44
+#: templates/components/bus.html:130 templates/components/trip1.html:439
+#: templates/components/trip2.html:437 templates/components/trip3.html:44
 #: templates/components/trip4.html:44 templates/contact_us.html:57
 msgid "Email"
 msgstr "Адрес электронной почты"
 
-#: templates/components/bus.html:136 templates/components/trip3.html:69
+#: templates/components/bus.html:164 templates/components/trip3.html:69
 #: templates/components/trip4.html:95 templates/contact_us.html:114
 msgid "Оставьте свое сообщение"
 msgstr "Оставьте свое сообщение"
 
-#: templates/components/bus.html:143 templates/contact_us.html:121
+#: templates/components/bus.html:171 templates/contact_us.html:121
 msgid "Отправить сообщение"
 msgstr "Отправить сообщение"
 
-#: templates/components/trip1.html:8 templates/components/trip2.html:7
+#: templates/components/trip1.html:8 templates/components/trip2.html:8
 #: templates/components/trip4.html:71 templates/index.html:46
 msgid "Город отправления"
 msgstr "Город отправления"
 
-#: templates/components/trip1.html:36 templates/components/trip2.html:34
+#: templates/components/trip1.html:36 templates/components/trip2.html:35
 msgid "Город прибития"
 msgstr "Город прибытия"
 
-#: templates/components/trip1.html:61 templates/components/trip2.html:60
+#: templates/components/trip1.html:61 templates/components/trip2.html:61
 #: templates/index.html:34
 msgid "Дата поездки"
 msgstr "Дата поездки"
 
-#: templates/components/trip1.html:64 templates/components/trip2.html:63
+#: templates/components/trip1.html:64 templates/components/trip2.html:64
 msgid "Выберите дату"
 msgstr "Выберите дату"
 
-#: templates/components/trip1.html:72 templates/components/trip2.html:71
+#: templates/components/trip1.html:72 templates/components/trip2.html:72
 msgid "Рейс"
 msgstr "Рейс"
 
@@ -667,15 +678,15 @@ msgstr "Рейс"
 msgid "Выберите рейс"
 msgstr "Выберите рейс"
 
-#: templates/components/trip1.html:96 templates/components/trip2.html:94
+#: templates/components/trip1.html:96 templates/components/trip2.html:95
 msgid "Способ оплаты"
 msgstr "Способ оплаты"
 
-#: templates/components/trip1.html:100
+#: templates/components/trip1.html:100 templates/components/trip2.html:99
 msgid "Выберите способ оплаты"
 msgstr "Выберите способ оплаты"
 
-#: templates/components/trip1.html:112
+#: templates/components/trip1.html:112 templates/components/trip2.html:111
 msgid "Картой"
 msgstr "Картой"
 
@@ -683,25 +694,25 @@ msgstr "Картой"
 msgid "Забронированные места:"
 msgstr "Забронированные места:"
 
-#: templates/components/trip1.html:129 templates/components/trip2.html:116
-#: templates/components/trip2.html:127
+#: templates/components/trip1.html:129 templates/components/trip2.html:117
+#: templates/components/trip2.html:128
 msgid "Забронированые места:"
 msgstr "Забронированные места:"
 
-#: templates/components/trip1.html:153 templates/components/trip2.html:151
+#: templates/components/trip1.html:153 templates/components/trip2.html:152
 msgid "Для выбора мест необходимо:"
 msgstr "Для выбора мест необходимо:"
 
-#: templates/components/trip1.html:156 templates/components/trip2.html:154
+#: templates/components/trip1.html:156 templates/components/trip2.html:155
 #: templates/order.html:51
 msgid "Выбрать место на карте расположение мест в микроавтобусе"
 msgstr "Выбрать место на карте расположение мест в микроавтобусе"
 
-#: templates/components/trip1.html:160 templates/components/trip2.html:158
+#: templates/components/trip1.html:160 templates/components/trip2.html:159
 msgid "Добавить выбранные места до бронирования"
 msgstr "Добавить выбранные места до бронирования"
 
-#: templates/components/trip1.html:164 templates/components/trip2.html:162
+#: templates/components/trip1.html:164 templates/components/trip2.html:163
 #: templates/order.html:59
 msgid "В стоимость билета входит только ручная кладь."
 msgstr "В стоимость билета входит только ручная кладь."
@@ -710,36 +721,36 @@ msgstr "В стоимость билета входит только ручна�
 msgid "Для более габаритного багажа воспользуйтесь расценкой"
 msgstr "Для более габаритного багажа воспользуйтесь расценкой"
 
-#: templates/components/trip1.html:170 templates/components/trip2.html:168
+#: templates/components/trip1.html:170 templates/components/trip2.html:169
 msgid "Расчитать стоимость"
 msgstr "Рассчитать стоимость"
 
-#: templates/components/trip1.html:174 templates/components/trip2.html:172
+#: templates/components/trip1.html:174 templates/components/trip2.html:173
 #: templates/order.html:69
 msgid "желтые"
 msgstr "желтые"
 
-#: templates/components/trip1.html:174 templates/components/trip2.html:172
+#: templates/components/trip1.html:174 templates/components/trip2.html:173
 #: templates/order.html:69
 msgid "заняты"
 msgstr "заняты"
 
-#: templates/components/trip1.html:178 templates/components/trip2.html:176
+#: templates/components/trip1.html:178 templates/components/trip2.html:177
 #: templates/order.html:73
 msgid "зеленые"
 msgstr "зеленые"
 
-#: templates/components/trip1.html:178 templates/components/trip2.html:176
+#: templates/components/trip1.html:178 templates/components/trip2.html:177
 #: templates/order.html:73
 msgid "бронь"
 msgstr "бронь"
 
-#: templates/components/trip1.html:182 templates/components/trip2.html:180
+#: templates/components/trip1.html:182 templates/components/trip2.html:181
 #: templates/order.html:77
 msgid "белые"
 msgstr "белые"
 
-#: templates/components/trip1.html:182 templates/components/trip2.html:180
+#: templates/components/trip1.html:182 templates/components/trip2.html:181
 #: templates/order.html:77
 msgid "свободные"
 msgstr "свободные"
@@ -748,32 +759,28 @@ msgstr "свободные"
 msgid "Проверить наличие мест"
 msgstr "Проверить наличие мест"
 
-#: templates/components/trip1.html:374 templates/components/trip2.html:371
+#: templates/components/trip1.html:374 templates/components/trip2.html:372
 #: templates/order.html:270
 msgid "Подсказки и легенда"
 msgstr "Подсказки и легенда"
 
-#: templates/components/trip1.html:389 templates/components/trip2.html:386
+#: templates/components/trip1.html:389 templates/components/trip2.html:387
 msgid "Оформить билет"
 msgstr "Оформить билет"
 
-#: templates/components/trip1.html:474 templates/components/trip2.html:472
+#: templates/components/trip1.html:474 templates/components/trip2.html:473
 msgid "Забронированые места"
 msgstr "Забронированные места"
 
-#: templates/components/trip1.html:481 templates/components/trip2.html:479
+#: templates/components/trip1.html:481 templates/components/trip2.html:480
 msgid "Вернуться назад"
 msgstr "Вернуться назад"
 
-#: templates/components/trip2.html:75
+#: templates/components/trip2.html:76
 msgid "Вибирете рейс"
 msgstr "Выберите рейс"
 
-#: templates/components/trip2.html:98
-msgid "Выберите спопоб оплаты"
-msgstr "Выберите способ оплаты"
-
-#: templates/components/trip2.html:166
+#: templates/components/trip2.html:167
 msgid "Для более габаритного багажа воспользуйтесь расценкой "
 msgstr "Для более габаритного багажа воспользуйтесь расценкой"
 
@@ -790,21 +797,21 @@ msgid "Вопрос, который вас интересует"
 msgstr "Вопрос, который вас интересует"
 
 #: templates/contact_us.html:138 templates/index.html:293
-#: templates/order.html:295 templates/park.html:98
+#: templates/order.html:295 templates/park.html:87
 msgid "Все еще сомневаетесь?"
 msgstr "Все еще сомневаетесь?"
 
 #: templates/contact_us.html:139 templates/index.html:294
-#: templates/order.html:296 templates/park.html:99
+#: templates/order.html:296 templates/park.html:88
 msgid ""
-"Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с "
-"лицензией!"
+"Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с"
+" лицензией!"
 msgstr ""
-"Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с "
-"лицензией!"
+"Посмотрите наши лицензии! Ми следим за тем что бы каждая наша поездка была с"
+" лицензией!"
 
 #: templates/contact_us.html:141 templates/index.html:296
-#: templates/order.html:298 templates/park.html:101
+#: templates/order.html:298 templates/park.html:90
 msgid "К лицензии"
 msgstr "К лицензии"
 
@@ -813,26 +820,34 @@ msgid "© 2019 Delfibus. Всі права захищені"
 msgstr "© 2019 Delfibus. Все права защищены"
 
 #: templates/includes/footer.html:9
+msgid "Ми приймаємо:"
+msgstr "Мы принимаем:"
+
+#: templates/includes/footer.html:24
+msgid "Договір оферти"
+msgstr "Договор оферты"
+
+#: templates/includes/footer.html:29
 msgid "Дизайн"
 msgstr "Дизайн"
 
-#: templates/includes/footer.html:17
+#: templates/includes/footer.html:37
 msgid "Розробка"
 msgstr "Разработка"
 
-#: templates/includes/footer.html:37
+#: templates/includes/footer.html:58
 msgid "Ваша форма відправлена, менеджер з вами звяжеться"
 msgstr "Ваша форма была отправлена, менеджер с вами свяжется"
 
-#: templates/includes/footer.html:44
+#: templates/includes/footer.html:65
 msgid "Ваша коментар відправлений"
 msgstr "Ваш комментарий был отправлен"
 
-#: templates/includes/footer.html:58
+#: templates/includes/footer.html:79
 msgid "Дякуємо за Ваше повідомлення. Воно було надіслане."
 msgstr "Благодарим за Ваше сообщение. Оно было отправлено"
 
-#: templates/includes/footer.html:62
+#: templates/includes/footer.html:83
 msgid "Закрити"
 msgstr "Закрыть"
 
@@ -931,12 +946,12 @@ msgstr "Наши услуги."
 #: templates/index.html:108
 msgid ""
 "Однажды, воспользовавшись нашими услугами, вы будете приятно удивлены "
-"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными "
-"опциями. Это касается как машин на маршруте, так и машин на заказ."
+"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными"
+" опциями. Это касается как машин на маршруте, так и машин на заказ."
 msgstr ""
 "Однажды, воспользовавшись нашими услугами, вы будете приятно удивлены "
-"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными "
-"опциями. Это касается как машин на маршруте, так и на заказ."
+"комфортом и чистотой наших микроавтобусов, а также дополнительными приятными"
+" опциями. Это касается как машин на маршруте, так и на заказ."
 
 #: templates/index.html:113 templates/order.html:18
 msgid "Заказ автобуса"
@@ -1103,7 +1118,8 @@ msgstr "Согласно Закону Украины 'Об автомобиль�
 
 #: templates/order.html:310
 msgid "Ручную кладь, которая должна находиться в салоне автобуса у пассажира."
-msgstr "Ручная кладь, которая должна находиться в салоне автобуса у пассажира."
+msgstr ""
+"Ручная кладь, которая должна находиться в салоне автобуса у пассажира."
 
 #: templates/order.html:310
 msgid "Вес ручной клади не должен превышать 5 кг, а габариты – 60x40x20 см."
@@ -1175,13 +1191,13 @@ msgstr "Посмотрите видео о нашей компании и так
 
 #: templates/park.html:23
 msgid ""
-"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес "
-"Спринтер, которые поддерживаются не только в отличном техническом состоянии, "
-"но и всегда приятно выглядят внутри."
+"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес"
+" Спринтер, которые поддерживаются не только в отличном техническом "
+"состоянии, но и всегда приятно выглядят внутри."
 msgstr ""
-"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес "
-"Спринтер, которые поддерживаются не только в отличном техническом состоянии, "
-"но и всегда приятно выглядят внутри."
+"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес"
+" Спринтер, которые поддерживаются не только в отличном техническом "
+"состоянии, но и всегда приятно выглядят внутри."
 
 #: templates/park.html:50
 msgid "Лучшие автомобили для комфорта!"
@@ -1201,13 +1217,13 @@ msgstr "Автопарк компании"
 
 #: templates/park.html:67
 msgid ""
-"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес "
-"Спринтер, которые поддерживаются не только в отличном техническом состоянии, "
-"но и всегда приятно выглядят внутри"
+"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес"
+" Спринтер, которые поддерживаются не только в отличном техническом "
+"состоянии, но и всегда приятно выглядят внутри"
 msgstr ""
-"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес "
-"Спринтер, которые поддерживаются не только в отличном техническом состоянии, "
-"но и всегда приятно выглядят внутри"
+"Большую часть нашего автопарка составляют новые микроавтобусы марки Мерседес"
+" Спринтер, которые поддерживаются не только в отличном техническом "
+"состоянии, но и всегда приятно выглядят внутри"
 
 #: templates/post_detail.html:8
 msgid "Повернутись до новин"
@@ -1232,8 +1248,8 @@ msgstr ""
 
 #: templates/registration/password_change_form.html:26
 msgid ""
-"Please enter your old password, for security's sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security's sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
 msgstr ""
 
 #: templates/registration/password_change_form.html:54
@@ -1337,6 +1353,9 @@ msgstr ""
 msgid "Вернуться на главную"
 msgstr "Вернуться на главную"
 
+#~ msgid "Выберите спопоб оплаты"
+#~ msgstr "Выберите способ оплаты"
+
 #~ msgid "Запитання було добавлений у адмінку"
 #~ msgstr "Вопрос был добавлин в админ-панель"
 
@@ -1366,12 +1385,12 @@ msgstr "Вернуться на главную"
 
 #~ msgid ""
 #~ "Однажды, воспользовавшись нашими слугами, вы будете приятно удивлены "
-#~ "комфортом и чистотой наших микроавтобусов, а также дополнительными "
-#~ "приятными опциями. Это касается как машин на маршруте, так и на заказ."
+#~ "комфортом и чистотой наших микроавтобусов, а также дополнительными приятными"
+#~ " опциями. Это касается как машин на маршруте, так и на заказ."
 #~ msgstr ""
 #~ "Однажды, воспользовавшись нашими слугами, вы будете приятно удивлены "
-#~ "комфортом и чистотой наших микроавтобусов, а также дополнительными "
-#~ "приятными опциями. Это касается как машин на маршруте, так и на заказ."
+#~ "комфортом и чистотой наших микроавтобусов, а также дополнительными приятными"
+#~ " опциями. Это касается как машин на маршруте, так и на заказ."
 
 #~ msgid "Днепр- Борисполь- Киев"
 #~ msgstr "Днепр- Борисполь- Киев"
