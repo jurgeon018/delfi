@@ -4,7 +4,8 @@ from django.utils.translation import ugettext_lazy as _
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CURRENT_DOMEN = config('CURRENT_DOMEN') or 'http://127.0.0.1:8000'
 SECRET_KEY = config('SECRET_KEY') or 'ss'
-DEBUG = True
+#DEBUG = True
+DEBUG = False
 print(DEBUG)
 print(CURRENT_DOMEN)
 print(SECRET_KEY)

@@ -33,7 +33,7 @@ sudo supervisorctl start delfibeat
 #sudo supervisorctl status delfibeat
 
 
-sudo certbot --nginx -d delfi.mendela.xyz
+sudo certbot --nginx -d delfibus.com.ua
 
 sudo certbot renew --dry-run
 

@@ -1,0 +1,40 @@
+server {
+    server_name delfibus.com.ua;
+    return 301 https://www.delfibus.com.ua$request_uri;
+}
+server{
+    server_name www.delfibus.com.ua;
+    location /media {
+        alias /home/jurgeon/projects/delfi/src/media;
+    }
+    location /static {
+        alias /home/jurgeon/projects/delfi/src/static_root;
+    }
+    location / {
+        uwsgi_pass unix:/home/jurgeon/projects/delfi/src/config/delfi.sock;
+        include /etc/nginx/uwsgi_params;
+    }
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/www.delfibus.com.ua/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/www.delfibus.com.ua/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server{
+    if ($host = delfibus.com.ua) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+    if ($host = www.delfibus.com.ua){
+        return 301 https://$host$request_uri;
+    }
+
+
+    listen 80;
+    server_name delfibus.com.ua;
+    return 404; # managed by Certbot
+
+
+}
