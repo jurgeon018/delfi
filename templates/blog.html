@@ -19,7 +19,7 @@
             <div class="post__main">
                 <a href="{% url 'post_detail' post.pk %}">
               <div class="post__main_title">{{post.title}}</div>
-              <div class="post__main_text">{{post.content|safe|truncatechars:50}}</div>
+              <div class="post__main_text">{{post.content|safe|truncatechars:500}}</div>
               <div class="post__main_data">{{post.created}}</div>
               </a>
             </div>
