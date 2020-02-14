@@ -8,6 +8,7 @@ class PostTranslationOptions(TranslationOptions):
     fields = (
         'title',
         'description',
+        'content',
     )
 @register(Index)
 class IndexTranslationOptions(TranslationOptions):
