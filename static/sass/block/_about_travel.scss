@@ -57,7 +57,13 @@
     }
   }
   &_box {
-    width: 50%;
+    width: 100%;
+    & strong{
+      font-weight: 800;
+    }
+    & img{
+      margin: 10px 
+    }
   }
   &__content {
     width: 85%;

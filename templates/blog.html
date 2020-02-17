@@ -20,6 +20,7 @@
                 <a href="{% url 'post_detail' post.pk %}">
               <div class="post__main_title">{{post.title}}</div>
               <div class="post__main_text">{{post.content|safe|truncatechars:500}}</div>
+              <!-- <div class="post__main_text">1231231321231 23 12 312312 3 12 3 123  123 12 3 123 123  12312312 3</div> -->
               <div class="post__main_data">{{post.created}}</div>
               </a>
             </div>
