@@ -250,7 +250,7 @@ class Post(models.Model):
   title   = models.CharField(verbose_name=_("Заголовок"),max_length=120, blank=True, null=True)
   description = models.TextField(blank=True, null=True)
   content = HTMLField(verbose_name=_("Контент"), blank=True, null=True)  
-  slug    = models.SlugField(verbose_name=_("Ссылка"), blank=True, null=True, max_length=255)
+  slug    = models.SlugField(verbose_name=_("Ссылка"), blank=False, null=False, max_length=255)
   image   = models.ImageField(verbose_name=_("Картинка"), blank=True, null=True)
   created = models.DateTimeField(verbose_name=_("Создан"), auto_now_add=True, auto_now=False)
   updated = models.DateTimeField(verbose_name=_("Обновлен"), auto_now_add=False, auto_now=True)
@@ -260,7 +260,7 @@ class Post(models.Model):
     app_label = 'content'
     verbose_name = _('Пост'); verbose_name_plural = _('Посты')
   def get_absolute_url(self):
-      return reverse("post_detail", kwargs={"pk": self.pk})
+      return reverse("post_detail", kwargs={"slug": self.slug})
 
 
 class Bus(models.Model):

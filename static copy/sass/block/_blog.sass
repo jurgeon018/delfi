@@ -1,0 +1,115 @@
+// main: ../style.sass
+
+.blog__header
+  margin: 80px 0
+  height: 100px
+  display: flex
+  justify-content: space-between
+
+.post
+  &_wrap
+    display: flex
+    align-items: center
+    flex-wrap: wrap
+    justify-content: flex-start
+  &_car
+    max-width: 360px
+    margin: 15px
+    position: relative
+    display: flex
+    flex-direction: column
+    height: 480px
+    &:hover
+      cursor: pointer
+      & .post__main_text
+         max-height: 600px
+         opacity: 1
+  &_img
+    max-width: 360px
+    position: relative
+    overflow: hidden
+    & img
+      width: 100%
+  &__main
+    position: absolute
+    bottom: 0
+    background: #fff
+    padding: 30px
+    width: 101%
+    &_data
+      left: 0px
+      top: -60px
+      position: absolute
+      background: #1599FC
+      color: #fff
+      font-size: 18px
+      padding: 10px 20px
+    &_text
+      font-size: 18px
+      line-height: 1.5
+      opacity: 0
+      color: #000
+      max-height: 0px
+      transition: 1s
+      min-height: 0px
+    &_title
+      color: #000
+      line-height: 1.3
+      font-size: 36px
+      font-weight: 900
+
+@media (max-width: 1480px)
+  .post
+    &_car
+      max-width: 330px
+      height: 390px
+    &__main_title
+      font-size: 26px
+    &__main_data
+      left: 0px
+      top: -30px
+
+@media (max-width: 1305px)
+  .post
+    &_car
+      max-width: 300px
+      height: 355px
+    &__main_title
+      font-size: 20px
+    &__main
+      &_data
+        left: 0px
+        top: -30px
+      &_text
+        font-size: 16px
+
+@media (max-width: 1196px)
+  .post
+    &_car
+      margin: 5px
+      max-width: 245px
+      height: 265px
+    &__main_title
+      font-size: 18px
+    &__main
+      padding: 15px
+      &_data
+        left: 0px
+        top: -30px
+      &_text
+        font-size: 14px
+@media (max-width: 950px)
+  .post
+    &_car
+      margin: 5px
+      max-width: 300px
+      height: 265px
+    &__main_title
+      font-size: 18px
+    &__main
+      padding: 15px
+      &_data
+        left: 0px
+        top: -30px
+      &_text
+        font-size: 14px

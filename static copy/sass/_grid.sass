@@ -1,0 +1,55 @@
+// main: style.sass
+*
+  box-sizing: border-box
+
+
+.global-box
+  display: flex
+
+
+.all-content
+    padding-left: 10%
+    position: absolute
+    width: 100%
+    z-index: 0
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+.margin
+  &_nul
+    margin: 0 !important
+.fancybox-content
+  padding: 0
+
+.tickets__disabled_attention
+  padding: 20px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  & .tickets__disabled_icon
+    font-size: 86px
+    color: orange
+  & p
+    padding: 20px 0
+
+
+
+
+
+@media (max-width: 992px)
+  .all-content
+    padding-left:  12%
+  .hero__section_content
+    width: 90%
+  .footer-info__logo_pay
+    display: none !important
+
+@media  (max-width: 780px)
+  .all-content
+    padding: 0
+  .tickets__disabled_attention
+    & p
+      font-size: 14px

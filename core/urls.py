@@ -53,7 +53,7 @@ urlpatterns += i18n_patterns(
   path('admin/',        manager_admin_site.urls),
   path('',              index,        name='index'),
   path('blog/',         blog,         name='blog'),
-  path('post/<pk>',     post_detail,  name='post_detail'),
+  path('post/<slug>',     post_detail,  name='post_detail'),
   path('contact_us/',   contact_us,   name='contact_us'),
   path('park/',         park,         name='park'),
   path('order/',        order,        name='order'),

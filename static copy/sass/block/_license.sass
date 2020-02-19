@@ -1,0 +1,55 @@
+// main: ../style.sass
+
+
+.license
+  
+  &__wrap
+    display: flex
+    margin-top: 100px
+    height: 44vw
+  &__item
+    position: relative
+    margin: 4%
+    &:hover
+      & .license__item_img
+        box-shadow: 0px 0px 50px -20px #000
+      & .license__item_block
+        height: 115%
+    &_block
+      position: absolute
+      bottom: -20px
+      width: 50%
+      height: 50%
+      display: block
+      background: #1599FC
+      border-radius: 5px
+      left: 20%
+      z-index: 1
+      // max-height: 400px
+      transition: .5s
+      &-content
+          // height: 620px
+    &_img
+      position: relative
+      z-index: 5
+      & img
+        width: 100%
+
+@media (max-width: 1050px)
+  .license__wrap
+    margin-top: 0
+
+@media (max-width: 850px)
+  .license
+    &__wrap
+      height: 52vw
+    &__item
+      margin: 40px
+
+@media (max-width: 780px)
+  .license__wrap
+      height: 60vw
+
+@media (max-width: 480px)
+  .license__wrap
+      height: 120vw

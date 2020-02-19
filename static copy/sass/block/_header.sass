@@ -1,0 +1,84 @@
+// main: ../style.sass
+
+.header
+  background: url(../img/header_bg.jpg) no-repeat
+  background-size: cover
+  height: 100vh
+  &__scroll
+    position: absolute
+    width: 224px
+    height: 224px
+    bottom: -140px
+    background: #fff
+    border-radius: 42px
+    transform: rotate(-45deg)
+    margin: auto
+    left: 0
+    right: 0
+    z-index: 1
+    &_btn
+      position: absolute
+      width: 28px
+      height: 39px
+      border: 1px solid #87919E
+      box-sizing: border-box
+      border-radius: 25.5px
+      z-index: 2
+      margin: auto
+      right: 0px
+      left: 0px
+      bottom: 26px
+      &::before
+        content: ''
+        width: 10px
+        height: 10px
+        background: #87919E
+        display: block
+        margin: auto
+        position: absolute
+        right: 0
+        left: 0
+        top: 20%
+        border-radius: 50%
+      &:hover
+        cursor: pointer
+        &::before
+          top: 50%
+
+.hero
+  width: 50%
+  padding: 240px 0px 60px
+  &_title
+    font-family: Montserrat
+    font-style: normal
+    font-weight: 900
+    font-size: 40px
+    line-height: 43px
+    text-transform: uppercase
+    color: #fff
+  &__block
+    flex-wrap: wrap
+    flex-direction: row
+    justify-content: space-between
+    display: flex
+    &_item
+      width: 362px
+      &-img
+        height: 67px
+        width: 87px
+        display: flex
+        // justify-content: center
+        flex-direction: column
+
+        margin: 25px 0
+      &-subtitle
+        font-family: 'Roboto', sans-serif
+        font-style: normal
+        font-weight: normal
+        font-size: 25px
+        line-height: 25px
+        color: #fff
+        margin: 14px 0
+
+
+ 

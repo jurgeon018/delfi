@@ -403,6 +403,7 @@ class BusPhotoAdmin(admin.ModelAdmin):
 from modeltranslation.admin import TabbedTranslationAdmin
 
 class PostAdmin(TabbedTranslationAdmin, admin.ModelAdmin):
+  prepopulated_fields = {"slug": ("title",)}
   list_per_page = 100
   search_fields = [
     'title'

@@ -56,8 +56,9 @@ def blog(request):
   return render(request, 'blog.html', locals())
 
 
-def post_detail(request, pk):
-  post = get_object_or_404(Post, pk=pk)
+def post_detail(request, slug):
+  post = get_object_or_404(Post, slug=slug)
+  page = post 
   return render(request, 'post_detail.html', locals())
 
 

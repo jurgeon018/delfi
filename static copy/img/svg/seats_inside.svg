@@ -1,0 +1,234 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="310" height="639" viewBox="0 0 310 639">
+  <defs>
+    <filter id="Ellipse_13" x="13" y="209" width="45" height="45" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_13-2" x="93" y="209" width="45" height="45" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="seats_inside" transform="translate(314.811 0.096) rotate(90)">
+    <g id="row1" transform="translate(0 81.564)">
+      <g id="item1" transform="translate(0 163.128)">
+        <g id="bg" transform="translate(0 0)">
+          <g id="Rectangle_31" data-name="Rectangle 31" transform="translate(-0.096 0.119)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text" transform="translate(20.904 39.119) rotate(-90)">
+          <text id="_1" data-name="1" transform="translate(0 22)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">1</tspan></text>
+        </g>
+      </g>
+      <g id="item2" transform="translate(0 82.564)">
+        <g id="bg-2" data-name="bg" transform="translate(0 0)">
+          <rect id="Rectangle_31-2" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.096 0.683)" fill="#f3d228"/>
+        </g>
+        <g id="text-2" data-name="text" transform="translate(20.904 41.683) rotate(-90)">
+          <text id="_2" data-name="2" transform="translate(0 22)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">2</tspan></text>
+        </g>
+      </g>
+      <g id="item3" transform="translate(0 3)">
+        <g id="bg-3" data-name="bg" transform="translate(0 0)">
+          <g id="Rectangle_31-3" data-name="Rectangle 31" transform="translate(-0.096 0.247)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-3" data-name="text" transform="translate(29.404 20.747)">
+          <text id="_3" data-name="3" transform="translate(13.5 20.5) rotate(-90)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">3</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="row2" transform="translate(113.95 0)">
+      <g id="item1-2" data-name="item1" transform="translate(0 244.692)">
+        <g id="bg-4" data-name="bg" transform="translate(0 0)">
+          <rect id="Rectangle_31-4" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.046 0.119)" fill="#f3d228"/>
+        </g>
+        <g id="text-4" data-name="text" transform="translate(28.388 19.391)">
+          <text id="_4" data-name="4" transform="translate(14.565 22.728) rotate(-90)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">4</tspan></text>
+        </g>
+      </g>
+      <g id="item2-2" data-name="item2" transform="translate(0 164.128)">
+        <g id="bg-5" data-name="bg" transform="translate(0 0)">
+          <rect id="Rectangle_31-5" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.046 0.683)" fill="#f3d228"/>
+        </g>
+        <g id="text-5" data-name="text" transform="translate(20.954 41.683) rotate(-90)">
+          <text id="_5" data-name="5" transform="translate(0 22)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">5</tspan></text>
+        </g>
+      </g>
+      <g id="item3-2" data-name="item3" transform="translate(0 4)">
+        <g id="bg-6" data-name="bg" transform="translate(0 0)">
+          <rect id="Rectangle_31-6" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.046 0.811)" fill="#f3d228"/>
+        </g>
+        <g id="text-6" data-name="text" transform="translate(20.954 41.811) rotate(-90)">
+          <text id="_6" data-name="6" transform="translate(0 22)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">6</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="row3" transform="translate(227.9 0)">
+      <g id="item1-3" data-name="item1" transform="translate(0 244.692)">
+        <g id="bg-7" data-name="bg" transform="translate(0.004 0)">
+          <rect id="Rectangle_31-7" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(0 0.119)" fill="#20bf55"/>
+        </g>
+        <g id="text-7" data-name="text" transform="translate(20.004 41.119) rotate(-90)">
+          <text id="_7" data-name="7" transform="translate(0 22)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">7</tspan></text>
+        </g>
+        <g id="delete" transform="translate(-593.996 1638.119) rotate(-90)">
+          <g id="bg-8" data-name="bg">
+            <g transform="matrix(1, 0, 0, 1, 1568, 366)" filter="url(#Ellipse_13)">
+              <circle id="Ellipse_13-3" data-name="Ellipse 13" cx="13.5" cy="13.5" r="13.5" transform="translate(22 215)" fill="#fff"/>
+            </g>
+          </g>
+          <g id="ico">
+            <text id="_" data-name="" transform="translate(1598 601)" fill="#f11f35" font-size="16" font-family="FontAwesome5Free-Solid, "Font Awesome 5 Free""><tspan x="0" y="0"></tspan></text>
+          </g>
+        </g>
+      </g>
+      <g id="item2-3" data-name="item2" transform="translate(0 164.128)">
+        <g id="bg-9" data-name="bg" transform="translate(0.004 0)">
+          <rect id="Rectangle_31-8" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(0 0.683)" fill="#20bf55"/>
+        </g>
+        <g id="text-8" data-name="text" transform="translate(26.504 21.183)">
+          <text id="_8" data-name="8" transform="translate(15.5 21.5) rotate(-90)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">8</tspan></text>
+        </g>
+        <g id="delete-2" data-name="delete" transform="translate(-593.996 1638.683) rotate(-90)">
+          <g id="bg-10" data-name="bg">
+            <g transform="matrix(1, 0, 0, 1, 1488, 366)" filter="url(#Ellipse_13-2)">
+              <circle id="Ellipse_13-4" data-name="Ellipse 13" cx="13.5" cy="13.5" r="13.5" transform="translate(102 215)" fill="#fff"/>
+            </g>
+          </g>
+          <g id="ico-2" data-name="ico">
+            <text id="_2-2" data-name="" transform="translate(1598 601)" fill="#f11f35" font-size="16" font-family="FontAwesome5Free-Solid, "Font Awesome 5 Free""><tspan x="0" y="0"></tspan></text>
+          </g>
+        </g>
+      </g>
+      <g id="item3-3" data-name="item3" transform="translate(0 4)">
+        <g id="bg-11" data-name="bg" transform="translate(0.004 0)">
+          <g id="Rectangle_31-9" data-name="Rectangle 31" transform="translate(0 0.811)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-9" data-name="text" transform="translate(20.004 41.811) rotate(-90)">
+          <text id="_9" data-name="9" transform="translate(0 22)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">9</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="row4" transform="translate(341.849 0)">
+      <g id="item1-4" data-name="item1" transform="translate(0 244.692)">
+        <g id="bg-12" data-name="bg" transform="translate(0 0)">
+          <g id="Rectangle_31-10" data-name="Rectangle 31" transform="translate(-0.946 0.119)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-10" data-name="text" transform="translate(21.054 46.119) rotate(-90)">
+          <text id="_10" data-name="10" transform="translate(0 21)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">10</tspan></text>
+        </g>
+      </g>
+      <g id="item2-4" data-name="item2" transform="translate(0 164.128)">
+        <g id="bg-13" data-name="bg" transform="translate(0 0)">
+          <rect id="Rectangle_31-11" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.946 0.683)" fill="#f3d228"/>
+        </g>
+        <g id="text-11" data-name="text" transform="translate(21.054 43.683) rotate(-90)">
+          <text id="_11" data-name="11" transform="translate(0 21)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">11</tspan></text>
+        </g>
+      </g>
+      <g id="item3-4" data-name="item3" transform="translate(0 4)">
+        <g id="bg-14" data-name="bg" transform="translate(0 0)">
+          <g id="Rectangle_31-12" data-name="Rectangle 31" transform="translate(-0.946 0.811)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-12" data-name="text" transform="translate(20.054 45.811) rotate(-90)">
+          <text id="_12" data-name="12" transform="translate(0 22)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">12</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="row5" transform="translate(455.799 0)">
+      <g id="item1-5" data-name="item1" transform="translate(0 244.692)">
+        <g id="bg-15" data-name="bg" transform="translate(0 0)">
+          <g id="Rectangle_31-13" data-name="Rectangle 31" transform="translate(-0.896 0.119)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-13" data-name="text" transform="translate(20.104 45.119) rotate(-90)">
+          <text id="_13" data-name="13" transform="translate(0 22)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">13</tspan></text>
+        </g>
+      </g>
+      <g id="item2-5" data-name="item2" transform="translate(0 164.128)">
+        <g id="bg-16" data-name="bg" transform="translate(-0.896 0.683)">
+          <g id="Rectangle_31-14" data-name="Rectangle 31" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-14" data-name="text" transform="translate(21.104 46.683) rotate(-90)">
+          <text id="_14" data-name="14" transform="translate(0 21)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">14</tspan></text>
+        </g>
+      </g>
+      <g id="item3-5" data-name="item3" transform="translate(0 4)">
+        <g id="bg-17" data-name="bg" transform="translate(0 0)">
+          <g id="Rectangle_31-15" data-name="Rectangle 31" transform="translate(-0.896 0.811)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-15" data-name="text" transform="translate(20.104 45.811) rotate(-90)">
+          <text id="_15" data-name="15" transform="translate(0 22)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">15</tspan></text>
+        </g>
+      </g>
+    </g>
+    <g id="row6" transform="translate(569.749 0)">
+      <g id="item1-6" data-name="item1" transform="translate(0 244.692)">
+        <g id="bg-18" data-name="bg" transform="translate(0 0)">
+          <rect id="Rectangle_31-16" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.846 0.119)" fill="#f3d228"/>
+        </g>
+        <g id="text-16" data-name="text" transform="translate(20.154 45.119) rotate(-90)">
+          <text id="_16" data-name="16" transform="translate(0 22)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">16</tspan></text>
+        </g>
+      </g>
+      <g id="item2-6" data-name="item2" transform="translate(0 164.128)">
+        <g id="bg-19" data-name="bg" transform="translate(0 0)">
+          <rect id="Rectangle_31-17" data-name="Rectangle 31" width="70" height="70" rx="5" transform="translate(-0.846 0.683)" fill="#f3d228"/>
+        </g>
+        <g id="text-17" data-name="text" transform="translate(20.154 45.683) rotate(-90)">
+          <text id="_17" data-name="17" transform="translate(0 22)" fill="#fbfbff" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">17</tspan></text>
+        </g>
+      </g>
+      <g id="item3-6" data-name="item3" transform="translate(0 84.564)">
+        <g id="bg-20" data-name="bg" transform="translate(-0.846 0.247)">
+          <g id="Rectangle_31-18" data-name="Rectangle 31" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-18" data-name="text" transform="translate(20.154 46.247) rotate(-90)">
+          <text id="_18" data-name="18" transform="translate(0 22)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">18</tspan></text>
+        </g>
+      </g>
+      <g id="item4" transform="translate(0 4)">
+        <g id="bg-21" data-name="bg" transform="translate(0 0)">
+          <g id="Rectangle_31-19" data-name="Rectangle 31" transform="translate(-0.846 0.811)" fill="#fff" stroke="#13293d" stroke-width="1">
+            <rect width="70" height="70" rx="5" stroke="none"/>
+            <rect x="0.5" y="0.5" width="69" height="69" rx="4.5" fill="none"/>
+          </g>
+        </g>
+        <g id="text-19" data-name="text" transform="translate(20.154 45.811) rotate(-90)">
+          <text id="_19" data-name="19" transform="translate(0 22)" fill="#13293d" font-size="22" font-family="Montserrat-Regular, Montserrat"><tspan x="0" y="0">19</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

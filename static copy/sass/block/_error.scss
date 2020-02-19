@@ -1,0 +1,124 @@
+// main: ../style.sass
+
+.error{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__section{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    &_main{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    &_box{
+      &-title{
+        color: #13293D;
+        font-size: 4.5vw;
+        font-weight: 900;
+        margin: 40px 0;
+      }
+      &-subtitle{
+        color: #757575;
+        font-size: 30px;
+
+      }
+      &-right{
+        width: 80%;
+      }
+      &-text{
+        width: 320px;
+        color: #13293D;
+        line-height: 1.4;
+        font-size: 20px;
+      }
+      &_control{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+      }
+    }
+    &_img{
+      & img{
+        width: 100%;
+      }
+    }
+  }
+  &_main_page{
+    &-link{
+      margin-right: 40px;
+    }
+  }
+  &_bus_page{
+    &-link{
+
+    }
+  }
+}
+
+@media  (max-width: 1600px){
+  .error__section_box_control{
+    & .btn{
+      font-size: 18px;
+    }
+  }
+}
+@media  (max-width: 1400px){
+  .error__section_box{
+    &-right{
+      width:100%;
+    }
+  }
+}
+@media  (max-width: 992px){
+  .error{
+    margin:100px 4%  50px;
+     flex-direction: column-reverse;
+     &__section{
+       width: 90%;
+       &_box-text{
+         width: 80%;
+       }
+       &_box_control{
+         & .btn{
+           min-width: 250px;
+         }
+       }
+     }
+  }
+}
+@media  (max-width: 768px){
+  .error{
+    &__section{
+      &_box-subtitle {
+
+         font-size: 22px;
+      }
+      &_box-title {
+          font-size: 6.5vw;
+      }
+    }
+  }
+}
+@media  (max-width: 600px){
+  .error{
+     flex-direction: column-reverse;
+     &__section{
+       width: 90%;
+       &_box-text{
+         width: 80%;
+       }
+       &_box_control{
+         flex-direction: column;
+         & .btn{
+           min-width: 230px;
+           margin: 10px auto;
+         }
+       }
+     }
+  }
+}

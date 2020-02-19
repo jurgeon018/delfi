@@ -1,0 +1,324 @@
+// main: ../style.sass
+
+.navbar__logo_svg
+  width: 85%
+  margin: 20px auto
+  display: block
+.fix-box
+  width: 10%
+  position: fixed
+  background-color: #13293d
+  display: flex
+  justify-content: space-between
+  flex-direction: column
+  padding: 0px
+  z-index: 1
+  height: 100vh
+  &__header
+    &_buy-btn
+      display: none
+    &_hamburg-btn
+      display: none
+  &__contact
+    background: #fbfbfb
+    padding: 20px 10px
+
+  &__main
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+  &__nav
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: space-evenly
+    height: 100%
+
+.nav
+  &__wrap
+  &__menu
+    width: 75%
+
+    & li
+      text-transform: initial
+      padding: 15px 0
+      position: relative
+    &_item
+      font-size: 17px
+      font-weight: bold
+      color: #fff
+      display: block
+      box-sizing: border-box
+      transition: .2s
+      & div
+        display: inline-block
+      & i
+        display: none
+        padding: 0 0 0 10px
+        font-size: 16px
+      &:hover
+        transition: .2s
+        color: #1599FC
+        & i
+          display: inline-block
+
+
+
+.main-menu
+  &__sub
+    position: absolute
+    background: #fff
+    padding: 18px 24px
+    left: 110%
+    border-radius: 5px
+    top: 0px
+    width: 400px
+    opacity: 0
+    transition: .4s
+    z-index: -1
+    display: none
+    &-active
+      opacity: 1 !important
+      transition: .4s
+      display: block
+    & li
+      padding: 15px 0
+    &_item
+      color: #13293D
+      font-size: 20px
+      display: flex
+      align-items: center
+      &:hover
+        color: #1599FC
+      &:hover::before
+        height: 15px
+        width: 15px
+        content: ''
+        display: inline-block
+        margin-right: 15px
+        background: #1599FC
+        border-radius: 50%
+    &_subtitle
+      padding-bottom: 10px
+      color: #13293D
+
+.phone
+  display: flex
+  flex-flow: column
+  align-items: center
+  &__item
+    margin: 10px 0
+    color: #13293D
+    font-weight: 500
+    font-size: 15px
+    position: relative
+    margin-left: 20px
+    &:hover
+      transition: .2s
+      color: #1599FC
+    &-kivstar
+      &::before
+        background-image: url(../img/svg/kivstar.svg)
+    &-lifecell
+      &::before
+        background-image: url(../img/svg/lifecell.svg)
+    &-vodafone
+      &::before
+        background-image: url(../img/svg/vodafone.svg)
+    &::before
+      display: block
+      content: ' '
+      position: absolute
+      height: 16px
+      width: 16px
+      margin-right: 14px
+      background-repeat: no-repeat
+      left: -25px
+      top: 50%
+      transform: translateY(-50%)
+      background-size: contain
+
+.lang-switcher
+  margin: 20px auto
+  display: flex
+  justify-content: space-between
+  width: 55%
+  &__link
+    color: #707070
+    font-weight: 400
+    font-size: 20px
+    transition: .2s
+    &:hover
+      color: #1599FC
+      font-weight: 700
+      transition: .2s
+    &-active
+      font-weight: 700
+      color: #1599FC
+
+@media  (max-width: 1615px)
+  .nav
+    &__menu
+      width: 85%
+  .lang-switcher__link
+    font-size: 18px
+  .phone__item
+    font-size: 16px
+  .main-menu__sub
+    left: 100%
+
+@media  (max-width: 1510px)
+  .phone__item 
+    font-size: 14px
+
+@media  (max-width: 1435px)
+  .fix-box
+    &__contact
+      padding: 10px 10px
+  .nav__menu
+    & li
+      padding: 10px 0
+    &_item
+      font-size: 16px
+      & i
+        // display: inline-block
+        font-size: 15px
+  .lang-switcher
+    margin: 15px auto
+    &__link
+      font-size: 14px
+  .phone__item
+    font-size: 12px
+    &::before
+      height: 16px
+      width: 16px
+
+  .main-menu__sub
+    width: 311px
+    &_item
+      font-size: 15px
+    &_subtitle
+      font-size: 14px
+@media  (max-width: 1355px)
+  .nav__menu
+    &_item
+      font-size: 14px
+      & i
+        // display: inline-block
+        font-size: 13px
+@media  (max-width: 1280px)
+  .nav__menu
+    width: 90%
+    &_item i
+      padding-left: 6px
+  .phone__item
+    font-size: 10px
+
+
+@media  (max-width: 1150px)
+  .fix-box
+    width: 11%
+    &__contact
+      padding: 10px 4px
+  .phone__item
+    margin-left: 14px
+    &::before
+      left: -20px
+  .nav__menu
+    &_item
+      font-size: 13px
+
+  .lang-switcher__link
+    font-size: 13px
+
+@media  (max-width: 992px)
+  .fix-box
+    width: 12%
+  .nav__menu_item
+    font-size: 12px
+  .lang-switcher__link
+    font-size: 11px
+  .phone__item
+    font-size: 11px
+@media  (max-width: 840px)
+    .fix-box
+      width: 13%
+
+@media  (max-width: 780px)
+  .fix-box
+    width: 100%
+    height: inherit
+    &__header
+      flex-direction: row
+      height: 70px
+      width: 100%
+      display: flex
+      justify-content: space-between
+      z-index: 100
+      &_logo
+        height: 100%
+      &_buy-btn
+        height: 100%
+        width: 161px
+        background: #1599FC
+        color: #fbfbfb
+        font-size: 16px
+        font-weight: 600
+        display: flex
+        align-items: center
+        justify-content: center
+      &_hamburg-btn
+        display: flex
+        align-items: center
+    &__lang
+      background-color: #13293d
+      width: 110px
+      z-index: 100
+    &__contact
+      z-index: 100
+      background: #fbfbfb
+      width: 100%
+    &__main
+      position: absolute
+      top: 9000px
+      transition: 1s
+      align-items: center
+      min-height: calc(100vh - 69px)
+      transition: 2s
+      display: flex
+      background-color: #13293d
+      width: 100%
+      &-active
+        top: 69px
+        transition: .3s
+    &__nav
+      width: 300px
+  .nav__menu
+    height: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-evenly
+    padding: 100% 0
+    align-items: center
+    & li
+      margin: 15px 0
+    &_item
+      font-size: 16px
+      & i
+        padding-left: 10px
+  .lang-switcher__link
+    font-size: 15px
+  .phone__item
+    font-size: 15px
+
+
+  .navbar__logo_svg
+    height: 100%
+    padding: 10px 20px
+    width: auto
+    margin: unset
+@media  (max-width: 420px)
+  .nav__menu
+    & li
+      margin: 7px 0

@@ -1,0 +1,46 @@
+// main: ../style.sass
+
+.about_us
+  height: 100%
+  &_video
+    color: #fff
+    font-size: 20px
+    margin: 0 !important
+    overflow: hidden
+  &_text
+    & .btn
+      margin: 20px 0
+      display: flex
+
+.video
+  height: 100%
+  &_img
+    POSITION: ABSOLUTE
+    left: 0
+    HEIGHT: 110VH
+
+@media (max-width: 992px)
+  .about_us_video
+    height: 50vw
+    margin: 0 !important
+    padding: 0 !important
+  .video
+    &_img
+      width: 100%
+      top: 0
+      bottom: 0
+    & .info-car-park__button
+      &_link
+        display: flex
+
+@media (max-width: 780px)
+  .about_us_video
+    height: 350px
+  .video
+    & .info-car-park__button
+      &_link
+        // width: 90px
+        // height: 90px
+        // & .btn__round_block
+        //   width: 90px
+        //   height: 90px
