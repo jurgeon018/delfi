@@ -24,6 +24,7 @@
       & .post__main_text
          max-height: 600px
          opacity: 1
+         visibility: visible
   &_img
     max-width: 360px
     position: relative
@@ -34,7 +35,7 @@
     position: absolute
     bottom: 0
     background: #fff
-    padding: 30px
+    padding: 30px 15px
     width: 101%
     &_data
       left: 0px
@@ -42,12 +43,13 @@
       position: absolute
       background: #1599FC
       color: #fff
-      font-size: 18px
+      font-size: 16px
       padding: 10px 20px
     &_text
       font-size: 18px
       line-height: 1.5
       opacity: 0
+      visibility: hidden
       color: #000
       max-height: 0px
       transition: 1s
@@ -55,7 +57,7 @@
     &_title
       color: #000
       line-height: 1.3
-      font-size: 36px
+      font-size: 30px
       font-weight: 900
 
 @media (max-width: 1480px)

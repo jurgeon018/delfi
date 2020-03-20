@@ -90,6 +90,12 @@ var url_form_tab  = url_form;
       submitHandler: function(form) {
         console.log(url_form);
         console.log(id_form);
+        if (id_form == '#bus_bus_order') {
+          gtag('event', 'send', { 'event_category': 'bus_order’', 'event_action': 'order', });
+        }
+        if (id_form == '#tickets_ewrop_info') {
+          gtag('event', 'send', { 'event_category': 'eu_order', 'event_action': 'order', });
+        }
          form_ajax_static(id_form,url_form_tab);
       }
     });
@@ -179,7 +185,7 @@ function form_ajax_static_class(form,url_form){
       form_json[obj.name] = obj.value;
 
     });
- 
+
 
     $.ajax({
       url: url_form,
