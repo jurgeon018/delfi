@@ -111,11 +111,7 @@ def pay_callback(request):
       # message = get_template('contact_message.txt').render({'message':message}),
       message = f'Отримано замовлення поїздки. \n https://www.delfibus.com.ua/admin/order/order/{order.id}/change/',
       from_email = settings.DEFAULT_FROM_EMAIL,
-      recipient_list = [
-        # settings.DEFAULT_FROM_EMAIL, 
-        # "delfihst@gmail.com"
-        'delfibus0068@gmail.com'
-      ],
+      recipient_list = settings.DEFAULT_RECIPIENTS,
       fail_silently=False,
       # fail_silently=True,
     )

@@ -13,5 +13,7 @@ EMAIL_HOST_PASSWORD = "starway69018"
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-
-
+DEFAULT_RECIPIENTS = [
+    'jurgeon018@gmail.com',
+    'delfibus0068@gmail.com',
+],

@@ -94,9 +94,8 @@ def non_celery_send_user_mail(order_id):
       \nмісце відправки: {order.departion} 
     \nчас відправки: {order.race.time.time}''',
     from_email = settings.DEFAULT_FROM_EMAIL,
-    to = [
-      'delfibus0068@gmail.com',
-    ],
+    to = settings.DEFAULT_RECIPIENTS
+    
   )
   email.attach(filename, open(order.pdf.path, 'rb').read(), 'application/pdf')
   email.send(fail_silently=False)
