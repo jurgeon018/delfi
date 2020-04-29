@@ -10,23 +10,17 @@ server {
         uwsgi_pass unix:/home/jurgeon/projects/delfi/src/config/delfi.sock;
         include /etc/nginx/uwsgi_params;
     }
+
+
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/delfibus.com.ua/fullchain.pem; # managed by Certbot
     ssl_certificate_key /etc/letsencrypt/live/delfibus.com.ua/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
 }
-server {
-    if ($host = delfibus.com.ua) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-    listen 80;
-    server_name delfibus.com.ua;
-    return 404; # managed by Certbot
-}
-server {
+server{
     server_name www.delfibus.com.ua;
-    #    # v1
     location /media {
         alias /home/jurgeon/projects/delfi/src/media;
     }
@@ -37,9 +31,6 @@ server {
         uwsgi_pass unix:/home/jurgeon/projects/delfi/src/config/delfi.sock;
         include /etc/nginx/uwsgi_params;
     }
-    #     # v2
-    # return 301 https://delfibus.com.ua$request_uri;
-    # # return 301 $scheme://delfibus.com.ua$request_uri;
 
     listen 443 ssl; # managed by Certbot
     ssl_certificate /etc/letsencrypt/live/www.delfibus.com.ua/fullchain.pem; # managed by Certbot
@@ -48,16 +39,18 @@ server {
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 
 }
-
-server {
-    if ($host = www.delfibus.com.ua) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
- 
-    listen 80;
+server{
+    if ($host = www.delfibus.com.ua){
+        return 301 https://www.delfibus.com.ua$request_uri;
+    }
     server_name www.delfibus.com.ua;
+    listen 80;
     return 404; # managed by Certbot
-
-
+}server {
+    if ($host = delfibus.com.ua) {
+        return 301 https://$host$request_uri;
+    } 
+    server_name delfibus.com.ua;
+    listen 80;
+    return 404; # managed by Certbot
 }

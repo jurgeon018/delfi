@@ -21,7 +21,9 @@ def pay(request):
       'description': str(f"{order.full_name}, {order.race}"),
       'order_id': str(order.id+1000),
       'version': '3',
-      'sandbox': 1, # sandbox mode, set to 1 to enable it
+      # sandbox mode, set to 1 to enable it
+      # 'sandbox': 1, 
+      'sandbox': 0, 
       'server_url': f'{CURRENT_DOMEN}pay_callback/', # url to callback view
   }
   liqpay = LiqPay(settings.LIQPAY_PUBLIC_KEY, settings.LIQPAY_PRIVATE_KEY)

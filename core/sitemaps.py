@@ -7,8 +7,16 @@ from django.urls import reverse
 
 class PostSitemap(Sitemap):
     i18n = True 
+    changefreq = 'weekly' 
+    protocol = 'https'
+    priority = 1
+
     def items(self):
         return Post.objects.all()
+
+    def lastmod(self, obj):
+            return obj.updated
+
 
 
 class StaticViewSitemap(Sitemap):
