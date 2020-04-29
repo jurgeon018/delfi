@@ -91,7 +91,8 @@ def non_celery_send_user_mail(order_id):
     body = f'''Імя: {order.full_name}, 
       \nномер телефону: {order.phone},
       \nмісце прибуття: {order.arrival},
-      \nмісце відправки: {order.departion} 
+      \nмісце відправки: {order.departion},
+      \дата відправки: {order.race.date},
     \nчас відправки: {order.race.time.time}''',
     from_email = settings.DEFAULT_FROM_EMAIL,
     to = [

@@ -78,16 +78,16 @@ DATABASES = {
         # 'NAME': 'delfibus_db',
         # 'USER' : 'jurgeon018',
         # 'PASSWORD' : '69018',
-        # 'HOST' : '127.0.0.1',
+        # 'HOST' : '127.0.0.kk1',
         # 'PORT' : '5432',
     }
 }
 
-# LIQPAY_PUBLIC_KEY = "sandbox_i68128144078"
-# LIQPAY_PRIVATE_KEY = "sandbox_468K9YW1IIyoIVyfE9mYFxmKWhhg9Oik22ylcs30"
+LIQPAY_PUBLIC_KEY = "sandbox_i68128144078"
+LIQPAY_PRIVATE_KEY = "sandbox_468K9YW1IIyoIVyfE9mYFxmKWhhg9Oik22ylcs30"
 
-LIQPAY_PUBLIC_KEY = "i47760670038"
-LIQPAY_PRIVATE_KEY="ssvBjmdEuDcXlheZM30P4XTBoiWlKG2AlivAJjoB"
+# LIQPAY_PUBLIC_KEY = "i47760670038"
+# LIQPAY_PRIVATE_KEY="ssvBjmdEuDcXlheZM30P4XTBoiWlKG2AlivAJjoB"
 
 
 
