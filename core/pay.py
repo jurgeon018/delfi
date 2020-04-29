@@ -105,7 +105,7 @@ def pay_callback(request):
       # message = get_template('contact_message.txt').render({'message':message}),
       message = f'Було отримано замовлення. Перейдіть по цій ссилці: {settings.CURRENT_DOMEN}/admin/order/order/',
       from_email = settings.DEFAULT_FROM_EMAIL,
-      recipient_list = [settings.DEFAULT_FROM_EMAIL],#, email],
+      recipient_list = [settings.DEFAULT_FROM_EMAIL, "delfihst@gmail.com"],#, email],
       fail_silently=True,
     )
     send_user_mail.delay(order.id)

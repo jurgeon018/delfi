@@ -6,7 +6,9 @@ $(document).ready(function() {
 
 
   $('.field-tickets_input input').click(function() {
+
     $('.field-tickets_input').parents('.input-tickets__box-contact').children('.input-tickets__grops').removeClass('input-tickets__grops-error');
+    $('.field-tickets_input').parents('.input-tickets__box-contact').children('.input-tickets__grops').removeClass('input-tickets__grops-eror');
   });
 
 
@@ -958,6 +960,7 @@ function createNextButton(i) {
     $.each($('.tab__box-active').find("#" + stepName + ' input'), function(index, input) {
       if ($(input).val().trim() === "") {
         flag = false;
+        console.log("qweqwe");
         $(input).parents('.input-tickets__grops').addClass('input-tickets__grops-error');
       }
     });
@@ -1004,7 +1007,10 @@ function check_seat_buss() {
     if ($(value).val()) {} else {
       flag_error++;
       console.log(value);
+      console.log($(value).parents('.input-tickets__grops'));
       $(value).parents('.input-tickets__grops').addClass('input-tickets__grops-error');
+      $(value).parents('.input-tickets__grops').addClass('input-tickets__grops-eror');
+      $(value).parents('.input-tickets__grops').addClass('asdasd');
     }
   });
 
@@ -1109,6 +1115,19 @@ function check_seat_buss() {
             }
           })
         } else {
+
+
+
+ var tab_item_id = $(document.querySelector('.tab__item-active')).attr('id');
+
+if(tab_item_id == 'trip1'){
+  gtag('event', 'send', { 'event_category': 'ticket', 'event_action': 'order', });
+}
+if(tab_item_id == 'trip2'){
+  gtag('event', 'send', { 'event_category': 'ticket_2', 'event_action': 'order', });
+}
+
+          // console.log($(document.getElementsByClassName('tab__box-active')).find('form'));
           $(document.getElementsByClassName('tab__box-active')).find('form').submit()
         }
 
