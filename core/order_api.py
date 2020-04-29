@@ -147,6 +147,7 @@ def get_seats(request):
 
 @csrf_exempt
 def create_order(request):
+  print('create_order')
   print(request.POST)
   full_name = request.POST.get('full_name','')
   phone     = request.POST.get('phone','')

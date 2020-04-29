@@ -26,3 +26,5 @@ INSTALLED_APPS = [
     'boilerplate.content.apps.ContentConfig',
     'boilerplate.order.apps.OrderConfig',
 ]
+
+

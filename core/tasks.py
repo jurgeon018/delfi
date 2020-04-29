@@ -7,7 +7,7 @@ from project.celery import app
 from datetime import timedelta
 from django.utils import timezone
 from time import sleep
-# from weasyprint import HTML, CSS
+from weasyprint import HTML, CSS
 from core.models import *
 from django.http import HttpResponse
 from io import BytesIO, StringIO
@@ -49,8 +49,8 @@ def create(request_POST):
   print('FINISHED!!!')
 
 
-@app.task
-def send_user_mail(order_id):
+
+def non_celery_send_user_mail(order_id):
   order = Order.objects.get(id=order_id)
   seats     = ','.join([seat.seat.number for seat in order.seats.all()])
   context = {
@@ -77,18 +77,41 @@ def send_user_mail(order_id):
   )
   email = EmailMessage(
     subject = 'Ваш квиток',
-    body = 'Роздрукуйте, будь-ласка, цей квиток',
+    body = 'Роздрукуйте цей квиток та пред\'явіть його при посадці',
     from_email = settings.DEFAULT_FROM_EMAIL,
-    to = [order.email],
-    # to = ['jurgeon018@gmail.com',]
+    to = [
+      order.email
+    ],
   )
   email.attach(filename, open(order.pdf.path, 'rb').read(), 'application/pdf')
   email.send(fail_silently=False)
+
+  email = EmailMessage(
+    subject = f'Квиток #{order.id}',
+    body = f'''Імя: {order.full_name}, 
+      \nномер телефону: {order.phone},
+      \nмісце прибуття: {order.arrival},
+      \nмісце відправки: {order.departion} 
+    \nчас відправки: {order.race.time.time}''',
+    from_email = settings.DEFAULT_FROM_EMAIL,
+    to = [
+      'delfibus0068@gmail.com',
+    ],
+  )
+  email.attach(filename, open(order.pdf.path, 'rb').read(), 'application/pdf')
+  email.send(fail_silently=False)
+
+
   # return pdf
   # response = HttpResponse(pdf, content_type='application/pdf')
   # response['Content-Disposition'] = 'attachment; filename="Invoice_12341231.pdf"'
   # return response
+  print('EMAIL HAS BEEN SENT')
 
+
+@app.task
+def send_user_mail(order_id):
+  non_celery_send_user_mail(order_id)
 
 
 

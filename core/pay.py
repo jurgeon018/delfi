@@ -19,7 +19,8 @@ def pay(request):
       'amount': float(total_price),
       'currency': 'UAH',
       'description': str(f"{order.full_name}, {order.race}"),
-      'order_id': str(order.id+1000),
+      # 'order_id': str(order.id+1000),
+      'order_id': str(order.id),
       'version': '3',
       # sandbox mode, set to 1 to enable it
       # 'sandbox': 1, 
@@ -81,17 +82,20 @@ def pay_callback(request):
     create_date         = response.get('create_date', '')
     end_date            = response.get('end_date', '')
     transaction_id      = response.get('transaction_id', '')
+    print(response)
 
     if status == 'failure':
       return redirect('thank_you')
+    print("order_id:", order_id)
     order = Order.objects.get(id=order_id)
+    # order = Order.objects.get(id=int(order_id)+1000)
     payment = Payment()
     payment.status   = status
     payment.status   = status
     payment.ip       = ip
     payment.amount   = amount
     payment.currency = currency
-    payment.order    = Order.objects.get(pk=order_id)
+    payment.order    = order
     payment.sender_phone        = sender_phone
     payment.sender_first_name   = sender_first_name
     payment.sender_last_name    = sender_last_name
@@ -103,14 +107,22 @@ def pay_callback(request):
     order.ordered=True
     order.save()
     send_mail(
-      subject = 'Order form Received',
+      subject = 'Замовлення поїздки',
       # message = get_template('contact_message.txt').render({'message':message}),
-      message = f'Було отримано замовлення. Перейдіть по цій ссилці: {settings.CURRENT_DOMEN}/admin/order/order/',
+      message = f'Отримано замовлення поїздки. \n https://www.delfibus.com.ua/admin/order/order/{order.id}/change/',
       from_email = settings.DEFAULT_FROM_EMAIL,
-      recipient_list = [settings.DEFAULT_FROM_EMAIL, "delfihst@gmail.com"],#, email],
-      fail_silently=True,
+      recipient_list = [
+        # settings.DEFAULT_FROM_EMAIL, 
+        # "delfihst@gmail.com"
+        'delfibus0068@gmail.com'
+      ],
+      fail_silently=False,
+      # fail_silently=True,
     )
-    send_user_mail.delay(order.id)
+    # send_user_mail.delay(order.id)
+    # non_celery_send_user_mail(order.id)
+    send_user_mail(order.id)
+    
     return redirect('thank_you')
 
 
