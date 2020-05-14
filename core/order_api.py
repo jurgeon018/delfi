@@ -137,7 +137,7 @@ def get_seats(request):
     return HttpResponse('race_doesnt exists')
   sk = get_sk(request)
   print('1',sk)
-  print(Order.objects.all)
+  print(Order.objects.all())
   order = Order.objects.get(sk=sk, ordered=False)
   response['order_sk'] = order.sk
   response['order_seats'] = [seat.seat.number for seat in order.seats.all()]
