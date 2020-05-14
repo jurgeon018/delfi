@@ -136,8 +136,8 @@ def create_races_every_night():
 
 
 
-@periodic_task(run_every=timedelta(minutes=200), name="delete_orders_older_than_20_minutes")
 # @periodic_task(run_every=timedelta(seconds=20), name="delete_orders_older_than_20_minutes")
+@periodic_task(run_every=timedelta(minutes=200), name="delete_orders_older_than_20_minutes")
 def delete_orders_older_than_20_minutes():
     created_time = timezone.now()-timezone.timedelta(seconds=20)
     # created_time = timezone.now()-timezone.timedelta(minutes=20)
