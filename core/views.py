@@ -20,10 +20,19 @@ def test_mail(request):
   # response['Content-Disposition'] = 'attachment; filename="Invoice_12341231.pdf"'
   # return response
 
+from django.utils import timezone 
+
 
 def order(request):
   request.session.cycle_key()
   page = Service.objects.first()
+  created_time = timezone.now()-timezone.timedelta(seconds=20)
+  # created_time = timezone.now()-timezone.timedelta(minutes=20)
+  orders = Order.objects.filter(
+      created__lte=created_time,
+      ordered=False
+  ).delete()
+
   return render(request, 'order.html', locals())
 
 
