@@ -26,13 +26,14 @@ from django.utils import timezone
 def order(request):
   request.session.cycle_key()
   page = Service.objects.first()
+
   # created_time = timezone.now()-timezone.timedelta(seconds=20)
-  # # created_time = timezone.now()-timezone.timedelta(minutes=20)
-  # orders = Order.objects.filter(
-  #     created__lte=created_time,
-  #     ordered=False
-  # ).delete()
-  
+  created_time = timezone.now()-timezone.timedelta(minutes=200)
+  # created_time = timezone.now()-timezone.timedelta(hours=20)
+  orders = Order.objects.filter(
+      created__lte=created_time,
+      ordered=False
+  ).delete()
   return render(request, 'order.html', locals())
 
 
