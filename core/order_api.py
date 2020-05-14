@@ -17,9 +17,8 @@ from django.db import connection
 
 @csrf_exempt
 def set_params(request):
-  print(request.POST)
-  for k,v in request.session.items():
-    print(k, v)
+  # for k,v in request.session.items():
+  #   print(k, v)
   response = {}
   direction = request.POST.get('direction', None)
   date      = request.POST.get('date', None)
@@ -84,12 +83,12 @@ def set_params(request):
         })
         response['seats_in_order'] = seats_in_order
 
-
     # order = Order.objects.get(sk=get_sk(request), ordered=False)
     order, _ = Order.objects.get_or_create(sk=get_sk(request), ordered=False)
     response['order_sk'] = order.sk
     response['order_seats'] = [seat.seat.number for seat in order.seats.all()]
-  except:
+  except Exception as e:
+    print(e)
     print('time error')
   # for k,v in response.items():
   #   print(k)
@@ -138,6 +137,7 @@ def get_seats(request):
     return HttpResponse('race_doesnt exists')
   sk = get_sk(request)
   print('1',sk)
+  print(Order.objects.all)
   order = Order.objects.get(sk=sk, ordered=False)
   response['order_sk'] = order.sk
   response['order_seats'] = [seat.seat.number for seat in order.seats.all()]
