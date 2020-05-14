@@ -724,6 +724,9 @@
     });
     if (document.getElementsByClassName('tickets_trip').length > 0) {
       document.getElementsByClassName('tickets_trip')[0].onclick = function(e) {
+        
+        console.log('sadsad' );
+        
         $('.input-tickets__grops').removeClass('input-tickets__grops-error');
       }
     }

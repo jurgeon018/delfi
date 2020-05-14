@@ -723,9 +723,32 @@
 
     });
     if (document.getElementsByClassName('tickets_trip').length > 0) {
-      document.getElementsByClassName('tickets_trip')[0].onclick = function(e) {
-        $('.input-tickets__grops').removeClass('input-tickets__grops-error');
+      let forms = document.getElementsByClassName('tickets_trip');
+      for (const key in forms) {
+        if (forms.hasOwnProperty(key)) {
+          const form = forms[key];
+          let inputs = form.querySelectorAll('.input-tickets__grops');
+          
+          for (const key in inputs) {
+            if (inputs.hasOwnProperty(key)) {
+              const input = inputs[key];
+              input.onclick = function(e) {
+   
+                $('.input-tickets__grops').removeClass('input-tickets__grops-error');
+              }
+            }
+          }
+
+        }
       }
+      // console.log('2131' );
+      
+      // console.log( );
+      
+      // document.getElementsByClassName('tickets_trip')[0].onclick = function(e) {
+   
+      //   $('.input-tickets__grops').removeClass('input-tickets__grops-error');
+      // }
     }
 
 

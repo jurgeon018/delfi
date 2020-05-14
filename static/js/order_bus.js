@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 
   $('.field-tickets_input input').click(function() {
-
+ 
     $('.field-tickets_input').parents('.input-tickets__box-contact').children('.input-tickets__grops').removeClass('input-tickets__grops-error');
     $('.field-tickets_input').parents('.input-tickets__box-contact').children('.input-tickets__grops').removeClass('input-tickets__grops-eror');
   });
@@ -949,21 +949,42 @@ function createNextButton(i) {
   } else if (i == 1) {
     $('.tab__box-active').find("#" + stepName + ' .input-tickets__box_contros').append("<a href='#' id='" + stepName + "Next' class='next_tite btn btn-blue'>Выбрать место  </a>");
   } else if (i == 2) {
-    $('.tab__box-active').find("#" + stepName + ' .input-tickets__box_contros').append("<a href='#' id='" + stepName + "Next' class='next_tite btn btn-blue'>Оформить билет </a>");
+    $('.tab__box-active').find("#" + stepName + ' .input-tickets__box_contros').append("<a href='#' id='" + stepName + "Next' class='pay_tisket_bron next_tite btn btn-blue'>Оформить билет </a>");
+    // pay_tisket_bron();
   } else if (i == 3) {
     $('.tab__box-active').find("#" + stepName + ' .input-tickets__box_contros ').append("<a href='#' class=' pay_tisket  next_tite btn btn-blue'>Перейти к оплате </a>");
-      pay_tisket();
+    pay_tisket();
   }
+
+  // function pay_tisket_bron() {
+  //   $('.pay_tisket_bron').on('click', function() {
+  //     event.preventDefault();
+   
+  //     pay_tisket_bron_seat();
+  //   });
+  // }
 
   $('.tab__box-active').find("#" + stepName + "Next").bind("click", function(e) {
     var flag = true;
-    $.each($('.tab__box-active').find("#" + stepName + ' input'), function(index, input) {
-      if ($(input).val().trim() === "") {
-        flag = false;
-        console.log("qweqwe");
-        $(input).parents('.input-tickets__grops').addClass('input-tickets__grops-error');
-      }
-    });
+    console.log(stepName );
+    
+    if(stepName =='step2'){
+     
+      flag = pay_tisket_bron_seat();
+       console.log( flag);
+       
+    }else{
+
+      $.each($('.tab__box-active').find("#" + stepName + ' input'), function(index, input) {
+        if ($(input).val().trim() === "") {
+          flag = false;
+          console.log($(input).parents('.input-tickets__grops'));
+          $(input).parents('.input-tickets__grops').addClass('input-tickets__grops-error');
+          $(input).parents('.input-tickets__grops').addClass('input-tickets__grops-error1');
+        }
+      });
+    }
+   
 
     if (flag !== false) {
       $('.tab__box-active').find("#" + stepName).hide();
@@ -974,6 +995,7 @@ function createNextButton(i) {
 function pay_tisket() {
   $('.pay_tisket').on('click', function() {
     event.preventDefault();
+console.log('test_pay' );
 
     check_seat_buss();
   });
@@ -981,6 +1003,175 @@ function pay_tisket() {
 
 
 
+
+function pay_tisket_bron_seat(){
+
+
+
+
+
+var chek = true;
+  data_all = {};
+  $($(document.getElementsByClassName('tab__box-active')).find('form').serializeArray()).each(function(index, obj) {
+    data_all[obj.name] = obj.value;
+  });
+
+  var checkboxes = document.querySelectorAll('.seat-all__box')[0].getElementsByClassName('seat');
+  var array = [];
+  for (var i = 0; i < checkboxes.length; i++) {
+    array.push(checkboxes[i].dataset.item_s)
+  }
+  data_all.seats = array
+  console.log(data_all)
+
+  var SITE_NAME = window.location.origin
+  var order_info_url = SITE_NAME + '/set_params/';
+  var create_order = SITE_NAME + '/create_order/';
+  var get_seats_info_url = SITE_NAME + '/get_seats/';
+  var box_active_order = document.getElementsByClassName('tab__box-active')[0];
+  var inputs = $(box_active_order).find('.input-tickets__box-contact').find('input');
+
+  var array_sites = [];
+
+
+
+
+
+  var SITE_NAME = window.location.origin
+  var order_info_url = SITE_NAME + '/set_params/';
+  var get_seats_info_url = SITE_NAME + '/get_seats/';
+  var data = {},
+    array_sites = [];
+  // console.log($($(document.getElementsByClassName('tab__box-active')).find('form').serializeArray()));
+  $($(document.getElementsByClassName('tab__box-active')).find('form').serializeArray()).each(function(index, obj) {
+    data[obj.name] = obj.value;
+    if (obj.name == "seats") {
+      array_sites.push(obj.value);
+      data[obj.name] = array_sites;
+    }
+  });
+
+  $.ajax({
+    url: get_seats_info_url,
+    type: 'GEt',
+    async: false,
+    success: function(order) {
+
+
+      var bus_seats_chesk = order.seats_numbers;
+      for (key in bus_seats_chesk) {
+        bus_seats_chesk[+key + 1] = {
+          value: bus_seats_chesk[+key + 1],
+        }
+      }
+      
+      for (key in order.seats_in_order) {
+        bus_seats_chesk[order.seats_in_order[key].number].key_ssesions = order.seats_in_order[key].order_sk;
+      }
+
+      var order_not_chesk = [];
+      array_sites.forEach(function(item, i) {
+        if (bus_seats_chesk[item].key_ssesions !== undefined && bus_seats_chesk[item].key_ssesions !== order.order_sk) {
+          order_not_chesk.push(item)
+        }
+      });
+
+      if (order_not_chesk.length > 0) {
+
+        $.fancybox.open({
+          src: '#chesk_form_bus',
+          type: 'inline',
+          touch: false,
+          autoStart: false,
+          padding: 0,
+          hideOnClose: false,
+          showCloseButton: true,
+          opts: {
+            afterShow: function(instance, current) {
+
+
+              var box_input_seat = $('.seat-all__box');
+              var seats_buss_chesk = 'Місце під номером: ';
+              order_not_chesk.forEach(function(item, i) {
+
+
+                var bus_item = document.querySelectorAll('[data-id="seat' + item + '"]');
+                forEach(bus_item, function(index, value) {
+                  value.classList.add('bus-seat__disabled');
+                  value.classList.remove('bus-seat__active');
+                });
+                forEach(document.querySelectorAll('[data-item_s="' + item + '"]'), function(index, value) {
+                  value.remove();
+                });
+
+                forEach(document.querySelectorAll('.tab__box-active form')[0].querySelectorAll('.seat_bus_input'), function(index, value) {
+                  if (value.value == item) {
+                    value.remove();
+                  }
+                });
+
+                forEach(document.getElementsByClassName('seat-all_count'), function(index, value) {
+                  value.innerText = box_input_seat[0].childElementCount;
+                });
+
+
+                if (i == order_not_chesk.length - 1) {
+                  seats_buss_chesk += item + ' ';
+
+                } else {
+                  seats_buss_chesk += item + ', ';
+                }
+              });
+              $('.check_seat__wrap').text(seats_buss_chesk + ' зайняте');
+
+              chek = false;
+
+
+
+
+
+            }
+          }
+        })
+      } else {
+        
+        var box_active_order = document.getElementsByClassName('tab__box-active')[0];
+        var inputs = $(box_active_order).find('.tickets__box_seat').find('input');
+        var flag_error = 0;
+        forEach(inputs, function(index, value) {
+          if ($(value).val()) {} else {
+            flag_error++;
+            $(value).parents('.input-tickets__grops').addClass('input-tickets__grops-error');
+
+          }
+        });
+
+        var inputs_seats = $(box_active_order).find('.seat_bus_input');
+
+        if (inputs_seats.length < 1) {
+          chek = false;
+console.log(chek );
+
+          flag_error++;
+          $.fancybox.open({
+            src: '#error_search',
+            type: 'inline',
+            touch: false,
+            autoStart: false,
+            padding: 0,
+            hideOnClose: true
+          });
+         
+        }
+        
+      }
+
+    }
+  })
+console.log(chek );
+
+  return chek;
+}
 function check_seat_buss() {
   data_all = {};
   $($(document.getElementsByClassName('tab__box-active')).find('form').serializeArray()).each(function(index, obj) {
@@ -1007,6 +1198,8 @@ function check_seat_buss() {
     if ($(value).val()) {} else {
       flag_error++;
       console.log(value);
+      console.log('sdds' );
+      
       console.log($(value).parents('.input-tickets__grops'));
       $(value).parents('.input-tickets__grops').addClass('input-tickets__grops-error');
       $(value).parents('.input-tickets__grops').addClass('input-tickets__grops-eror');
@@ -1117,18 +1310,19 @@ function check_seat_buss() {
         } else {
 
 
+console.log("google" );
 
  var tab_item_id = $(document.querySelector('.tab__item-active')).attr('id');
 
 if(tab_item_id == 'trip1'){
+  console.log("google_t1" );
   gtag('event', 'send', { 'event_category': 'ticket', 'event_action': 'order', });
 }
 if(tab_item_id == 'trip2'){
+  console.log("google_t2" );
   gtag('event', 'send', { 'event_category': 'ticket_2', 'event_action': 'order', });
 }
-
-          // console.log($(document.getElementsByClassName('tab__box-active')).find('form'));
-          $(document.getElementsByClassName('tab__box-active')).find('form').submit()
+   $(document.getElementsByClassName('tab__box-active')).find('form').submit()
         }
 
       }
