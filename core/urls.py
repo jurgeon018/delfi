@@ -24,8 +24,8 @@ sitemaps = {
 
 
 urlpatterns = [
-
   path('test_mail/', test_mail, name='test_mail'),
+  path("test_ticket/" ,     test_ticket,   name="test_ticket"),
 
   path('rosetta/',           include('rosetta.urls')),
   path('tinymce/',           include('tinymce.urls')),
@@ -48,6 +48,7 @@ urlpatterns = [
   path("create_bus_order/" , create_bus_order, name="create_bus_order"),
   path("create_contact/" ,     create_contact,   name="create_contact"),
 ]
+
 urlpatterns += i18n_patterns(
   path('admin+/',       admin.site.urls),
   path('admin/',        manager_admin_site.urls),

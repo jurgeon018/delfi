@@ -87,3 +87,6 @@ def oferta(request):
   return response
 
 
+
+def test_ticket(request):
+  return render(request, 'test_ticket.html', locals())

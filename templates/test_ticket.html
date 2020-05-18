@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/ticket.css">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+
+
+
+
+  <div class="tiskets">
+    <div class="tiskets__header">
+      <div class="tiskets__content">
+        <div class="logo">
+  
+          <!-- <img src="delfibus.com.ua/static/img/logo.svg" alt=""> -->
+          <img src="file:///home/jurgeon/projects/delfi/src/static/img/logo.svg" alt="">
+          <!-- <img src="file:///media/jurgeon/disk/dev/delfi/src/static/img/logo.svg" alt=""> -->
+        </div>
+        <div class="title">BUS TICKET</div>
+      </div>
+    </div>
+    <div class="tiskets__body">
+      
+      <div class="tiskets__row">
+        <div class="tiskets__group">
+          <div class="tiskets__title">
+            Ім’я:
+          </div>
+          <div class="tiskets__input">
+            {{order.full_name}}
+          </div>
+        </div>
+        <div class="tiskets__group">
+          <div class="tiskets__title">
+            Номер телефону:
+          </div>
+          <div class="tiskets__input">
+            {{order.phone}}
+          </div>
+        </div>
+      </div>
+  
+      <div class="tiskets__row">
+        <div class="tiskets__group">
+          <div class="tiskets__title">
+            Місце прибуття:
+          </div>
+          <div class="tiskets__input">
+            {{order.arrival}}
+          </div>
+        </div>
+        <div class="tiskets__group">
+          <div class="tiskets__title">
+            Місце відправки:
+          </div>
+          <div class="tiskets__input">
+            {{order.departion}}
+          </div>
+        </div>
+      </div>
+  
+      <div class="tiskets__row">
+        <div class="tiskets__group">
+          <div class="tiskets__title">
+            Годину початку рейсу:
+          </div>
+          <div class="tiskets__input">
+            {{order.race.time.time}}
+          </div>
+        </div>
+        <div class="tiskets__group">
+          <div class="tiskets__title">
+            Дата відправлення:
+          </div>
+          <div class="tiskets__input">
+            {{order.race.date}}
+          </div>
+        </div>
+      </div>
+  
+      <div class="tiskets__row">
+        <div class="tiskets__group tiskets__group-horizontal">
+          <div class="tiskets__title">
+            Замовлені місця
+          </div>
+          <div class="tiskets__input">
+            {{seats}}
+          </div>
+        </div>
+      </div>
+  
+      <div class="tiskets__row">
+        <div class="tiskets__group tiskets__group-horizontal">
+          <div class="tiskets__title">
+            Вартість квитка:
+          </div>
+          <div class="tiskets__input">
+            {{order.price}}
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="tiskets__footer">
+      <div class="tiskets__content">
+        <div class="tiskets__footer_title">
+             Контакти перевізника:   
+        </div>
+        <div class="tiskets__footer_phone">
+          <div class="tiskets__footer_phone-item">0977344040</div>
+          <div class="tiskets__footer_phone-item">0632320070</div>
+          <div class="tiskets__footer_phone-item">0990380502</div>
+        </div>
+        <div class="logo">
+          <!-- <img src="file:///media/jurgeon/disk/dev/delfi/src/static/img/logo.svg" alt=""> -->
+          <img src="file:///home/jurgeon/projects/delfi/src/static/img/logo.svg" alt="">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+  
+</body>
+</html>
+
+
+
