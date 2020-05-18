@@ -13,7 +13,6 @@ from django.template.loader import get_template
 import os
 
 
-
 def test_mail(request):
   pdf = send_user_mail.delay(order_id=Order.objects.all().first().id)
   # response = HttpResponse(pdf, content_type='application/pdf')

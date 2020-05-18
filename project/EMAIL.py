@@ -15,3 +15,4 @@ EMAIL_HOST_USER = "delfibus@starwayua.com"
 EMAIL_HOST_PASSWORD = "starway69018"
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+

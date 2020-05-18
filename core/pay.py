@@ -1,9 +1,13 @@
 from core.order_api import *
 from core.tasks import * 
-
+from django.conf import settings 
 
 @csrf_exempt
 def pay(request):
+  if settings.TEST_LIQPAY:
+    sandbox = 1 
+  else:
+    sandbox = 0
   order = Order.objects.filter(sk=get_sk(request), ordered=False)
   if not order.exists():
     return redirect('/')
@@ -22,9 +26,7 @@ def pay(request):
       # 'order_id': str(order.id+1000),
       'order_id': str(order.id),
       'version': '3',
-      # sandbox mode, set to 1 to enable it
-      # 'sandbox': 1, 
-      'sandbox': 0, 
+      'sandbox': sandbox,  # sandbox mode, set to 1 to enable it
       'server_url': f'{CURRENT_DOMEN}pay_callback/', # url to callback view
   }
   liqpay = LiqPay(settings.LIQPAY_PUBLIC_KEY, settings.LIQPAY_PRIVATE_KEY)

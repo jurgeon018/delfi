@@ -151,7 +151,8 @@ def create_order(request):
   print(request.POST)
   full_name = request.POST.get('full_name','')
   phone     = request.POST.get('phone','')
-  email     = request.POST.get('email','')
+  email     = request.POST['email']
+  # email     = request.POST.get('email','')
   payment   = request.POST.get('payment','')
   departion = request.POST.get('departion','')
   arrival   = request.POST.get('arrival','')

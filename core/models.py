@@ -32,7 +32,6 @@ class Order(models.Model):
   created   = models.DateTimeField("Создан",auto_now_add=True, auto_now=False, blank=True, null=True)
   updated   = models.DateTimeField("Обновлен",auto_now_add=False, auto_now=True, blank=True, null=True)
 
-  
   @property
   def price(self):
     price = 0

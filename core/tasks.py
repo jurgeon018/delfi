@@ -23,31 +23,7 @@ from datetime import datetime, date, time, timedelta
 from core.models import *
 
 
-
-@app.task
-def create(request_POST):
-  date_from = request_POST.get('date_from', '')
-  date_to   = request_POST.get('date_to', '')
-  start     = datetime.strptime(date_from, '%Y-%m-%d')
-  end       = datetime.strptime(date_to, '%Y-%m-%d')
-  direction = Direction.objects.get(id=request_POST.get('direction', ''))
-  time      = Time.objects.get(id=request_POST.get('time', ''))
-  dates     = []
-  while start <= end:
-    dates.append(start.date())
-    start += timedelta(days=1)
-  for date in dates:
-    print(date)
-    race, created = Race.objects.get_or_create(
-      direction=direction,
-      date=date,
-      time=time,
-    )
-    if created:
-      race.price=request_POST.get('price','')
-      race.save()
-  print('FINISHED!!!')
-
+from django.conf import settings
 
 
 def non_celery_send_user_mail(order_id):
@@ -83,26 +59,34 @@ def non_celery_send_user_mail(order_id):
       order.email
     ],
   )
+  print(order.email)
+  print(email)
   email.attach(filename, open(order.pdf.path, 'rb').read(), 'application/pdf')
   email.send(fail_silently=False)
 
+  to = [
+    'jurgeon018@gmail.com',
+  ]
+  if not settings.TEST_LIQPAY:
+    to.append('delfibus0068@gmail.com')
   email = EmailMessage(
     subject = f'Квиток #{order.id}',
-    body = f'''Імя: {order.full_name}, 
+    body = f'''
+      \nІмя: {order.full_name}, 
       \nномер телефону: {order.phone},
+      \nнапрямок: {order.race.direction.name},
       \nмісце прибуття: {order.arrival},
       \nмісце відправки: {order.departion},
-      \дата відправки: {order.race.date},
-    \nчас відправки: {order.race.time.time}''',
+      \nдата відправки: {order.race.date},
+      \nчас відправки: {order.race.time.time},
+    ''',
     from_email = settings.DEFAULT_FROM_EMAIL,
-    to = [
-      'jurgeon018@gmail.com',
-      'delfibus0068@gmail.com',
-    ],
-    
+    to = to,
   )
   email.attach(filename, open(order.pdf.path, 'rb').read(), 'application/pdf')
   email.send(fail_silently=False)
+
+
 
 
   # return pdf
@@ -110,6 +94,33 @@ def non_celery_send_user_mail(order_id):
   # response['Content-Disposition'] = 'attachment; filename="Invoice_12341231.pdf"'
   # return response
   print('EMAIL HAS BEEN SENT')
+
+
+
+
+@app.task
+def create(request_POST):
+  date_from = request_POST.get('date_from', '')
+  date_to   = request_POST.get('date_to', '')
+  start     = datetime.strptime(date_from, '%Y-%m-%d')
+  end       = datetime.strptime(date_to, '%Y-%m-%d')
+  direction = Direction.objects.get(id=request_POST.get('direction', ''))
+  time      = Time.objects.get(id=request_POST.get('time', ''))
+  dates     = []
+  while start <= end:
+    dates.append(start.date())
+    start += timedelta(days=1)
+  for date in dates:
+    print(date)
+    race, created = Race.objects.get_or_create(
+      direction=direction,
+      date=date,
+      time=time,
+    )
+    if created:
+      race.price=request_POST.get('price','')
+      race.save()
+  print('FINISHED!!!')
 
 
 @app.task
