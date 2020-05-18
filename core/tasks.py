@@ -59,11 +59,8 @@ def non_celery_send_user_mail(order_id):
       order.email
     ],
   )
-  print(order.email)
-  print(email)
   email.attach(filename, open(order.pdf.path, 'rb').read(), 'application/pdf')
   email.send(fail_silently=False)
-
   to = [
     'jurgeon018@gmail.com',
   ]
@@ -85,8 +82,6 @@ def non_celery_send_user_mail(order_id):
   )
   email.attach(filename, open(order.pdf.path, 'rb').read(), 'application/pdf')
   email.send(fail_silently=False)
-
-
 
 
   # return pdf
