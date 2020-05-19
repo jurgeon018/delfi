@@ -83,8 +83,8 @@ DATABASES = {
     }
 }
 
-TEST_LIQPAY = True 
-# TEST_LIQPAY = False 
+# TEST_LIQPAY = True 
+TEST_LIQPAY = False 
 
 if TEST_LIQPAY:
   LIQPAY_PUBLIC_KEY = "sandbox_i68128144078"

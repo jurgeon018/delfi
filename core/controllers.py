@@ -46,6 +46,7 @@ def create_bus_comment(request, bus_pk):
   ]
   if not settings.TEST_LIQPAY:
     recipient_list.append('delfibus0068@gmail.com')
+  print(recipient_list)
   send_mail(
     subject = 'Відгук до автобусу',
     message = f"""
@@ -80,6 +81,7 @@ def create_europe_order(request):
   ]
   if not settings.TEST_LIQPAY:
     recipient_list.append('delfibus0068@gmail.com')
+  print(recipient_list)
   send_mail(
     subject = 'Получено заказ автобуса на Европу.',
     # message = get_template('contact_message.txt').render({'message':message}),
@@ -118,6 +120,7 @@ def create_bus_order(request):
   ]
   if not settings.TEST_LIQPAY:
     recipient_list.append('delfibus0068@gmail.com')
+  print(recipient_list)
   send_mail(
     subject = 'Получено заказ Микроавтобуса для поездки по Украине.',
     message = f"""
@@ -152,6 +155,7 @@ def create_contact(request):
   ]
   if not settings.TEST_LIQPAY:
     recipient_list.append('delfibus0068@gmail.com')
+  print(recipient_list)
   send_mail(
     subject = 'Получено контактные данные и вопрос',
     message = f''' 
